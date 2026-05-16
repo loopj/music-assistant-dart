@@ -1,0 +1,10 @@
+name: music_assistant
+description: Dart client for Music Assistant
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  uuid: ^4.0.0
+  web_socket_channel: ^3.0.0
