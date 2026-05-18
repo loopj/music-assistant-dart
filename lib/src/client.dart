@@ -1,10 +1,23 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:logging/logging.dart';
 import 'package:uuid/uuid.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+import 'events.dart';
 import 'exceptions.dart';
+
+final _logger = Logger('MusicAssistantClient');
+
+// Event subscription class, used to track callback and filters for each subscription
+class _Subscription {
+  final void Function(Map<String, dynamic>) callback;
+  final Set<EventType>? eventTypes;
+  final Set<String>? objectIds;
+
+  const _Subscription(this.callback, {this.eventTypes, this.objectIds});
+}
 
 /// Extract Websocket URL from (base) Music Assistant URL.
 String getWebSocketUrl(String url) {
@@ -24,6 +37,7 @@ class MusicAssistantClient {
 
   WebSocketChannel? _channel;
   final Map<String, Completer<dynamic>> _pendingRequests = {};
+  final List<_Subscription> _subscriptions = [];
 
   MusicAssistantClient({required this.serverUrl, required this.token});
 
@@ -71,16 +85,29 @@ class MusicAssistantClient {
   }
 
   /// Subscribes to server-pushed events, calling [callback] for each one.
-  void subscribe(void Function(Map<String, dynamic>) callback) {
-    // TODO
+  /// Optionally filter by [eventType] and/or [objectId].
+  /// Returns a function that cancels the subscription when called.
+  void Function() subscribe(
+    void Function(Map<String, dynamic>) callback, {
+    Set<EventType>? eventTypes,
+    Set<String>? objectIds,
+  }) {
+    // Create a filtered subscription object
+    final sub = _Subscription(callback, eventTypes: eventTypes, objectIds: objectIds);
+
+    // Add the subscription to the list
+    _subscriptions.add(sub);
+
+    // Return a function to cancel the subscription
+    return () => _subscriptions.remove(sub);
   }
 
   /// Starts listening for incoming messages, routing responses to pending requests.
   /// Runs until the connection is closed.
   Future<void> startListening() async {
     await for (final raw in _channel!.stream) {
+      // Decode the incoming message
       final data = jsonDecode(raw as String) as Map<String, dynamic>;
-      print('[MA] received: $data');
 
       if (data.containsKey('event')) {
         // Handle server-pushed events
@@ -102,13 +129,22 @@ class MusicAssistantClient {
         // Complete the pending request with the result
         _pendingRequests.remove(messageId)?.complete(data['result']);
       } else {
-        // TODO: Change to debug log
-        // print('[MA] unknown message: $data');
+        _logger.fine('Unknown message: $data');
       }
     }
   }
 
-  _handleEvent(Map<String, dynamic> event) {
-    // TODO
+  void _handleEvent(Map<String, dynamic> event) {
+    // Extract event type and object ID for filtering
+    final eventType = EventType.fromValue(event['event'] as String? ?? '');
+    final objectId = event['object_id'] as String?;
+
+    _logger.fine('Received event: $eventType (object_id: $objectId)');
+
+    for (final sub in _subscriptions) {
+      if (sub.eventTypes != null && !sub.eventTypes!.contains(eventType)) continue;
+      if (sub.objectIds != null && !sub.objectIds!.contains(objectId)) continue;
+      sub.callback(event);
+    }
   }
 }
