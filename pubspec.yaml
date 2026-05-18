@@ -1,6 +1,7 @@
 name: music_assistant
 description: Dart client for Music Assistant
 version: 0.1.0
+homepage: https://github.com/loopj/music-assistant-dart
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -9,3 +10,8 @@ dependencies:
   logging: ^1.0.0
   uuid: ^4.0.0
   web_socket_channel: ^3.0.0
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  build_runner: ^2.10.4
+  json_serializable: ^6.11.3

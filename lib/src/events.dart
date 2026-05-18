@@ -29,3 +29,11 @@ enum EventType {
   static EventType fromValue(String value) =>
       EventType.values.firstWhere((e) => e.value == value, orElse: () => EventType.unknown);
 }
+
+class MusicAssistantEvent {
+  final EventType type;
+  final String? objectId;
+  final Map<String, dynamic>? data;
+
+  const MusicAssistantEvent({required this.type, this.objectId, this.data});
+}

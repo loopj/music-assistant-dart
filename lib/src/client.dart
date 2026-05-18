@@ -7,12 +7,13 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'events.dart';
 import 'exceptions.dart';
+import 'services/players.dart';
 
 final _logger = Logger('MusicAssistantClient');
 
 // Event subscription class, used to track callback and filters for each subscription
 class _Subscription {
-  final void Function(Map<String, dynamic>) callback;
+  final void Function(MusicAssistantEvent) callback;
   final Set<EventType>? eventTypes;
   final Set<String>? objectIds;
 
@@ -40,6 +41,9 @@ class MusicAssistantClient {
   final List<_Subscription> _subscriptions = [];
 
   MusicAssistantClient({required this.serverUrl, required this.token});
+
+  /// Expose singletons for each service, which can be used to interact with the server.
+  late final PlayersService players = PlayersService(this);
 
   /// Connects to the Music Assistant WebSocket server and authenticates.
   Future<void> connect() async {
@@ -89,7 +93,7 @@ class MusicAssistantClient {
   /// Optionally filter by [eventType] and/or [objectId].
   /// Returns a function that cancels the subscription when called.
   void Function() subscribe(
-    void Function(Map<String, dynamic>) callback, {
+    void Function(MusicAssistantEvent) callback, {
     Set<EventType>? eventTypes,
     Set<String>? objectIds,
   }) {
@@ -135,16 +139,19 @@ class MusicAssistantClient {
     }
   }
 
-  void _handleEvent(Map<String, dynamic> event) {
-    // Extract event type and object ID for filtering
-    final eventType = EventType.fromValue(event['event'] as String? ?? '');
-    final objectId = event['object_id'] as String?;
+  void _handleEvent(Map<String, dynamic> raw) {
+    final event = MusicAssistantEvent(
+      type: EventType.fromValue(raw['event'] as String? ?? ''),
+      objectId: raw['object_id'] as String?,
+      data: raw['data'] as Map<String, dynamic>?,
+    );
 
-    _logger.fine('Received event: $eventType (object_id: $objectId)');
+    _logger.fine('Received event: ${event.type} (object_id: ${event.objectId})');
 
     for (final sub in _subscriptions) {
-      if (sub.eventTypes != null && !sub.eventTypes!.contains(eventType)) continue;
-      if (sub.objectIds != null && !sub.objectIds!.contains(objectId)) continue;
+      if (sub.eventTypes != null && !sub.eventTypes!.contains(event.type)) continue;
+      if (sub.objectIds != null && !sub.objectIds!.contains(event.objectId)) continue;
+
       sub.callback(event);
     }
   }
