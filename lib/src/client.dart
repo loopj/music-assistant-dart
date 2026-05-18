@@ -20,7 +20,7 @@ class _Subscription {
 }
 
 /// Extract Websocket URL from (base) Music Assistant URL.
-String getWebSocketUrl(String url) {
+String _getWebSocketUrl(String url) {
   if (url.isEmpty || !url.contains('://')) {
     throw ArgumentError('$url is not a valid url');
   }
@@ -44,10 +44,11 @@ class MusicAssistantClient {
   /// Connects to the Music Assistant WebSocket server and authenticates.
   Future<void> connect() async {
     // Connect to the WebSocket server
-    _channel = WebSocketChannel.connect(Uri.parse(getWebSocketUrl(serverUrl)));
+    _channel = WebSocketChannel.connect(Uri.parse(_getWebSocketUrl(serverUrl)));
     await _channel!.ready;
 
     // Authenticate
+    // TODO: Throw appropriate exceptions on failure
     sendCommand('auth', args: {'token': token});
   }
 
