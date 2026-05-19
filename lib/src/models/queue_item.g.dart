@@ -16,23 +16,21 @@ QueueItem _$QueueItemFromJson(Map<String, dynamic> json) => QueueItem()
       ? null
       : StreamDetails.fromJson(json['streamdetails'] as Map<String, dynamic>)
   ..mediaItem = json['media_item'] as Map<String, dynamic>?
-  ..image = json['image'] == null
-      ? null
-      : MediaItemImage.fromJson(json['image'] as Map<String, dynamic>)
+  ..image = json['image'] == null ? null : MediaItemImage.fromJson(json['image'] as Map<String, dynamic>)
   ..index = (json['index'] as num).toInt()
   ..available = json['available'] as bool
   ..extraAttributes = json['extra_attributes'] as Map<String, dynamic>;
 
 Map<String, dynamic> _$QueueItemToJson(QueueItem instance) => <String, dynamic>{
-      'queue_id': instance.queueId,
-      'queue_item_id': instance.queueItemId,
-      'name': instance.name,
-      'duration': instance.duration,
-      'sort_index': instance.sortIndex,
-      'streamdetails': instance.streamdetails,
-      'media_item': instance.mediaItem,
-      'image': instance.image,
-      'index': instance.index,
-      'available': instance.available,
-      'extra_attributes': instance.extraAttributes,
-    };
+  'queue_id': instance.queueId,
+  'queue_item_id': instance.queueItemId,
+  'name': instance.name,
+  'duration': instance.duration,
+  'sort_index': instance.sortIndex,
+  'streamdetails': instance.streamdetails,
+  'media_item': instance.mediaItem,
+  'image': instance.image,
+  'index': instance.index,
+  'available': instance.available,
+  'extra_attributes': instance.extraAttributes,
+};

@@ -51,4 +51,5 @@ The models in this library are generated using `json_serializable`. If you make 
 
 ```bash
 dart run build_runner build
+dart format lib/src/**/*.g.dart
 ```

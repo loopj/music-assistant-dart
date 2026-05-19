@@ -15,16 +15,15 @@ AudioFormat _$AudioFormatFromJson(Map<String, dynamic> json) => AudioFormat()
   ..outputFormatStr = json['output_format_str'] as String
   ..bitRate = (json['bit_rate'] as num?)?.toInt();
 
-Map<String, dynamic> _$AudioFormatToJson(AudioFormat instance) =>
-    <String, dynamic>{
-      'content_type': _$ContentTypeEnumMap[instance.contentType]!,
-      'codec_type': _$ContentTypeEnumMap[instance.codecType]!,
-      'sample_rate': instance.sampleRate,
-      'bit_depth': instance.bitDepth,
-      'channels': instance.channels,
-      'output_format_str': instance.outputFormatStr,
-      'bit_rate': instance.bitRate,
-    };
+Map<String, dynamic> _$AudioFormatToJson(AudioFormat instance) => <String, dynamic>{
+  'content_type': _$ContentTypeEnumMap[instance.contentType]!,
+  'codec_type': _$ContentTypeEnumMap[instance.codecType]!,
+  'sample_rate': instance.sampleRate,
+  'bit_depth': instance.bitDepth,
+  'channels': instance.channels,
+  'output_format_str': instance.outputFormatStr,
+  'bit_rate': instance.bitRate,
+};
 
 const _$ContentTypeEnumMap = {
   ContentType.ogg: 'ogg',

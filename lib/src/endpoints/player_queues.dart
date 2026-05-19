@@ -22,10 +22,7 @@ class PlayerQueuesEndpoint {
 
   /// Return the current active/synced queue for a player.
   Future<PlayerQueue?> getActiveQueue(String playerId) async {
-    final result = await _client.sendCommand(
-      'player_queues/get_active_queue',
-      args: {'player_id': playerId},
-    );
+    final result = await _client.sendCommand('player_queues/get_active_queue', args: {'player_id': playerId});
     if (result == null) return null;
     return PlayerQueue.fromJson(result as Map<String, dynamic>);
   }
@@ -113,35 +110,19 @@ class PlayerQueuesEndpoint {
 
   /// Configure shuffle mode on the queue.
   Future<void> shuffle(String queueId, bool shuffleEnabled) async {
-    await _client.sendCommand(
-      'player_queues/shuffle',
-      args: {'queue_id': queueId, 'shuffle_enabled': shuffleEnabled},
-    );
+    await _client.sendCommand('player_queues/shuffle', args: {'queue_id': queueId, 'shuffle_enabled': shuffleEnabled});
   }
 
   /// Configure repeat mode on the queue.
   Future<void> repeat(String queueId, RepeatMode repeatMode) async {
-    await _client.sendCommand(
-      'player_queues/repeat',
-      args: {'queue_id': queueId, 'repeat_mode': repeatMode.value},
-    );
+    await _client.sendCommand('player_queues/repeat', args: {'queue_id': queueId, 'repeat_mode': repeatMode.value});
   }
 
   /// Play item at index (or item_id) X in queue.
-  Future<void> playIndex(
-    String queueId,
-    dynamic index, {
-    int seekPosition = 0,
-    bool fadeIn = false,
-  }) async {
+  Future<void> playIndex(String queueId, dynamic index, {int seekPosition = 0, bool fadeIn = false}) async {
     await _client.sendCommand(
       'player_queues/play_index',
-      args: {
-        'queue_id': queueId,
-        'index': index,
-        'seek_position': seekPosition,
-        'fade_in': fadeIn,
-      },
+      args: {'queue_id': queueId, 'index': index, 'seek_position': seekPosition, 'fade_in': fadeIn},
     );
   }
 
@@ -166,18 +147,10 @@ class PlayerQueuesEndpoint {
   }
 
   /// Transfer queue to another queue.
-  Future<void> transfer(
-    String sourceQueueId,
-    String targetQueueId, {
-    bool? autoPlay,
-  }) async {
+  Future<void> transfer(String sourceQueueId, String targetQueueId, {bool? autoPlay}) async {
     await _client.sendCommand(
       'player_queues/transfer',
-      args: {
-        'source_queue_id': sourceQueueId,
-        'target_queue_id': targetQueueId,
-        'auto_play': autoPlay,
-      },
+      args: {'source_queue_id': sourceQueueId, 'target_queue_id': targetQueueId, 'auto_play': autoPlay},
     );
   }
 

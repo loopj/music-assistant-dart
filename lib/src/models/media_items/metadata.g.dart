@@ -6,20 +6,18 @@ part of 'metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MediaItemImage _$MediaItemImageFromJson(Map<String, dynamic> json) =>
-    MediaItemImage()
-      ..type = $enumDecodeNullable(_$ImageTypeEnumMap, json['type'])
-      ..path = json['path'] as String?
-      ..provider = json['provider'] as String?
-      ..remotelyAccessible = json['remotely_accessible'] as bool;
+MediaItemImage _$MediaItemImageFromJson(Map<String, dynamic> json) => MediaItemImage()
+  ..type = $enumDecodeNullable(_$ImageTypeEnumMap, json['type'])
+  ..path = json['path'] as String?
+  ..provider = json['provider'] as String?
+  ..remotelyAccessible = json['remotely_accessible'] as bool;
 
-Map<String, dynamic> _$MediaItemImageToJson(MediaItemImage instance) =>
-    <String, dynamic>{
-      'type': _$ImageTypeEnumMap[instance.type],
-      'path': instance.path,
-      'provider': instance.provider,
-      'remotely_accessible': instance.remotelyAccessible,
-    };
+Map<String, dynamic> _$MediaItemImageToJson(MediaItemImage instance) => <String, dynamic>{
+  'type': _$ImageTypeEnumMap[instance.type],
+  'path': instance.path,
+  'provider': instance.provider,
+  'remotely_accessible': instance.remotelyAccessible,
+};
 
 const _$ImageTypeEnumMap = {
   ImageType.thumb: 'thumb',

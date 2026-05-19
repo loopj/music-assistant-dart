@@ -139,37 +139,24 @@ class PlayersEndpoint {
 
   /// Send VOLUME_SET command to given playergroup.
   Future<void> groupVolume(String playerId, int volumeLevel) async {
-    await _client.sendCommand(
-      'players/cmd/group_volume',
-      args: {'player_id': playerId, 'volume_level': volumeLevel},
-    );
+    await _client.sendCommand('players/cmd/group_volume', args: {'player_id': playerId, 'volume_level': volumeLevel});
   }
 
   /// Send VOLUME_UP command to given playergroup.
   Future<void> groupVolumeUp(String playerId) async {
-    await _client.sendCommand(
-      'players/cmd/group_volume_up',
-      args: {'player_id': playerId},
-    );
+    await _client.sendCommand('players/cmd/group_volume_up', args: {'player_id': playerId});
   }
 
   /// Send VOLUME_DOWN command to given playergroup.
   Future<void> groupVolumeDown(String playerId) async {
-    await _client.sendCommand(
-      'players/cmd/group_volume_down',
-      args: {'player_id': playerId},
-    );
+    await _client.sendCommand('players/cmd/group_volume_down', args: {'player_id': playerId});
   }
 
   /// Add the currently playing item/track on given player to the favorites.
   /// TODO
 
   /// Send RESUME command to given player.
-  Future<void> resume(
-    String playerId, {
-    String? source,
-    PlayerMedia? media,
-  }) async {
+  Future<void> resume(String playerId, {String? source, PlayerMedia? media}) async {
     await _client.sendCommand(
       'players/cmd/resume',
       args: {'player_id': playerId, 'source': source, 'media': media?.toJson()},
@@ -177,11 +164,7 @@ class PlayersEndpoint {
   }
 
   /// Join/unjoin given player(s) to/from target player.
-  Future<void> setMembers(
-    String targetPlayer, {
-    List<String>? playerIdsToAdd,
-    List<String>? playerIdsToRemove,
-  }) async {
+  Future<void> setMembers(String targetPlayer, {List<String>? playerIdsToAdd, List<String>? playerIdsToRemove}) async {
     await _client.sendCommand(
       'players/cmd/set_members',
       args: {
@@ -193,12 +176,7 @@ class PlayersEndpoint {
   }
 
   /// Create a new (permanent) Group Player.
-  Future<Player> createGroupPlayer(
-    String provider,
-    String name,
-    List<String> members, {
-    bool? isDynamic,
-  }) async {
+  Future<Player> createGroupPlayer(String provider, String name, List<String> members, {bool? isDynamic}) async {
     final result = await _client.sendCommand(
       'players/create_group_player',
       args: {'provider': provider, 'name': name, 'members': members, 'dynamic': isDynamic},
