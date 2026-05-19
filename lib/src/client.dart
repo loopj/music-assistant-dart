@@ -7,7 +7,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'events.dart';
 import 'exceptions.dart';
-import 'services/players.dart';
+import 'endpoints/players.dart';
 
 final _logger = Logger('MusicAssistantClient');
 
@@ -43,7 +43,7 @@ class MusicAssistantClient {
   MusicAssistantClient({required this.serverUrl, required this.token});
 
   /// Expose singletons for each service, which can be used to interact with the server.
-  late final PlayersService players = PlayersService(this);
+  late final PlayersEndpoint players = PlayersEndpoint(this);
 
   /// Connects to the Music Assistant WebSocket server and authenticates.
   Future<void> connect() async {
@@ -76,11 +76,7 @@ class MusicAssistantClient {
     _pendingRequests[messageId] = completer;
 
     // Construct the message to send
-    final message = <String, dynamic>{
-      'message_id': messageId,
-      'command': command,
-      if (args != null) 'args': args,
-    };
+    final message = <String, dynamic>{'message_id': messageId, 'command': command, if (args != null) 'args': args};
 
     // Encode the message as JSON and send it
     _channel!.sink.add(jsonEncode(message));

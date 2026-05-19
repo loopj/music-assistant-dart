@@ -3,20 +3,14 @@ import '../events.dart';
 import '../models/player_queue.dart';
 
 /// PlayerQueue related endpoints/data for Music Assistant.
-class PlayerQueuesService {
+class PlayerQueuesEndpoint {
   final MusicAssistantClient _client;
-  Map<String, PlayerQueue> _queues = {};
+  final Map<String, PlayerQueue> _queues = {};
 
-  /// Create a PlayerQueuesService instance
-  PlayerQueuesService(this._client) {
+  /// Create a PlayerQueuesEndpoint instance
+  PlayerQueuesEndpoint(this._client) {
     // Subscribe to player queue events.
-    _client.subscribe(
-      _onEvent,
-      eventTypes: {
-        EventType.queueAdded,
-        EventType.queueUpdated,
-      },
-    );
+    _client.subscribe(_onEvent, eventTypes: {EventType.queueAdded, EventType.queueUpdated});
   }
 
   /// Get a view of all player queues.

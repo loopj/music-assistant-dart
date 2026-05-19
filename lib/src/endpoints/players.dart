@@ -3,21 +3,14 @@ import '../events.dart';
 import '../models/player.dart';
 
 /// Player related endpoints/data for Music Assistant.
-class PlayersService {
+class PlayersEndpoint {
   final MusicAssistantClient _client;
-  Map<String, Player> _players = {};
+  final Map<String, Player> _players = {};
 
-  /// Create a PlayersService instance
-  PlayersService(this._client) {
+  /// Create a PlayersEndpoint instance
+  PlayersEndpoint(this._client) {
     // Subscribe to player events.
-    _client.subscribe(
-      _onEvent,
-      eventTypes: {
-        EventType.playerAdded,
-        EventType.playerUpdated,
-        EventType.playerRemoved,
-      },
-    );
+    _client.subscribe(_onEvent, eventTypes: {EventType.playerAdded, EventType.playerUpdated, EventType.playerRemoved});
   }
 
   /// Get a view of all players.
@@ -112,8 +105,10 @@ class PlayersService {
 
   /// Join given player(s) to target player.
   Future<void> join(String targetPlayer, List<String> childPlayerIds) async {
-    await _client.sendCommand('player/cmd/group_many',
-        args: {'target_player': targetPlayer, 'child_player_ids': childPlayerIds});
+    await _client.sendCommand(
+      'player/cmd/group_many',
+      args: {'target_player': targetPlayer, 'child_player_ids': childPlayerIds},
+    );
   }
 
   /// Handle UNGROUP command for all the given players.
@@ -122,15 +117,23 @@ class PlayersService {
   }
 
   /// Handle playback of an announcement (url) on given player.
-  Future<void> playAnnouncement(String playerId, String url,
-      {bool? preAnnounce, int? volumeLevel, String? preAnnounceUrl}) async {
-    await _client.sendCommand('player/cmd/play_announcement', args: {
-      'player_id': playerId,
-      'url': url,
-      'pre_announce': preAnnounce,
-      'volume_level': volumeLevel,
-      'pre_announce_url': preAnnounceUrl
-    });
+  Future<void> playAnnouncement(
+    String playerId,
+    String url, {
+    bool? preAnnounce,
+    int? volumeLevel,
+    String? preAnnounceUrl,
+  }) async {
+    await _client.sendCommand(
+      'player/cmd/play_announcement',
+      args: {
+        'player_id': playerId,
+        'url': url,
+        'pre_announce': preAnnounce,
+        'volume_level': volumeLevel,
+        'pre_announce_url': preAnnounceUrl,
+      },
+    );
   }
 
   //
