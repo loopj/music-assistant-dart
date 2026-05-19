@@ -1,3 +1,4 @@
+// Exceptions from the Music Assistant server
 class MusicAssistantException implements Exception {
   final String? message;
   const MusicAssistantException([this.message]);
@@ -125,3 +126,12 @@ MusicAssistantException musicAssistantExceptionFromErrorCode(int errorCode, Stri
       23 => InvalidTokenException(message),
       _ => MusicAssistantException(message),
     };
+
+// Exceptions related to the Music Assistant client itself
+class MusicAssistantClientException extends MusicAssistantException {
+  const MusicAssistantClientException([super.message]);
+}
+
+class InvalidServerVersion extends MusicAssistantClientException {
+  const InvalidServerVersion([super.message]);
+}

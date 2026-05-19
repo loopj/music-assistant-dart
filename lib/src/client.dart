@@ -3,13 +3,14 @@ import 'dart:convert';
 
 import 'package:logging/logging.dart';
 import 'package:uuid/uuid.dart';
+import 'package:async/async.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'events.dart';
 import 'exceptions.dart';
-
 import 'endpoints/players.dart';
 import 'endpoints/player_queues.dart';
+import 'models/api.dart';
 
 final _logger = Logger('MusicAssistantClient');
 
@@ -36,6 +37,8 @@ String _getWebSocketUrl(String url) {
 
 /// WebSocket client for Music Assistant servers.
 class MusicAssistantClient {
+  static const int apiSchemaVersion = 28;
+
   /// Base URL of the Music Assistant server (e.g. http://localhost:8095).
   final String serverUrl;
 
@@ -47,6 +50,9 @@ class MusicAssistantClient {
 
   /// Player queue related endpoints/commands.
   late final PlayerQueuesEndpoint playerQueues = PlayerQueuesEndpoint(this);
+
+  /// Server info received on connection.
+  ServerInfoMessage? serverInfo;
 
   WebSocketChannel? _channel;
   final Map<String, Completer<dynamic>> _pendingRequests = {};
@@ -60,13 +66,30 @@ class MusicAssistantClient {
     _channel = WebSocketChannel.connect(Uri.parse(_getWebSocketUrl(serverUrl)));
     await _channel!.ready;
 
-    // Start the message loop
-    unawaited(_messageLoop());
+    // Set up a stream queue to process incoming messages sequentially
+    final queue = StreamQueue(_channel!.stream);
 
-    // TODO: Save the serverinfo somewhere
+    // The first message is always the server info
+    final raw = await queue.next;
+    serverInfo = ServerInfoMessage.fromJson(jsonDecode(raw as String) as Map<String, dynamic>);
+
+    // Check for server schema version compatibility
+    if (serverInfo!.minSupportedSchemaVersion > apiSchemaVersion) {
+      throw InvalidServerVersion(
+        'Schema version is incompatible: ${serverInfo!.schemaVersion}, '
+        'the server requires at least ${serverInfo!.minSupportedSchemaVersion} '
+        '- update the Music Assistant client to a more recent version or downgrade the server.',
+      );
+    }
+
+    // Connected successfully
+    _logger.info(
+        'Connected to Music Assistant server: ${serverInfo!.serverId}, Version ${serverInfo!.serverVersion}, Schema Version ${serverInfo!.schemaVersion}');
+
+    // Start processing incoming messages
+    unawaited(_messageLoop(queue));
 
     // Authenticate
-    // TODO: Throw appropriate exceptions on failure
     await sendCommand('auth', args: {'token': token});
   }
 
@@ -125,10 +148,9 @@ class MusicAssistantClient {
     ]);
   }
 
-  Future<void> _messageLoop() async {
-    await for (final raw in _channel!.stream) {
-      // Decode the incoming message
-      final data = jsonDecode(raw as String) as Map<String, dynamic>;
+  Future<void> _messageLoop(StreamQueue<dynamic> queue) async {
+    while (await queue.hasNext) {
+      final data = jsonDecode(await queue.next as String) as Map<String, dynamic>;
 
       if (data.containsKey('event')) {
         // Handle server-pushed events
