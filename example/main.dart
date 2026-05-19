@@ -1,26 +1,28 @@
 import 'dart:io';
 
-import 'package:music_assistant/client.dart';
+import 'package:music_assistant/music_assistant.dart';
 
 void main() async {
-  // Create a client instance, pull url and token from environment variables
+  // Create a client instance, pull url and token from env variables
   final client = MusicAssistantClient(
     serverUrl: Platform.environment['MA_SERVER_URL']!,
     token: Platform.environment['MA_TOKEN']!,
   );
 
-  // Connect to the server and authenticate
-  await client.connect();
+  try {
+    // Connect to the WebSocket server and authenticate
+    await client.connect();
 
-  // Start listening for events
-  client.startListening();
+    // Fetch initial state for all endpoints (players, player queues, etc.)
+    await client.fetchState();
 
-  // Example: get all players
-  final result = await client.sendCommand('players/all');
-  for (final player in result) {
-    print('Player: ${player['name']}');
+    // Example: Print all players
+    print('Players:');
+    for (final player in client.players.all.values) {
+      print('- ${player.name} (ID: ${player.playerId})');
+    }
+  } finally {
+    // Disconnect from the server when done
+    await client.disconnect();
   }
-
-  // Disconnect when done
-  await client.disconnect();
 }

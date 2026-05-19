@@ -13,7 +13,7 @@ import 'endpoints/player_queues.dart';
 
 final _logger = Logger('MusicAssistantClient');
 
-// Event subscription class, used to track callback and filters for each subscription
+/// Event subscription class, used to track callback and filters for each subscription
 class _Subscription {
   final void Function(MusicAssistantEvent) callback;
   final Set<EventType>? eventTypes;
@@ -34,9 +34,19 @@ String _getWebSocketUrl(String url) {
   return wsUrl.replaceAll('//ws', '/ws');
 }
 
+/// WebSocket client for Music Assistant servers.
 class MusicAssistantClient {
+  /// Base URL of the Music Assistant server (e.g. http://localhost:8095).
   final String serverUrl;
+
+  /// Authentication token for the Music Assistant server.
   final String token;
+
+  /// Player related endpoints/commands.
+  late final PlayersEndpoint players = PlayersEndpoint(this);
+
+  /// Player queue related endpoints/commands.
+  late final PlayerQueuesEndpoint playerQueues = PlayerQueuesEndpoint(this);
 
   WebSocketChannel? _channel;
   final Map<String, Completer<dynamic>> _pendingRequests = {};
@@ -44,19 +54,20 @@ class MusicAssistantClient {
 
   MusicAssistantClient({required this.serverUrl, required this.token});
 
-  /// Endpoints
-  late final PlayersEndpoint players = PlayersEndpoint(this);
-  late final PlayerQueuesEndpoint playerQueues = PlayerQueuesEndpoint(this);
-
   /// Connects to the Music Assistant WebSocket server and authenticates.
   Future<void> connect() async {
     // Connect to the WebSocket server
     _channel = WebSocketChannel.connect(Uri.parse(_getWebSocketUrl(serverUrl)));
     await _channel!.ready;
 
+    // Start the message loop
+    unawaited(_messageLoop());
+
+    // TODO: Save the serverinfo somewhere
+
     // Authenticate
     // TODO: Throw appropriate exceptions on failure
-    sendCommand('auth', args: {'token': token});
+    await sendCommand('auth', args: {'token': token});
   }
 
   /// Disconnects from the server, completing any pending requests with an error.
@@ -106,8 +117,15 @@ class MusicAssistantClient {
     return () => _subscriptions.remove(sub);
   }
 
-  /// Starts listening for incoming messages, routing responses to pending requests.
-  Future<void> startListening() async {
+  /// Fetches initial state for endpoints
+  Future<void> fetchState() async {
+    await Future.wait([
+      playerQueues.fetchState(),
+      players.fetchState(),
+    ]);
+  }
+
+  Future<void> _messageLoop() async {
     await for (final raw in _channel!.stream) {
       // Decode the incoming message
       final data = jsonDecode(raw as String) as Map<String, dynamic>;
@@ -118,7 +136,7 @@ class MusicAssistantClient {
       } else if (data.containsKey('error_code')) {
         // Handle error results
         final messageId = data['message_id'] as String?;
-        if (messageId == null) return;
+        if (messageId == null) continue;
 
         // Complete the pending request with an error
         final errorCode = data['error_code'] as int? ?? 0;
@@ -127,7 +145,7 @@ class MusicAssistantClient {
       } else if (data.containsKey('result')) {
         // Handle success results
         final messageId = data['message_id'] as String?;
-        if (messageId == null) return;
+        if (messageId == null) continue;
 
         // Complete the pending request with the result
         _pendingRequests.remove(messageId)?.complete(data['result']);
