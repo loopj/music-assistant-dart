@@ -181,7 +181,7 @@ class MusicAssistantClient {
     final event = MusicAssistantEvent(
       type: EventType.fromValue(raw['event'] as String? ?? ''),
       objectId: raw['object_id'] as String?,
-      data: raw['data'] as Map<String, dynamic>?,
+      data: raw['data'],
     );
 
     _logger.fine('Received event: ${event.type} (object_id: ${event.objectId})');

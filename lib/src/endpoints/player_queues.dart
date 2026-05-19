@@ -179,9 +179,10 @@ class PlayerQueuesEndpoint {
   void _onEvent(MusicAssistantEvent event) {
     switch (event.type) {
       case EventType.queueAdded || EventType.queueUpdated:
-        assert(event.objectId != null);
-        _queues[event.objectId!] = PlayerQueue.fromJson(event.data!);
-
+        final id = event.objectId;
+        final data = event.data;
+        if (id == null || data is! Map<String, dynamic>) break;
+        _queues[id] = PlayerQueue.fromJson(data);
       default:
         break;
     }

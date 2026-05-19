@@ -229,12 +229,15 @@ class PlayersEndpoint {
   void _onEvent(MusicAssistantEvent event) {
     switch (event.type) {
       case EventType.playerAdded || EventType.playerUpdated:
-        assert(event.objectId != null);
-        _players[event.objectId!] = Player.fromJson(event.data!);
+        final id = event.objectId;
+        final data = event.data;
+        if (id == null || data is! Map<String, dynamic>) break;
+        _players[id] = Player.fromJson(data);
 
       case EventType.playerRemoved:
-        assert(event.objectId != null);
-        _players.remove(event.objectId);
+        final id = event.objectId;
+        if (id == null) break;
+        _players.remove(id);
 
       default:
         break;
