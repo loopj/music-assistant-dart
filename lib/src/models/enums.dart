@@ -229,3 +229,14 @@ enum StreamType {
   const StreamType(this.value);
   final String value;
 }
+
+@JsonEnum(valueField: 'value')
+enum CoreState {
+  starting('starting'),
+  running('running'),
+  stopping('stopping'),
+  stopped('stopped');
+
+  const CoreState(this.value);
+  final String value;
+}
