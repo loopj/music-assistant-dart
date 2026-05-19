@@ -59,6 +59,7 @@ PlayerMedia _$PlayerMediaFromJson(Map<String, dynamic> json) => PlayerMedia()
   ..artist = json['artist'] as String?
   ..album = json['album'] as String?
   ..imageUrl = json['image_url'] as String?
+  ..palette = json['palette'] == null ? null : MediaItemPalette.fromJson(json['palette'] as Map<String, dynamic>)
   ..duration = (json['duration'] as num?)?.toInt()
   ..sourceId = json['source_id'] as String?
   ..queueItemId = json['queue_item_id'] as String?
@@ -73,6 +74,7 @@ Map<String, dynamic> _$PlayerMediaToJson(PlayerMedia instance) => <String, dynam
   'artist': instance.artist,
   'album': instance.album,
   'image_url': instance.imageUrl,
+  'palette': instance.palette,
   'duration': instance.duration,
   'source_id': instance.sourceId,
   'queue_item_id': instance.queueItemId,
@@ -183,7 +185,7 @@ Map<String, dynamic> _$PlayerOptionToJson(PlayerOption instance) => <String, dyn
 Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
   ..playerId = json['player_id'] as String?
   ..provider = json['provider'] as String?
-  ..type = json['type'] as String?
+  ..type = $enumDecodeNullable(_$PlayerTypeEnumMap, json['type'])
   ..name = json['name'] as String?
   ..available = json['available'] as bool?
   ..deviceInfo = json['device_info'] == null ? null : DeviceInfo.fromJson(json['device_info'] as Map<String, dynamic>)
@@ -232,7 +234,7 @@ Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
 Map<String, dynamic> _$PlayerToJson(Player instance) => <String, dynamic>{
   'player_id': instance.playerId,
   'provider': instance.provider,
-  'type': instance.type,
+  'type': _$PlayerTypeEnumMap[instance.type],
   'name': instance.name,
   'available': instance.available,
   'device_info': instance.deviceInfo,
@@ -267,6 +269,17 @@ Map<String, dynamic> _$PlayerToJson(Player instance) => <String, dynamic>{
   'output_protocols': instance.outputProtocols,
   'active_output_protocol': instance.activeOutputProtocol,
   'needs_setup': instance.needsSetup,
+};
+
+const _$PlayerTypeEnumMap = {
+  PlayerType.player: 'player',
+  PlayerType.stereoPair: 'stereo_pair',
+  PlayerType.group: 'group',
+  PlayerType.protocol: 'protocol',
+  PlayerType.display: 'display',
+  PlayerType.visualizer: 'visualizer',
+  PlayerType.light: 'light',
+  PlayerType.unknown: 'unknown',
 };
 
 const _$PlayerFeatureEnumMap = {

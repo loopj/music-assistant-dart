@@ -67,6 +67,14 @@ class PlayerQueue {
   @JsonKey(name: 'extra_attributes')
   Map<String, dynamic> extraAttributes = {};
 
+  double get correctedElapsedTime {
+    if (state == PlaybackState.playing && elapsedTimeLastUpdated != null) {
+      final now = DateTime.now().millisecondsSinceEpoch / 1000.0;
+      return elapsedTime + (now - elapsedTimeLastUpdated!);
+    }
+    return elapsedTime;
+  }
+
   factory PlayerQueue.fromJson(Map<String, dynamic> input) => _$PlayerQueueFromJson(input);
   Map<String, dynamic> toJson() => _$PlayerQueueToJson(this);
 }

@@ -148,6 +148,21 @@ enum PlaybackState {
   final String value;
 }
 
+@JsonEnum(valueField: 'value')
+enum PlayerType {
+  player('player'),
+  stereoPair('stereo_pair'),
+  group('group'),
+  protocol('protocol'),
+  display('display'),
+  visualizer('visualizer'),
+  light('light'),
+  unknown('unknown');
+
+  const PlayerType(this.value);
+  final String value;
+}
+
 /// Types of identifiers/connections for a device.
 @JsonEnum(valueField: 'value')
 enum IdentifierType {

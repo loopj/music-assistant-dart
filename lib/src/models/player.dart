@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import './enums.dart';
+import './media_items/metadata.dart';
 
 part 'player.g.dart';
 
@@ -81,6 +82,9 @@ class PlayerMedia {
   @JsonKey(name: 'image_url')
   String? imageUrl;
 
+  @JsonKey(name: 'palette')
+  MediaItemPalette? palette;
+
   @JsonKey(name: 'duration')
   int? duration;
 
@@ -98,6 +102,13 @@ class PlayerMedia {
 
   @JsonKey(name: 'elapsed_time_last_updated')
   double? elapsedTimeLastUpdated;
+
+  /// Return the corrected/realtime elapsed time.
+  double? get correctedElapsedTime {
+    if (elapsedTime == null || elapsedTimeLastUpdated == null) return null;
+    final now = DateTime.now().millisecondsSinceEpoch / 1000.0;
+    return elapsedTime! + (now - elapsedTimeLastUpdated!);
+  }
 
   factory PlayerMedia.fromJson(Map<String, dynamic> json) => _$PlayerMediaFromJson(json);
   Map<String, dynamic> toJson() => _$PlayerMediaToJson(this);
@@ -241,7 +252,7 @@ class Player {
   String? provider;
 
   @JsonKey(name: 'type')
-  String? type;
+  PlayerType? type;
 
   @JsonKey(name: 'name')
   String? name;
@@ -344,6 +355,16 @@ class Player {
 
   @JsonKey(name: 'needs_setup')
   bool needsSetup = false;
+
+  /// Return the corrected/realtime elapsed time.
+  double? get correctedElapsedTime {
+    if (elapsedTime == null || elapsedTimeLastUpdated == null) return null;
+    if (playbackState == PlaybackState.playing) {
+      final now = DateTime.now().millisecondsSinceEpoch / 1000.0;
+      return elapsedTime! + (now - elapsedTimeLastUpdated!);
+    }
+    return elapsedTime;
+  }
 
   factory Player.fromJson(Map<String, dynamic> input) => _$PlayerFromJson(input);
   Map<String, dynamic> toJson() => _$PlayerToJson(this);
