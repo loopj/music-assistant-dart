@@ -91,7 +91,12 @@ class PlayersEndpoint {
   }
 
   /// Handle SET_OPTION command on given player.
-  /// TODO
+  Future<void> setOption(String playerId, String optionKey, dynamic optionValue) async {
+    await _client.sendCommand(
+      'player/cmd/set_option',
+      args: {'player_id': playerId, 'option_key': optionKey, 'option_value': optionValue},
+    );
+  }
 
   /// Handle GROUP command for given player.
   Future<void> group(String playerId, String targetPlayer) async {
@@ -140,7 +145,102 @@ class PlayersEndpoint {
   // PlayerGroup related endpoints/commands.
   //
 
-  // TODO
+  /// Send VOLUME_SET command to given playergroup.
+  Future<void> groupVolume(String playerId, int volumeLevel) async {
+    await _client.sendCommand(
+      'players/cmd/group_volume',
+      args: {'player_id': playerId, 'volume_level': volumeLevel},
+    );
+  }
+
+  /// Send VOLUME_UP command to given playergroup.
+  Future<void> groupVolumeUp(String playerId) async {
+    await _client.sendCommand(
+      'players/cmd/group_volume_up',
+      args: {'player_id': playerId},
+    );
+  }
+
+  /// Send VOLUME_DOWN command to given playergroup.
+  Future<void> groupVolumeDown(String playerId) async {
+    await _client.sendCommand(
+      'players/cmd/group_volume_down',
+      args: {'player_id': playerId},
+    );
+  }
+
+  /// Add the currently playing item/track on given player to the favorites.
+  /// TODO
+
+  /// Send RESUME command to given player.
+  Future<void> resume(
+    String playerId, {
+    String? source,
+    PlayerMedia? media,
+  }) async {
+    await _client.sendCommand(
+      'players/cmd/resume',
+      args: {'player_id': playerId, 'source': source, 'media': media?.toJson()},
+    );
+  }
+
+  /// Join/unjoin given player(s) to/from target player.
+  Future<void> setMembers(
+    String targetPlayer, {
+    List<String>? playerIdsToAdd,
+    List<String>? playerIdsToRemove,
+  }) async {
+    await _client.sendCommand(
+      'players/cmd/set_members',
+      args: {
+        'target_player': targetPlayer,
+        'player_ids_to_add': playerIdsToAdd,
+        'player_ids_to_remove': playerIdsToRemove,
+      },
+    );
+  }
+
+  /// Create a new (permanent) Group Player.
+  Future<Player> createGroupPlayer(
+    String provider,
+    String name,
+    List<String> members, {
+    bool? isDynamic,
+  }) async {
+    final result = await _client.sendCommand(
+      'players/create_group_player',
+      args: {'provider': provider, 'name': name, 'members': members, 'dynamic': isDynamic},
+    );
+    return Player.fromJson(result as Map<String, dynamic>);
+  }
+
+  /// Return Player by name.
+  Future<Player> getByName(String name) async {
+    final result = await _client.sendCommand('players/get_by_name', args: {'name': name});
+    return Player.fromJson(result as Map<String, dynamic>);
+  }
+
+  /// Return PluginSource by source_id.
+  Future<PlayerSource> pluginSource(String sourceId) async {
+    final result = await _client.sendCommand('players/plugin_source', args: {'source_id': sourceId});
+    return PlayerSource.fromJson(result as Map<String, dynamic>);
+  }
+
+  /// Return all available plugin sources.
+  Future<List<PlayerSource>> pluginSources() async {
+    final result = await _client.sendCommand('players/plugin_sources') as List<dynamic>;
+    return result.map((item) => PlayerSource.fromJson(item as Map<String, dynamic>)).toList();
+  }
+
+  /// Remove a player from a provider.
+  Future<void> remove(String playerId) async {
+    await _client.sendCommand('players/remove', args: {'player_id': playerId});
+  }
+
+  /// Remove a group player.
+  Future<void> removeGroupPlayer(String playerId) async {
+    await _client.sendCommand('players/remove_group_player', args: {'player_id': playerId});
+  }
 
   /// Fetch initial state once the server is connected.
   Future<void> fetchState() async {
