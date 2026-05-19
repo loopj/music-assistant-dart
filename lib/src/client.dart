@@ -7,7 +7,9 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'events.dart';
 import 'exceptions.dart';
+
 import 'endpoints/players.dart';
+import 'endpoints/player_queues.dart';
 
 final _logger = Logger('MusicAssistantClient');
 
@@ -42,8 +44,9 @@ class MusicAssistantClient {
 
   MusicAssistantClient({required this.serverUrl, required this.token});
 
-  /// Expose singletons for each service, which can be used to interact with the server.
+  /// Endpoints
   late final PlayersEndpoint players = PlayersEndpoint(this);
+  late final PlayerQueuesEndpoint playerQueues = PlayerQueuesEndpoint(this);
 
   /// Connects to the Music Assistant WebSocket server and authenticates.
   Future<void> connect() async {
@@ -104,7 +107,6 @@ class MusicAssistantClient {
   }
 
   /// Starts listening for incoming messages, routing responses to pending requests.
-  /// Runs until the connection is closed.
   Future<void> startListening() async {
     await for (final raw in _channel!.stream) {
       // Decode the incoming message
