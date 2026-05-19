@@ -1,27 +1,32 @@
 # Dart Client for Music Assistant
 
-Simple Dart client for using working with the Music Assistant Websocket API from Dart and Flutter applications.
+Dart client for using working with the Music Assistant Websocket API from Dart and Flutter applications.
 
 ## Example Usage
 
 ```dart
-import 'package:music_assistant_dart/music_assistant_dart.dart';
+import 'package:music_assistant/music_assistant.dart';
 
 void main() async {
-  // Create client and connect to Music Assistant
-  final client = MusicAssistantClient('http://localhost:8095');
-  await client.connect();
+  // Create a client instance, pull url and token from env variables
+  final client = MusicAssistantClient('http://localhost:8095', 'your_token_here');
 
-  // Listen for player events
-  client.events.listen((event) {
-    if (event is PlayerStateChangedEvent) {
-      print('Player ${event.playerId} state changed: ${event.state}');
+  try {
+    // Connect to the server and authenticate
+    await client.connect();
+
+    // Fetch initial state for all endpoints (players, player queues, etc.)
+    await client.fetchState();
+
+    // Print all players
+    print('Players:');
+    for (final player in client.players.all.values) {
+      print('- ${player.name} (ID: ${player.playerId})');
     }
-  });
-
-  // Print all players
-  final players = await client.players.getPlayers();
-  print('Players: $players');
+  } finally {
+    // Disconnect from the server when done
+    await client.disconnect();
+  }
 }
 ```
 
@@ -29,16 +34,16 @@ void main() async {
 
 This library supports a subset of the Music Assistant API commands, but aims to be in-line with the official Python client. The following endpoints are currently supported:
 
-- [ ] auth
-- [ ] config
-- [ ] metadata
-- [ ] music
-- [ ] party
-- [x] player_queues
-- [x] players
-- [ ] providers
-- [ ] remote_access
-- [ ] tasks
+- ❌ auth
+- ❌ config
+- ❌ metadata
+- ❌ music
+- ❌ party
+- ✅ player_queues
+- ✅ players
+- ❌ providers
+- ❌ remote_access
+- ❌ tasks
 
 ## Rebuilding Models
 
