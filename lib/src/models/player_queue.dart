@@ -5,6 +5,7 @@ import 'queue_item.dart';
 
 part 'player_queue.g.dart';
 
+/// Representation of (the state of) a PlayerQueue within Music Assistant.
 @JsonSerializable()
 class PlayerQueue {
   PlayerQueue();

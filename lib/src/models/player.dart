@@ -4,6 +4,7 @@ import './enums.dart';
 
 part 'player.g.dart';
 
+/// Represents an output protocol for a player.
 @JsonSerializable()
 class OutputProtocol {
   OutputProtocol();
@@ -30,6 +31,7 @@ class OutputProtocol {
   Map<String, dynamic> toJson() => _$OutputProtocolToJson(this);
 }
 
+/// Model for a player's device info.
 @JsonSerializable()
 class DeviceInfo {
   DeviceInfo();
@@ -56,6 +58,7 @@ class DeviceInfo {
   Map<String, dynamic> toJson() => _$DeviceInfoToJson(this);
 }
 
+/// Metadata of Media loading/loaded into a player.
 @JsonSerializable()
 class PlayerMedia {
   PlayerMedia();
@@ -100,6 +103,7 @@ class PlayerMedia {
   Map<String, dynamic> toJson() => _$PlayerMediaToJson(this);
 }
 
+/// Model for a player source.
 @JsonSerializable()
 class PlayerSource {
   PlayerSource();
@@ -126,6 +130,7 @@ class PlayerSource {
   Map<String, dynamic> toJson() => _$PlayerSourceToJson(this);
 }
 
+/// Model for a player sound mode.
 @JsonSerializable()
 class PlayerSoundMode {
   PlayerSoundMode();
@@ -146,6 +151,7 @@ class PlayerSoundMode {
   Map<String, dynamic> toJson() => _$PlayerSoundModeToJson(this);
 }
 
+/// Enum for the type of a Player Option.
 @JsonEnum(valueField: 'value')
 enum PlayerOptionType {
   boolean('boolean'),
@@ -157,6 +163,7 @@ enum PlayerOptionType {
   final String value;
 }
 
+/// A single choice.
 @JsonSerializable()
 class PlayerOptionEntry {
   PlayerOptionEntry();
@@ -180,6 +187,7 @@ class PlayerOptionEntry {
   Map<String, dynamic> toJson() => _$PlayerOptionEntryToJson(this);
 }
 
+/// Model for a PlayerOption.
 @JsonSerializable()
 class PlayerOption {
   PlayerOption();
@@ -221,6 +229,7 @@ class PlayerOption {
   Map<String, dynamic> toJson() => _$PlayerOptionToJson(this);
 }
 
+/// Representation of (the state of) a player within Music Assistant.
 @JsonSerializable()
 class Player {
   Player();

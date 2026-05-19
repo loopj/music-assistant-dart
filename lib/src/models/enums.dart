@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+/// Enum for MediaType.
 @JsonEnum(valueField: 'value')
 enum MediaType {
   artist('artist'),
@@ -22,6 +23,7 @@ enum MediaType {
   final String value;
 }
 
+/// Enum with image types.
 @JsonEnum(valueField: 'value')
 enum ImageType {
   thumb('thumb'),
@@ -39,6 +41,7 @@ enum ImageType {
   final String value;
 }
 
+/// Enum with audio content/container types supported by ffmpeg.
 @JsonEnum(valueField: 'value')
 enum ContentType {
   ogg('ogg'),
@@ -107,6 +110,7 @@ enum ContentType {
   final String value;
 }
 
+/// Enum representation of the queue (play) options.
 @JsonEnum(valueField: 'value')
 enum QueueOption {
   play('play'),
@@ -120,6 +124,7 @@ enum QueueOption {
   final String value;
 }
 
+/// Enum with repeat modes.
 @JsonEnum(valueField: 'value')
 enum RepeatMode {
   off('off'),
@@ -131,6 +136,7 @@ enum RepeatMode {
   final String value;
 }
 
+/// Enum for the (playback)state of a player.
 @JsonEnum(valueField: 'value')
 enum PlaybackState {
   idle('idle'),
@@ -142,6 +148,7 @@ enum PlaybackState {
   final String value;
 }
 
+/// Types of identifiers/connections for a device.
 @JsonEnum(valueField: 'value')
 enum IdentifierType {
   macAddress('mac_address'),
@@ -156,6 +163,7 @@ enum IdentifierType {
   final String value;
 }
 
+/// Enum with possible Player features.
 @JsonEnum(valueField: 'value')
 enum PlayerFeature {
   power('power'),
@@ -180,6 +188,7 @@ enum PlayerFeature {
   final String value;
 }
 
+/// Enum with possible Events.
 enum EventType {
   playerAdded('player_added'),
   playerUpdated('player_updated'),
@@ -212,6 +221,7 @@ enum EventType {
       EventType.values.firstWhere((e) => e.value == value, orElse: () => EventType.unknown);
 }
 
+/// Enum for the type of streamdetails.
 @JsonEnum(valueField: 'value')
 enum StreamType {
   http('http'),
@@ -230,6 +240,7 @@ enum StreamType {
   final String value;
 }
 
+/// Enum representing the core state of the Music Assistant server.
 @JsonEnum(valueField: 'value')
 enum CoreState {
   starting('starting'),

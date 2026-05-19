@@ -2,6 +2,7 @@ import 'models/enums.dart';
 
 export 'models/enums.dart' show EventType;
 
+/// A server-pushed event received from the Music Assistant WebSocket API.
 class MusicAssistantEvent {
   final EventType type;
   final String? objectId;

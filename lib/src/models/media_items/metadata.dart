@@ -4,6 +4,7 @@ import '../enums.dart';
 
 part 'metadata.g.dart';
 
+/// Model for a image.
 @JsonSerializable()
 class MediaItemImage {
   MediaItemImage();

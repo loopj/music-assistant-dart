@@ -4,6 +4,7 @@ import './enums.dart';
 
 part 'api.g.dart';
 
+/// Message sent by the server with it's info when a client connects.
 @JsonSerializable()
 class ServerInfoMessage {
   ServerInfoMessage();

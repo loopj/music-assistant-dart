@@ -5,6 +5,7 @@ import 'stream_details.dart';
 
 part 'queue_item.g.dart';
 
+/// Representation of a queue item.
 @JsonSerializable()
 class QueueItem {
   QueueItem();

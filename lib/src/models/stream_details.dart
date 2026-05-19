@@ -5,6 +5,7 @@ import 'media_items/audio_format.dart';
 
 part 'stream_details.g.dart';
 
+/// Metadata of a live broadcast / media stream.
 @JsonSerializable()
 class StreamMetadata {
   StreamMetadata();
@@ -40,6 +41,7 @@ class StreamMetadata {
   Map<String, dynamic> toJson() => _$StreamMetadataToJson(this);
 }
 
+/// Model for a multipart path. Used when a stream is split into multiple parts, e.g. chapters.
 @JsonSerializable()
 class MultiPartPath {
   MultiPartPath();
@@ -54,6 +56,7 @@ class MultiPartPath {
   Map<String, dynamic> toJson() => _$MultiPartPathToJson(this);
 }
 
+/// Model for streamdetails.
 @JsonSerializable()
 class StreamDetails {
   StreamDetails();

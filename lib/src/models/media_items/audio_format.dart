@@ -4,6 +4,7 @@ import '../enums.dart';
 
 part 'audio_format.g.dart';
 
+/// Model for AudioFormat details.
 @JsonSerializable()
 class AudioFormat {
   AudioFormat();
