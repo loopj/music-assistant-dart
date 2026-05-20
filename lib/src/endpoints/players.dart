@@ -8,15 +8,15 @@ class PlayersEndpoint {
   final Map<String, Player> _players = {};
 
   /// Create a PlayersEndpoint instance
-  PlayersEndpoint(this._client) {
-    // Subscribe to player events.
-    _client.subscribe(_onEvent, eventTypes: {EventType.playerAdded, EventType.playerUpdated, EventType.playerRemoved});
-  }
+  PlayersEndpoint(this._client);
 
-  /// Get a view of all players.
-  Map<String, Player> get all => Map.unmodifiable(_players);
+  /// Get a list of all fetched player ids.
+  Iterable<String> get keys => _players.keys;
 
-  /// Get a player by id.
+  /// Get a list of all fetched players.
+  Iterable<Player> get values => _players.values;
+
+  /// Get a fetched player by id.
   Player? operator [](String playerId) => _players[playerId];
 
   /// Send STOP command to given player (directly).
@@ -217,9 +217,13 @@ class PlayersEndpoint {
 
   /// Fetch initial state once the server is connected.
   Future<void> fetchState() async {
+    // Fetch initial state
     for (final player in await _getPlayers()) {
       _players[player.playerId!] = player;
     }
+
+    // Keep state up to date
+    _client.subscribe(_onEvent, eventTypes: {EventType.playerAdded, EventType.playerUpdated, EventType.playerRemoved});
   }
 
   // Fetch all Players from the server.

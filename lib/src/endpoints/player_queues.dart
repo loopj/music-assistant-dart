@@ -9,15 +9,15 @@ class PlayerQueuesEndpoint {
   final Map<String, PlayerQueue> _queues = {};
 
   /// Create a PlayerQueuesEndpoint instance
-  PlayerQueuesEndpoint(this._client) {
-    // Subscribe to player queue events.
-    _client.subscribe(_onEvent, eventTypes: {EventType.queueAdded, EventType.queueUpdated});
-  }
+  PlayerQueuesEndpoint(this._client);
 
-  /// Get a view of all player queues.
-  Map<String, PlayerQueue> get all => Map.unmodifiable(_queues);
+  /// Get a list of all fetched player queue ids.
+  Iterable<String> get keys => _queues.keys;
 
-  /// Get a player queue by id.
+  /// Get a list of all fetched player queues.
+  Iterable<PlayerQueue> get values => _queues.values;
+
+  /// Get a fetched player queue by id.
   PlayerQueue? operator [](String queueId) => _queues[queueId];
 
   /// Return the current active/synced queue for a player.
@@ -164,9 +164,13 @@ class PlayerQueuesEndpoint {
 
   /// Fetch initial state once the server is connected.
   Future<void> fetchState() async {
+    // Fetch initial state
     for (final queue in await _getPlayerQueues()) {
       _queues[queue.queueId!] = queue;
     }
+
+    // Keep state up to date
+    _client.subscribe(_onEvent, eventTypes: {EventType.queueAdded, EventType.queueUpdated});
   }
 
   // Fetch all PlayerQueues from the server.

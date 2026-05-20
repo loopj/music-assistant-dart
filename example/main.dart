@@ -18,7 +18,7 @@ void main() async {
 
     // Example: Print all players
     print('Players:');
-    for (final player in client.players.all.values) {
+    for (final player in client.players.values) {
       print('- ${player.name} (ID: ${player.playerId})');
     }
   } finally {
