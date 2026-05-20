@@ -4,10 +4,6 @@ export 'src/connection.dart' show ConnectionState;
 export 'src/events.dart';
 export 'src/exceptions.dart';
 
-// Export our endpoints
-export 'src/endpoints/player_queues.dart';
-export 'src/endpoints/players.dart';
-
 // Export our models
 export 'src/models/enums.dart';
 export 'src/models/media_items/audio_format.dart';
