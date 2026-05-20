@@ -17,8 +17,8 @@ class PlayerQueuesEndpoint {
   /// Get a view of all player queues.
   Map<String, PlayerQueue> get all => Map.unmodifiable(_queues);
 
-  /// Return a single PlayerQueue by queue_id.
-  PlayerQueue? get(String queueId) => _queues[queueId];
+  /// Get a player queue by id.
+  PlayerQueue? operator [](String queueId) => _queues[queueId];
 
   /// Return the current active/synced queue for a player.
   Future<PlayerQueue?> getActiveQueue(String playerId) async {

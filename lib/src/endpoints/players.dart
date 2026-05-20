@@ -16,6 +16,9 @@ class PlayersEndpoint {
   /// Get a view of all players.
   Map<String, Player> get all => Map.unmodifiable(_players);
 
+  /// Get a player by id.
+  Player? operator [](String playerId) => _players[playerId];
+
   /// Send STOP command to given player (directly).
   Future<void> stop(String playerId) async {
     await _client.sendCommand('players/cmd/stop', args: {'player_id': playerId});
