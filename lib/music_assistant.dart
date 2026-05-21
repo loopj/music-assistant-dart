@@ -5,6 +5,7 @@ export 'src/events.dart';
 export 'src/exceptions.dart';
 
 // Export our models
+export 'src/models/auth.dart';
 export 'src/models/enums.dart';
 export 'src/models/media_items/audio_format.dart';
 export 'src/models/media_items/metadata.dart';

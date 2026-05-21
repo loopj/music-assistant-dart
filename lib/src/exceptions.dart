@@ -159,3 +159,8 @@ class MusicAssistantClientException extends MusicAssistantException {
 class InvalidServerVersion extends MusicAssistantClientException {
   const InvalidServerVersion([super.message]);
 }
+
+/// Exception raised when unable to connect to the Music Assistant server.
+class CannotConnectException extends MusicAssistantClientException {
+  const CannotConnectException([super.message]);
+}
