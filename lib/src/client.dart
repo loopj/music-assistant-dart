@@ -4,6 +4,7 @@ import 'package:logging/logging.dart';
 
 import 'connection.dart';
 import 'events.dart';
+import 'endpoints/auth.dart';
 import 'endpoints/players.dart';
 import 'endpoints/player_queues.dart';
 import 'models/api.dart';
@@ -26,6 +27,9 @@ class MusicAssistantClient {
 
   /// Authentication token for the Music Assistant server.
   final String token;
+
+  /// Auth related endpoints/commands.
+  late final AuthEndpoint auth = AuthEndpoint(this);
 
   /// Player related endpoints/commands.
   late final PlayersEndpoint players = PlayersEndpoint(this);

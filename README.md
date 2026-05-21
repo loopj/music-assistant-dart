@@ -37,9 +37,9 @@ void main() async {
 
 | Endpoint      | Supported |
 |---------------|-----------|
+| auth          | ✅       |
 | players       | ✅       |
 | player_queues | ✅       |
-| auth          | ❌       |
 | config        | ❌       |
 | metadata      | ❌       |
 | music         | ❌       |
