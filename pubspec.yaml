@@ -11,6 +11,7 @@ dependencies:
   http: ^1.0.0
   json_annotation: ^4.7.0
   logging: ^1.0.0
+  multicast_dns: ^0.3.3
   uuid: ^4.0.0
   web_socket_channel: ^3.0.0
 

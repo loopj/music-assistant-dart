@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:multicast_dns/multicast_dns.dart';
 
 import 'src/client.dart';
 import 'src/exceptions.dart';
@@ -87,6 +88,35 @@ Future<ServerInfoMessage> getServerInfo(String serverUrl) async {
   } on http.ClientException catch (e) {
     throw CannotConnectException(e.message);
   }
+}
+
+/// Discover Music Assistant servers on the local network using mDNS.
+///
+/// Returns a list of server base URLs found within the [timeout] period.
+Future<List<String>> discoverServers({Duration timeout = const Duration(seconds: 5)}) async {
+  const serviceType = '_mass._tcp.local';
+  final servers = <String>{};
+  final client = MDnsClient();
+  await client.start();
+
+  try {
+    await for (final PtrResourceRecord ptr in client.lookup<PtrResourceRecord>(
+      ResourceRecordQuery.serverPointer(serviceType),
+      timeout: timeout,
+    )) {
+      await for (final SrvResourceRecord srv in client.lookup<SrvResourceRecord>(
+        ResourceRecordQuery.service(ptr.domainName),
+      )) {
+        final host = srv.target.endsWith('.') ? srv.target.substring(0, srv.target.length - 1) : srv.target;
+        servers.add('http://$host:${srv.port}');
+        break;
+      }
+    }
+  } finally {
+    client.stop();
+  }
+
+  return servers.toList();
 }
 
 String _normalizeUrl(String url) => url.endsWith('/') ? url : '$url/';
