@@ -131,13 +131,26 @@ class Connection {
     unawaited(_messageLoop(queue));
 
     // Authenticate
-    await sendCommand('auth', args: {'token': token});
+    await _authenticate();
 
     // Start the keepalive timer
     _keepaliveTimer?.cancel();
     _keepaliveTimer = Timer.periodic(const Duration(seconds: keepaliveInterval), (_) {
       _channel?.sink.add(jsonEncode({'message_id': 'keepalive', 'command': 'info'}));
     });
+  }
+
+  Future<void> _authenticate() async {
+    try {
+      final result = await sendCommand('auth', args: {'token': token});
+      if (result == null || result == false) {
+        throw const AuthenticationFailedException();
+      }
+    } on AuthenticationFailedException {
+      rethrow;
+    } catch (e) {
+      throw AuthenticationFailedException('Authentication failed: $e');
+    }
   }
 
   Future<void> _messageLoop(StreamQueue<dynamic> queue) async {

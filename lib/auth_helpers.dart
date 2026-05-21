@@ -15,10 +15,9 @@ const _defaultTokenName = 'Music Assistant Dart Client';
 /// Returns a tuple of (User, access_token). Throws [LoginFailedException] for
 /// bad credentials or [CannotConnectException] for connection-level failures.
 Future<(User, String)> login(String serverUrl, String username, String password) async {
-  final url = _normalizeUrl(serverUrl);
   try {
     final response = await http.post(
-      Uri.parse('${url}auth/login'),
+      Uri.parse(serverUrl).resolve('auth/login'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'credentials': {'username': username, 'password': password},
@@ -78,9 +77,8 @@ Future<String> createLongLivedToken(
 ///
 /// Useful for checking server availability and version before connecting.
 Future<ServerInfoMessage> getServerInfo(String serverUrl) async {
-  final url = _normalizeUrl(serverUrl);
   try {
-    final response = await http.get(Uri.parse('${url}info'));
+    final response = await http.get(Uri.parse(serverUrl).resolve('info'));
     if (response.statusCode != 200) {
       throw CannotConnectException('Failed to get server info with status ${response.statusCode}');
     }
@@ -120,5 +118,3 @@ Future<List<String>> discoverServers({Duration timeout = const Duration(seconds:
 
   return servers.toList();
 }
-
-String _normalizeUrl(String url) => url.endsWith('/') ? url : '$url/';
