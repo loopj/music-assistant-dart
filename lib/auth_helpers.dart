@@ -20,7 +20,9 @@ Future<(User, String)> login(String serverUrl, String username, String password)
     final response = await http.post(
       Uri.parse('${url}auth/login'),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'username': username, 'password': password}),
+      body: jsonEncode({
+        'credentials': {'username': username, 'password': password},
+      }),
     );
 
     if (response.statusCode == 401) {
@@ -32,7 +34,7 @@ Future<(User, String)> login(String serverUrl, String username, String password)
 
     final data = jsonDecode(response.body) as Map<String, dynamic>;
     final user = User.fromJson(data['user'] as Map<String, dynamic>);
-    final accessToken = data['access_token'] as String;
+    final accessToken = data['token'] as String;
     return (user, accessToken);
   } on LoginFailedException {
     rethrow;
