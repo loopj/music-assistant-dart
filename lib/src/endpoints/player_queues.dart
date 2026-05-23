@@ -175,6 +175,7 @@ class PlayerQueuesEndpoint {
       eventTypes: {
         EventType.queueAdded,
         EventType.queueUpdated,
+        EventType.queueTimeUpdated,
         EventType.playerRemoved,
       },
     );
@@ -194,6 +195,14 @@ class PlayerQueuesEndpoint {
         final data = event.data;
         if (id == null || data is! Map<String, dynamic>) break;
         _queues[id] = PlayerQueue.fromJson(data);
+      case EventType.queueTimeUpdated:
+        final id = event.objectId;
+        final data = event.data;
+        if (id == null || data is! num) break;
+        final queue = _queues[id];
+        if (queue == null) break;
+        queue.elapsedTime = data.toDouble();
+        queue.elapsedTimeLastUpdated = DateTime.now().millisecondsSinceEpoch / 1000;
       case EventType.playerRemoved:
         final id = event.objectId;
         if (id == null) break;
