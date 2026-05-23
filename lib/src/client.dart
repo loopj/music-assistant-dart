@@ -8,6 +8,7 @@ import 'endpoints/auth.dart';
 import 'endpoints/players.dart';
 import 'endpoints/player_queues.dart';
 import 'models/api.dart';
+import 'models/auth.dart';
 
 final _logger = Logger('MusicAssistant');
 
@@ -39,6 +40,9 @@ class MusicAssistantClient {
 
   /// Server info received on connection.
   ServerInfoMessage? get serverInfo => _connection.serverInfo;
+
+  /// Current user received on auth.
+  User? get currentUser => _connection.currentUser;
 
   /// Stream of connection state changes.
   Stream<ConnectionState> get state => _connection.state;

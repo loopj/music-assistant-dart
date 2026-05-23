@@ -8,6 +8,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'exceptions.dart';
 import 'models/api.dart';
+import 'models/auth.dart';
 
 final _logger = Logger('MusicAssistant');
 
@@ -39,6 +40,9 @@ class Connection {
 
   /// Server info received on connection.
   ServerInfoMessage? serverInfo;
+
+  /// Current user received on auth.
+  User? currentUser;
 
   WebSocketChannel? _channel;
   Timer? _keepaliveTimer;
@@ -146,6 +150,9 @@ class Connection {
       if (result == null || result == false) {
         throw const AuthenticationFailedException();
       }
+
+      // Authentication successful, store current user info
+      currentUser = User.fromJson(result['user'] as Map<String, dynamic>);
     } on AuthenticationFailedException {
       rethrow;
     } catch (e) {
