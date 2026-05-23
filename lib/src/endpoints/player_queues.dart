@@ -170,7 +170,14 @@ class PlayerQueuesEndpoint {
     }
 
     // Keep state up to date
-    _client.subscribe(_onEvent, eventTypes: {EventType.queueAdded, EventType.queueUpdated});
+    _client.subscribe(
+      _onEvent,
+      eventTypes: {
+        EventType.queueAdded,
+        EventType.queueUpdated,
+        EventType.playerRemoved,
+      },
+    );
   }
 
   // Fetch all PlayerQueues from the server.
@@ -187,6 +194,10 @@ class PlayerQueuesEndpoint {
         final data = event.data;
         if (id == null || data is! Map<String, dynamic>) break;
         _queues[id] = PlayerQueue.fromJson(data);
+      case EventType.playerRemoved:
+        final id = event.objectId;
+        if (id == null) break;
+        _queues.remove(id);
       default:
         break;
     }

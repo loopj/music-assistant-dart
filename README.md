@@ -35,18 +35,7 @@ void main() async {
 
 ## Supported endpoints
 
-| Endpoint      | Supported |
-|---------------|-----------|
-| auth          | ✅       |
-| players       | ✅       |
-| player_queues | ✅       |
-| config        | ❌       |
-| metadata      | ❌       |
-| music         | ❌       |
-| party         | ❌       |
-| providers     | ❌       |
-| remote_access | ❌       |
-| tasks         | ❌       |
+This package currently supports the `auth`, `players`, and `player_queues` endpoints.
 
 ## Usage
 
