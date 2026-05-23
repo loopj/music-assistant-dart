@@ -9,7 +9,7 @@ import 'endpoints/players.dart';
 import 'endpoints/player_queues.dart';
 import 'models/api.dart';
 
-final _logger = Logger('music_assistant.MusicAssistantClient');
+final _logger = Logger('MusicAssistant');
 
 /// Event subscription class, used to track callback and filters for each subscription
 class _Subscription {

@@ -9,7 +9,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'exceptions.dart';
 import 'models/api.dart';
 
-final _logger = Logger('music_assistant.Connection');
+final _logger = Logger('MusicAssistant');
 
 enum ConnectionState { connected, disconnected, reconnected }
 
