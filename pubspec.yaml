@@ -4,12 +4,12 @@ version: 0.1.0
 homepage: https://github.com/loopj/music-assistant-dart
 
 environment:
-  sdk: '>=3.8.0 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   async: ^2.0.0
   http: ^1.0.0
-  json_annotation: ^4.7.0
+  json_annotation: ^4.9.0
   logging: ^1.0.0
   multicast_dns: ^0.3.3
   uuid: ^4.0.0
@@ -17,5 +17,5 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.0.0
-  json_serializable: ^6.0.0
+  json_serializable: '>=6.8.0 <6.9.0'
   lints: ^6.0.0

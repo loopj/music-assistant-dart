@@ -18,16 +18,16 @@ ServerInfoMessage _$ServerInfoMessageFromJson(Map<String, dynamic> json) => Serv
   ..status = $enumDecode(_$CoreStateEnumMap, json['status']);
 
 Map<String, dynamic> _$ServerInfoMessageToJson(ServerInfoMessage instance) => <String, dynamic>{
-  'server_id': instance.serverId,
-  'server_version': instance.serverVersion,
-  'schema_version': instance.schemaVersion,
-  'min_supported_schema_version': instance.minSupportedSchemaVersion,
-  'base_url': instance.baseUrl,
-  'homeassistant_addon': instance.homeassistantAddon,
-  'onboard_done': instance.onboardDone,
-  'name': instance.name,
-  'status': _$CoreStateEnumMap[instance.status]!,
-};
+      'server_id': instance.serverId,
+      'server_version': instance.serverVersion,
+      'schema_version': instance.schemaVersion,
+      'min_supported_schema_version': instance.minSupportedSchemaVersion,
+      'base_url': instance.baseUrl,
+      'homeassistant_addon': instance.homeassistantAddon,
+      'onboard_done': instance.onboardDone,
+      'name': instance.name,
+      'status': _$CoreStateEnumMap[instance.status]!,
+    };
 
 const _$CoreStateEnumMap = {
   CoreState.starting: 'starting',

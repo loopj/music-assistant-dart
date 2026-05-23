@@ -87,7 +87,8 @@ class Connection {
     _pendingRequests[messageId] = completer;
 
     // Construct the message to send
-    final message = <String, dynamic>{'message_id': messageId, 'command': command, 'args': ?args};
+    final message = <String, dynamic>{'message_id': messageId, 'command': command};
+    if (args != null) message['args'] = args;
 
     // Encode the message as JSON and send it
     _channel!.sink.add(jsonEncode(message));

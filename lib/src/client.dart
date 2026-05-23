@@ -51,7 +51,7 @@ class MusicAssistantClient {
   final List<_Subscription> _subscriptions = [];
 
   MusicAssistantClient({required this.serverUrl, required this.token})
-    : _connection = Connection(serverUrl: serverUrl, token: token) {
+      : _connection = Connection(serverUrl: serverUrl, token: token) {
     // Route server-pushed events to subscribers
     _connection.events.listen(_handleEvent);
 

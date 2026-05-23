@@ -15,13 +15,13 @@ OutputProtocol _$OutputProtocolFromJson(Map<String, dynamic> json) => OutputProt
   ..available = json['available'] as bool;
 
 Map<String, dynamic> _$OutputProtocolToJson(OutputProtocol instance) => <String, dynamic>{
-  'output_protocol_id': instance.outputProtocolId,
-  'name': instance.name,
-  'protocol_domain': instance.protocolDomain,
-  'is_native': instance.isNative,
-  'priority': instance.priority,
-  'available': instance.available,
-};
+      'output_protocol_id': instance.outputProtocolId,
+      'name': instance.name,
+      'protocol_domain': instance.protocolDomain,
+      'is_native': instance.isNative,
+      'priority': instance.priority,
+      'available': instance.available,
+    };
 
 DeviceInfo _$DeviceInfoFromJson(Map<String, dynamic> json) => DeviceInfo()
   ..model = json['model'] as String
@@ -34,13 +34,13 @@ DeviceInfo _$DeviceInfoFromJson(Map<String, dynamic> json) => DeviceInfo()
   );
 
 Map<String, dynamic> _$DeviceInfoToJson(DeviceInfo instance) => <String, dynamic>{
-  'model': instance.model,
-  'manufacturer': instance.manufacturer,
-  'software_version': instance.softwareVersion,
-  'model_id': instance.modelId,
-  'manufacturer_id': instance.manufacturerId,
-  'identifiers': instance.identifiers.map((k, e) => MapEntry(_$IdentifierTypeEnumMap[k]!, e)),
-};
+      'model': instance.model,
+      'manufacturer': instance.manufacturer,
+      'software_version': instance.softwareVersion,
+      'model_id': instance.modelId,
+      'manufacturer_id': instance.manufacturerId,
+      'identifiers': instance.identifiers.map((k, e) => MapEntry(_$IdentifierTypeEnumMap[k]!, e)),
+    };
 
 const _$IdentifierTypeEnumMap = {
   IdentifierType.macAddress: 'mac_address',
@@ -68,20 +68,20 @@ PlayerMedia _$PlayerMediaFromJson(Map<String, dynamic> json) => PlayerMedia()
   ..elapsedTimeLastUpdated = (json['elapsed_time_last_updated'] as num?)?.toDouble();
 
 Map<String, dynamic> _$PlayerMediaToJson(PlayerMedia instance) => <String, dynamic>{
-  'uri': instance.uri,
-  'media_type': _$MediaTypeEnumMap[instance.mediaType]!,
-  'title': instance.title,
-  'artist': instance.artist,
-  'album': instance.album,
-  'image_url': instance.imageUrl,
-  'palette': instance.palette,
-  'duration': instance.duration,
-  'source_id': instance.sourceId,
-  'queue_item_id': instance.queueItemId,
-  'custom_data': instance.customData,
-  'elapsed_time': instance.elapsedTime,
-  'elapsed_time_last_updated': instance.elapsedTimeLastUpdated,
-};
+      'uri': instance.uri,
+      'media_type': _$MediaTypeEnumMap[instance.mediaType]!,
+      'title': instance.title,
+      'artist': instance.artist,
+      'album': instance.album,
+      'image_url': instance.imageUrl,
+      'palette': instance.palette,
+      'duration': instance.duration,
+      'source_id': instance.sourceId,
+      'queue_item_id': instance.queueItemId,
+      'custom_data': instance.customData,
+      'elapsed_time': instance.elapsedTime,
+      'elapsed_time_last_updated': instance.elapsedTimeLastUpdated,
+    };
 
 const _$MediaTypeEnumMap = {
   MediaType.artist: 'artist',
@@ -110,13 +110,13 @@ PlayerSource _$PlayerSourceFromJson(Map<String, dynamic> json) => PlayerSource()
   ..canNextPrevious = json['can_next_previous'] as bool;
 
 Map<String, dynamic> _$PlayerSourceToJson(PlayerSource instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'passive': instance.passive,
-  'can_play_pause': instance.canPlayPause,
-  'can_seek': instance.canSeek,
-  'can_next_previous': instance.canNextPrevious,
-};
+      'id': instance.id,
+      'name': instance.name,
+      'passive': instance.passive,
+      'can_play_pause': instance.canPlayPause,
+      'can_seek': instance.canSeek,
+      'can_next_previous': instance.canNextPrevious,
+    };
 
 PlayerSoundMode _$PlayerSoundModeFromJson(Map<String, dynamic> json) => PlayerSoundMode()
   ..id = json['id'] as String?
@@ -125,11 +125,11 @@ PlayerSoundMode _$PlayerSoundModeFromJson(Map<String, dynamic> json) => PlayerSo
   ..translationKey = json['translation_key'] as String;
 
 Map<String, dynamic> _$PlayerSoundModeToJson(PlayerSoundMode instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'passive': instance.passive,
-  'translation_key': instance.translationKey,
-};
+      'id': instance.id,
+      'name': instance.name,
+      'passive': instance.passive,
+      'translation_key': instance.translationKey,
+    };
 
 PlayerOptionEntry _$PlayerOptionEntryFromJson(Map<String, dynamic> json) => PlayerOptionEntry()
   ..key = json['key'] as String?
@@ -139,12 +139,12 @@ PlayerOptionEntry _$PlayerOptionEntryFromJson(Map<String, dynamic> json) => Play
   ..translationKey = json['translation_key'] as String;
 
 Map<String, dynamic> _$PlayerOptionEntryToJson(PlayerOptionEntry instance) => <String, dynamic>{
-  'key': instance.key,
-  'name': instance.name,
-  'type': _$PlayerOptionTypeEnumMap[instance.type],
-  'value': instance.value,
-  'translation_key': instance.translationKey,
-};
+      'key': instance.key,
+      'name': instance.name,
+      'type': _$PlayerOptionTypeEnumMap[instance.type],
+      'value': instance.value,
+      'translation_key': instance.translationKey,
+    };
 
 const _$PlayerOptionTypeEnumMap = {
   PlayerOptionType.boolean: 'boolean',
@@ -164,23 +164,22 @@ PlayerOption _$PlayerOptionFromJson(Map<String, dynamic> json) => PlayerOption()
   ..minValue = json['min_value'] as num?
   ..maxValue = json['max_value'] as num?
   ..step = json['step'] as num?
-  ..options = (json['options'] as List<dynamic>?)
-      ?.map((e) => PlayerOptionEntry.fromJson(e as Map<String, dynamic>))
-      .toList();
+  ..options =
+      (json['options'] as List<dynamic>?)?.map((e) => PlayerOptionEntry.fromJson(e as Map<String, dynamic>)).toList();
 
 Map<String, dynamic> _$PlayerOptionToJson(PlayerOption instance) => <String, dynamic>{
-  'key': instance.key,
-  'name': instance.name,
-  'type': _$PlayerOptionTypeEnumMap[instance.type],
-  'translation_key': instance.translationKey,
-  'translation_params': instance.translationParams,
-  'value': instance.value,
-  'read_only': instance.readOnly,
-  'min_value': instance.minValue,
-  'max_value': instance.maxValue,
-  'step': instance.step,
-  'options': instance.options,
-};
+      'key': instance.key,
+      'name': instance.name,
+      'type': _$PlayerOptionTypeEnumMap[instance.type],
+      'translation_key': instance.translationKey,
+      'translation_params': instance.translationParams,
+      'value': instance.value,
+      'read_only': instance.readOnly,
+      'min_value': instance.minValue,
+      'max_value': instance.maxValue,
+      'step': instance.step,
+      'options': instance.options,
+    };
 
 Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
   ..playerId = json['player_id'] as String?
@@ -189,9 +188,8 @@ Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
   ..name = json['name'] as String?
   ..available = json['available'] as bool?
   ..deviceInfo = json['device_info'] == null ? null : DeviceInfo.fromJson(json['device_info'] as Map<String, dynamic>)
-  ..supportedFeatures = (json['supported_features'] as List<dynamic>)
-      .map((e) => $enumDecode(_$PlayerFeatureEnumMap, e))
-      .toSet()
+  ..supportedFeatures =
+      (json['supported_features'] as List<dynamic>).map((e) => $enumDecode(_$PlayerFeatureEnumMap, e)).toSet()
   ..playbackState = $enumDecode(_$PlaybackStateEnumMap, json['playback_state'])
   ..elapsedTime = (json['elapsed_time'] as num?)?.toDouble()
   ..elapsedTimeLastUpdated = (json['elapsed_time_last_updated'] as num?)?.toDouble()
@@ -208,13 +206,11 @@ Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
       .toList()
   ..options = (json['options'] as List<dynamic>).map((e) => PlayerOption.fromJson(e as Map<String, dynamic>)).toList()
   ..activeSource = json['active_source'] as String?
-  ..sourceList = (json['source_list'] as List<dynamic>)
-      .map((e) => PlayerSource.fromJson(e as Map<String, dynamic>))
-      .toList()
+  ..sourceList =
+      (json['source_list'] as List<dynamic>).map((e) => PlayerSource.fromJson(e as Map<String, dynamic>)).toList()
   ..activeGroup = json['active_group'] as String?
-  ..currentMedia = json['current_media'] == null
-      ? null
-      : PlayerMedia.fromJson(json['current_media'] as Map<String, dynamic>)
+  ..currentMedia =
+      json['current_media'] == null ? null : PlayerMedia.fromJson(json['current_media'] as Map<String, dynamic>)
   ..enabled = json['enabled'] as bool
   ..hideInUi = json['hide_in_ui'] as bool
   ..exposeToHa = json['expose_to_ha'] as bool
@@ -232,44 +228,44 @@ Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
   ..needsSetup = json['needs_setup'] as bool;
 
 Map<String, dynamic> _$PlayerToJson(Player instance) => <String, dynamic>{
-  'player_id': instance.playerId,
-  'provider': instance.provider,
-  'type': _$PlayerTypeEnumMap[instance.type],
-  'name': instance.name,
-  'available': instance.available,
-  'device_info': instance.deviceInfo,
-  'supported_features': instance.supportedFeatures.map((e) => _$PlayerFeatureEnumMap[e]!).toList(),
-  'playback_state': _$PlaybackStateEnumMap[instance.playbackState]!,
-  'elapsed_time': instance.elapsedTime,
-  'elapsed_time_last_updated': instance.elapsedTimeLastUpdated,
-  'powered': instance.powered,
-  'volume_level': instance.volumeLevel,
-  'volume_muted': instance.volumeMuted,
-  'group_members': instance.groupMembers,
-  'static_group_members': instance.staticGroupMembers,
-  'can_group_with': instance.canGroupWith.toList(),
-  'synced_to': instance.syncedTo,
-  'active_sound_mode': instance.activeSoundMode,
-  'sound_mode_list': instance.soundModeList,
-  'options': instance.options,
-  'active_source': instance.activeSource,
-  'source_list': instance.sourceList,
-  'active_group': instance.activeGroup,
-  'current_media': instance.currentMedia,
-  'enabled': instance.enabled,
-  'hide_in_ui': instance.hideInUi,
-  'expose_to_ha': instance.exposeToHa,
-  'icon': instance.icon,
-  'group_volume': instance.groupVolume,
-  'group_volume_muted': instance.groupVolumeMuted,
-  'extra_attributes': instance.extraAttributes,
-  'power_control': instance.powerControl,
-  'volume_control': instance.volumeControl,
-  'mute_control': instance.muteControl,
-  'output_protocols': instance.outputProtocols,
-  'active_output_protocol': instance.activeOutputProtocol,
-  'needs_setup': instance.needsSetup,
-};
+      'player_id': instance.playerId,
+      'provider': instance.provider,
+      'type': _$PlayerTypeEnumMap[instance.type],
+      'name': instance.name,
+      'available': instance.available,
+      'device_info': instance.deviceInfo,
+      'supported_features': instance.supportedFeatures.map((e) => _$PlayerFeatureEnumMap[e]!).toList(),
+      'playback_state': _$PlaybackStateEnumMap[instance.playbackState]!,
+      'elapsed_time': instance.elapsedTime,
+      'elapsed_time_last_updated': instance.elapsedTimeLastUpdated,
+      'powered': instance.powered,
+      'volume_level': instance.volumeLevel,
+      'volume_muted': instance.volumeMuted,
+      'group_members': instance.groupMembers,
+      'static_group_members': instance.staticGroupMembers,
+      'can_group_with': instance.canGroupWith.toList(),
+      'synced_to': instance.syncedTo,
+      'active_sound_mode': instance.activeSoundMode,
+      'sound_mode_list': instance.soundModeList,
+      'options': instance.options,
+      'active_source': instance.activeSource,
+      'source_list': instance.sourceList,
+      'active_group': instance.activeGroup,
+      'current_media': instance.currentMedia,
+      'enabled': instance.enabled,
+      'hide_in_ui': instance.hideInUi,
+      'expose_to_ha': instance.exposeToHa,
+      'icon': instance.icon,
+      'group_volume': instance.groupVolume,
+      'group_volume_muted': instance.groupVolumeMuted,
+      'extra_attributes': instance.extraAttributes,
+      'power_control': instance.powerControl,
+      'volume_control': instance.volumeControl,
+      'mute_control': instance.muteControl,
+      'output_protocols': instance.outputProtocols,
+      'active_output_protocol': instance.activeOutputProtocol,
+      'needs_setup': instance.needsSetup,
+    };
 
 const _$PlayerTypeEnumMap = {
   PlayerType.player: 'player',
