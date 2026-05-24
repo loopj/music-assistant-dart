@@ -1,6 +1,6 @@
 name: music_assistant
 description: Dart client for using working with the Music Assistant Websocket API from Dart and Flutter applications
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/loopj/music-assistant-dart
 
 environment:
