@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Fix parsing of `MediaItemPalette` colors, which the server sends as `[r, g, b]` arrays
+
 ## 0.2.0
 
 - Add `[]`, `values`, and `keys` to stateful endpoints
