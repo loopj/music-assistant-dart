@@ -1,0 +1,305 @@
+[
+  {
+    "player_id": "upsendspinstudydesk",
+    "provider": "universal_player",
+    "type": "player",
+    "name": "Study Desk",
+    "available": false,
+    "device_info": {
+      "model": "macOS 26.2",
+      "manufacturer": "Unknown Manufacturer",
+      "software_version": null,
+      "model_id": null,
+      "manufacturer_id": null,
+      "identifiers": {},
+      "mac_address": null,
+      "ip_address": null
+    },
+    "supported_features": [],
+    "playback_state": "idle",
+    "elapsed_time": null,
+    "elapsed_time_last_updated": null,
+    "powered": true,
+    "volume_level": null,
+    "volume_muted": null,
+    "group_members": [],
+    "static_group_members": [],
+    "can_group_with": [],
+    "synced_to": null,
+    "active_sound_mode": null,
+    "sound_mode_list": [],
+    "options": [],
+    "active_source": "upsendspinstudydesk",
+    "source_list": [
+      {
+        "id": "upsendspinstudydesk",
+        "name": "Music Assistant Queue",
+        "passive": false,
+        "can_play_pause": true,
+        "can_seek": true,
+        "can_next_previous": true,
+        "can_shuffle": false,
+        "can_repeat": false,
+        "shuffle_enabled": null,
+        "repeat_mode": null,
+        "account_id": null
+      }
+    ],
+    "active_group": null,
+    "current_media": {
+      "uri": "soundcloud://track/380904",
+      "media_type": "track",
+      "title": "Deadmau5 Essential Mix Radio 1 19-07-2008",
+      "artist": "marc thom",
+      "album": null,
+      "album_artist": null,
+      "image_url": "http://192.0.2.1:8095/imageproxy/e0d89f09b32b0ba0eb11a0d3a246a0d8b585a6480431052a1468c13d7789e76f?size=512&fmt=jpg",
+      "palette": {
+        "background_dark": [
+          45,
+          45,
+          45
+        ],
+        "background_light": [
+          193,
+          193,
+          193
+        ],
+        "primary": [
+          47,
+          47,
+          47
+        ],
+        "accent": [
+          194,
+          182,
+          197
+        ],
+        "on_dark": [
+          194,
+          182,
+          197
+        ],
+        "on_light": [
+          47,
+          47,
+          47
+        ]
+      },
+      "duration": 7175,
+      "stream_duration": null,
+      "source_id": "upsendspinstudydesk",
+      "queue_item_id": "10220c3ce95144c7ad12ac071a765a85",
+      "custom_data": null,
+      "elapsed_time": 5224,
+      "elapsed_time_last_updated": 1789790499.9638515
+    },
+    "enabled": true,
+    "hide_in_ui": false,
+    "private": false,
+    "expose_to_ha": true,
+    "icon": "speaker",
+    "group_volume": 0,
+    "group_volume_muted": null,
+    "extra_attributes": {},
+    "power_control": "none",
+    "volume_control": "none",
+    "mute_control": "none",
+    "output_protocols": [
+      {
+        "output_protocol_id": "sendspin-study-desk",
+        "name": "Sendspin",
+        "protocol_domain": "sendspin",
+        "is_native": false,
+        "priority": 40,
+        "available": false,
+        "derived_from": null
+      }
+    ],
+    "active_output_protocol": null,
+    "needs_setup": false,
+    "setup_reason": null,
+    "has_setup_flow": false,
+    "sleep_timer_expires_at": null,
+    "active_source_audio": null,
+    "display_name": "Study Desk",
+    "state": "idle",
+    "group_childs": [],
+    "extra_data": {},
+    "hide_player_in_ui": [
+      "when_unavailable",
+      "when_synced",
+      "when_group_active"
+    ]
+  },
+  {
+    "player_id": "RINCON_000000000000001400",
+    "provider": "sonos",
+    "type": "player",
+    "name": "Kitchen",
+    "available": true,
+    "device_info": {
+      "model": "Port",
+      "manufacturer": "SONOS",
+      "software_version": null,
+      "model_id": null,
+      "manufacturer_id": null,
+      "identifiers": {
+        "ip_address": "192.0.2.1:8095",
+        "uuid": "RINCON_000000000000001400",
+        "mac_address": "00:00:00:00:00:00"
+      },
+      "mac_address": "00:00:00:00:00:00",
+      "ip_address": "192.0.2.1:8095"
+    },
+    "supported_features": [
+      "pause",
+      "seek",
+      "enqueue",
+      "select_source",
+      "gapless_playback",
+      "set_members",
+      "volume_mute",
+      "play_media",
+      "volume_set",
+      "next_previous",
+      "play_announcement"
+    ],
+    "playback_state": "idle",
+    "elapsed_time": 0.0,
+    "elapsed_time_last_updated": 1793115174.3621693,
+    "powered": true,
+    "volume_level": 13,
+    "volume_muted": false,
+    "group_members": [],
+    "static_group_members": [],
+    "can_group_with": [
+      "RINCON_00000000000101400",
+      "RINCON_00000000000201400",
+      "RINCON_00000000000301400",
+      "RINCON_00000000000401400",
+      "RINCON_00000000000501400",
+      "RINCON_00000000000601400",
+      "RINCON_00000000000701400",
+      "RINCON_00000000000801400",
+      "RINCON_00000000000901400",
+      "RINCON_00000000000A01400"
+    ],
+    "synced_to": null,
+    "active_sound_mode": null,
+    "sound_mode_list": [],
+    "options": [],
+    "active_source": "RINCON_000000000000001400",
+    "source_list": [
+      {
+        "id": "line_in",
+        "name": "Line-in",
+        "passive": false,
+        "can_play_pause": false,
+        "can_seek": false,
+        "can_next_previous": false,
+        "can_shuffle": false,
+        "can_repeat": false,
+        "shuffle_enabled": null,
+        "repeat_mode": null,
+        "account_id": null
+      },
+      {
+        "id": "airplay",
+        "name": "AirPlay",
+        "passive": true,
+        "can_play_pause": true,
+        "can_seek": true,
+        "can_next_previous": true,
+        "can_shuffle": false,
+        "can_repeat": false,
+        "shuffle_enabled": null,
+        "repeat_mode": null,
+        "account_id": null
+      },
+      {
+        "id": "spotify",
+        "name": "Spotify",
+        "passive": true,
+        "can_play_pause": true,
+        "can_seek": true,
+        "can_next_previous": true,
+        "can_shuffle": false,
+        "can_repeat": false,
+        "shuffle_enabled": null,
+        "repeat_mode": null,
+        "account_id": null
+      },
+      {
+        "id": "RINCON_000000000000001400",
+        "name": "Music Assistant Queue",
+        "passive": false,
+        "can_play_pause": false,
+        "can_seek": false,
+        "can_next_previous": false,
+        "can_shuffle": false,
+        "can_repeat": false,
+        "shuffle_enabled": null,
+        "repeat_mode": null,
+        "account_id": null
+      }
+    ],
+    "active_group": null,
+    "current_media": null,
+    "enabled": true,
+    "hide_in_ui": false,
+    "private": false,
+    "expose_to_ha": true,
+    "icon": "sonos",
+    "group_volume": 13,
+    "group_volume_muted": false,
+    "extra_attributes": {},
+    "power_control": "none",
+    "volume_control": "native",
+    "mute_control": "native",
+    "output_protocols": [
+      {
+        "output_protocol_id": "native",
+        "name": "SONOS",
+        "protocol_domain": "sonos",
+        "is_native": true,
+        "priority": 0,
+        "available": true,
+        "derived_from": null
+      },
+      {
+        "output_protocol_id": "ap48a6b82b0cfe",
+        "name": "Airplay",
+        "protocol_domain": "airplay",
+        "is_native": false,
+        "priority": 10,
+        "available": false,
+        "derived_from": null
+      },
+      {
+        "output_protocol_id": "spb_48a6b82b0cfe",
+        "name": "Sendspin",
+        "protocol_domain": "sendspin",
+        "is_native": false,
+        "priority": 40,
+        "available": false,
+        "derived_from": null
+      }
+    ],
+    "active_output_protocol": null,
+    "needs_setup": false,
+    "setup_reason": null,
+    "has_setup_flow": false,
+    "sleep_timer_expires_at": null,
+    "active_source_audio": null,
+    "display_name": "Kitchen",
+    "state": "idle",
+    "group_childs": [],
+    "extra_data": {},
+    "hide_player_in_ui": [
+      "when_unavailable",
+      "when_synced",
+      "when_group_active"
+    ]
+  }
+]
