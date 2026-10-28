@@ -33,102 +33,18 @@ const _$ImageTypeEnumMap = {
 };
 
 MediaItemPalette _$MediaItemPaletteFromJson(Map<String, dynamic> json) => MediaItemPalette()
-  ..backgroundDark = _$recordConvertNullable(
-    json['background_dark'],
-    ($jsonValue) => (
-      ($jsonValue[r'$1'] as num).toInt(),
-      ($jsonValue[r'$2'] as num).toInt(),
-      ($jsonValue[r'$3'] as num).toInt(),
-    ),
-  )
-  ..backgroundLight = _$recordConvertNullable(
-    json['background_light'],
-    ($jsonValue) => (
-      ($jsonValue[r'$1'] as num).toInt(),
-      ($jsonValue[r'$2'] as num).toInt(),
-      ($jsonValue[r'$3'] as num).toInt(),
-    ),
-  )
-  ..primary = _$recordConvertNullable(
-    json['primary'],
-    ($jsonValue) => (
-      ($jsonValue[r'$1'] as num).toInt(),
-      ($jsonValue[r'$2'] as num).toInt(),
-      ($jsonValue[r'$3'] as num).toInt(),
-    ),
-  )
-  ..accent = _$recordConvertNullable(
-    json['accent'],
-    ($jsonValue) => (
-      ($jsonValue[r'$1'] as num).toInt(),
-      ($jsonValue[r'$2'] as num).toInt(),
-      ($jsonValue[r'$3'] as num).toInt(),
-    ),
-  )
-  ..onDark = _$recordConvertNullable(
-    json['on_dark'],
-    ($jsonValue) => (
-      ($jsonValue[r'$1'] as num).toInt(),
-      ($jsonValue[r'$2'] as num).toInt(),
-      ($jsonValue[r'$3'] as num).toInt(),
-    ),
-  )
-  ..onLight = _$recordConvertNullable(
-    json['on_light'],
-    ($jsonValue) => (
-      ($jsonValue[r'$1'] as num).toInt(),
-      ($jsonValue[r'$2'] as num).toInt(),
-      ($jsonValue[r'$3'] as num).toInt(),
-    ),
-  );
+  ..backgroundDark = const RgbConverter().fromJson(json['background_dark'] as List?)
+  ..backgroundLight = const RgbConverter().fromJson(json['background_light'] as List?)
+  ..primary = const RgbConverter().fromJson(json['primary'] as List?)
+  ..accent = const RgbConverter().fromJson(json['accent'] as List?)
+  ..onDark = const RgbConverter().fromJson(json['on_dark'] as List?)
+  ..onLight = const RgbConverter().fromJson(json['on_light'] as List?);
 
 Map<String, dynamic> _$MediaItemPaletteToJson(MediaItemPalette instance) => <String, dynamic>{
-      'background_dark': instance.backgroundDark == null
-          ? null
-          : <String, dynamic>{
-              r'$1': instance.backgroundDark!.$1,
-              r'$2': instance.backgroundDark!.$2,
-              r'$3': instance.backgroundDark!.$3,
-            },
-      'background_light': instance.backgroundLight == null
-          ? null
-          : <String, dynamic>{
-              r'$1': instance.backgroundLight!.$1,
-              r'$2': instance.backgroundLight!.$2,
-              r'$3': instance.backgroundLight!.$3,
-            },
-      'primary': instance.primary == null
-          ? null
-          : <String, dynamic>{
-              r'$1': instance.primary!.$1,
-              r'$2': instance.primary!.$2,
-              r'$3': instance.primary!.$3,
-            },
-      'accent': instance.accent == null
-          ? null
-          : <String, dynamic>{
-              r'$1': instance.accent!.$1,
-              r'$2': instance.accent!.$2,
-              r'$3': instance.accent!.$3,
-            },
-      'on_dark': instance.onDark == null
-          ? null
-          : <String, dynamic>{
-              r'$1': instance.onDark!.$1,
-              r'$2': instance.onDark!.$2,
-              r'$3': instance.onDark!.$3,
-            },
-      'on_light': instance.onLight == null
-          ? null
-          : <String, dynamic>{
-              r'$1': instance.onLight!.$1,
-              r'$2': instance.onLight!.$2,
-              r'$3': instance.onLight!.$3,
-            },
+      'background_dark': const RgbConverter().toJson(instance.backgroundDark),
+      'background_light': const RgbConverter().toJson(instance.backgroundLight),
+      'primary': const RgbConverter().toJson(instance.primary),
+      'accent': const RgbConverter().toJson(instance.accent),
+      'on_dark': const RgbConverter().toJson(instance.onDark),
+      'on_light': const RgbConverter().toJson(instance.onLight),
     };
-
-$Rec? _$recordConvertNullable<$Rec>(
-  Object? value,
-  $Rec Function(Map) convert,
-) =>
-    value == null ? null : convert(value as Map<String, dynamic>);

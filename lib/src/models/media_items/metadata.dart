@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../converters.dart';
 import '../enums.dart';
 
 part 'metadata.g.dart';
@@ -26,7 +27,7 @@ class MediaItemImage {
 }
 
 /// Color palette derived from a MediaItem's artwork.
-@JsonSerializable()
+@JsonSerializable(converters: [RgbConverter()])
 class MediaItemPalette {
   MediaItemPalette();
 
