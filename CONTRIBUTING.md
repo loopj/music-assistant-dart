@@ -8,3 +8,11 @@ The models in this library are generated using `json_serializable`. If you make 
 dart run build_runner build
 dart format lib/src/**/*.g.dart
 ```
+
+## Running Tests
+
+The tests parse replies captured from a real server, stored in `test/fixtures`. Run them with the following command:
+
+```bash
+dart test
+```
