@@ -1,2 +1,11 @@
+export 'src/endpoints/albums.dart';
+export 'src/endpoints/artists.dart';
+export 'src/endpoints/audiobooks.dart';
+export 'src/endpoints/genres.dart';
 export 'src/endpoints/player_queues.dart';
 export 'src/endpoints/players.dart';
+export 'src/endpoints/playlists.dart';
+export 'src/endpoints/podcasts.dart';
+export 'src/endpoints/radios.dart';
+export 'src/endpoints/sound_effects.dart';
+export 'src/endpoints/tracks.dart';

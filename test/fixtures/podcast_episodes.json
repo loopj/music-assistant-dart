@@ -1,0 +1,308 @@
+[
+  {
+    "item_id": "6NPXtGBnRZYDP47TqjGcqd",
+    "provider": "spotify--00000000",
+    "name": "Gumballs and DoomKnights: Live at MGC Part 2",
+    "version": "",
+    "sort_name": "gumballs and doomknights: live at mgc part 2",
+    "uri": "spotify--00000000://podcast_episode/6NPXtGBnRZYDP47TqjGcqd",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "podcast_episode",
+    "provider_mappings": [
+      {
+        "item_id": "6NPXtGBnRZYDP47TqjGcqd",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 160
+        },
+        "url": "https://open.spotify.com/episode/6NPXtGBnRZYDP47TqjGcqd",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": "Hey hey, it's a second helping of Nick's short interview series from Midwest Gaming Classic 2026. This is Part 2 of a 2 part series.Adam Lewis Graf is a host of the Pocketeering podcast, and creator of Gumball in Trick-or-Treat Land for the GameBoy Color. Find it online at Itch.io or Steam, or get a physical cartridge from Mega Cat Studios.Artix von Krieger (Adam Bohn) is the founder and CEO of Artix Entertainment. Find him online at Artix.com. Besides Dungeons and Doomknights, Artix is the developer of several other NESmaker projects, most of which you can check out here.All music breaks in this episode are courtesy of Jordan Davis (aka Raftronaut). Find his work at Raft Labs Interactive. Want to support the podcast? We have a new Ko-Fi link at our website, homebrewgameclub.com, where you can also find links to previous episodes, social media, and more.Chapters:(00:00:00) Intro(00:01:22) Music 1: Viper's Last Drag(00:02:22) Adam Graff(00:16:21) Music 2: Winter Camping(00:17:02) Artix Krieger(00:36:10) Outro",
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": false,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab6765630000ba8afcd03128a83c7de4088f8ecb",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": null,
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": "2026-09-02T00:00:00+00:00",
+      "languages": null,
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": 51,
+    "date_added": null,
+    "podcast": {
+      "item_id": "2OrBw3ZOOhRDZfcAwSImwZ",
+      "provider": "spotify--00000000",
+      "name": "Homebrew Game Club",
+      "version": "",
+      "sort_name": "homebrew game club",
+      "uri": "spotify--00000000://podcast/2OrBw3ZOOhRDZfcAwSImwZ",
+      "external_ids": [],
+      "is_playable": true,
+      "media_type": "podcast",
+      "provider_mappings": [
+        {
+          "item_id": "2OrBw3ZOOhRDZfcAwSImwZ",
+          "provider_domain": "spotify",
+          "provider_instance": "spotify--00000000",
+          "available": true,
+          "in_library": null,
+          "is_unique": null,
+          "audio_format": {
+            "content_type": "?",
+            "codec_type": "?",
+            "sample_rate": 44100,
+            "bit_depth": 16,
+            "channels": 2,
+            "output_format_str": "?",
+            "bit_rate": 0
+          },
+          "url": "https://open.spotify.com/show/2OrBw3ZOOhRDZfcAwSImwZ",
+          "details": null
+        }
+      ],
+      "metadata": {
+        "description": "A podcast about brand-new, original, aftermarket indie video games for retro consoles. We combine smart takes with ridiculous humor to review new games for old systems, meet their developers and publishers, and take deep dives into the quirky communities that support them. Play along with us to rediscover platforms like the Nintendo Entertainment System (NES), Atari 2600, Sega Genesis, Game Boy, and more!",
+        "description_language": null,
+        "life_span": null,
+        "artist_entity_type": null,
+        "review": null,
+        "explicit": true,
+        "images": [
+          {
+            "type": "thumb",
+            "path": "https://i.scdn.co/image/ab6765630000ba8a43bfc90355e783a7a3558d73",
+            "provider": "spotify--00000000",
+            "remotely_accessible": true,
+            "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "grouping": null,
+        "genres": [
+          "Spoken Word"
+        ],
+        "mood": null,
+        "style": null,
+        "copyright": null,
+        "lyrics": null,
+        "lrc_lyrics": null,
+        "transcript": null,
+        "transcript_cues": null,
+        "has_transcript": null,
+        "label": null,
+        "links": null,
+        "performers": null,
+        "preview": null,
+        "popularity": null,
+        "release_date": null,
+        "languages": [
+          "en-US"
+        ],
+        "chapters": null,
+        "collections": null,
+        "last_refresh": null
+      },
+      "favorite": false,
+      "position": null,
+      "date_added": null,
+      "publisher": null,
+      "total_episodes": 51
+    },
+    "duration": 2275,
+    "fully_played": null,
+    "resume_position_ms": null
+  },
+  {
+    "item_id": "4YrlOimmo6W95n8fVMb6j8",
+    "provider": "spotify--00000000",
+    "name": "BioCreeps, Dizzy Sheep, and the Sole Goose: Live at MGC Part 1",
+    "version": "",
+    "sort_name": "biocreeps, dizzy sheep, and the sole goose: live at mgc part 1",
+    "uri": "spotify--00000000://podcast_episode/4YrlOimmo6W95n8fVMb6j8",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "podcast_episode",
+    "provider_mappings": [
+      {
+        "item_id": "4YrlOimmo6W95n8fVMb6j8",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 160
+        },
+        "url": "https://open.spotify.com/episode/4YrlOimmo6W95n8fVMb6j8",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": "Nick is back from Milwaukee with short interviews from Midwest Gaming Classic 2026. This is Part 1 of a 2 part series.Nate Ehlers is the creator of the NES homebrew game BioCreeps. Find out more about the game at BioCreeps.com. Sarah Parker is the creator Dizzy Sheep Disaster, a game for the Nintendo e-Reader. Grab your own foil pack of cards today at her website.E.B.D. \"Beau\" Holland is an NES developer, publisher, and a co-host of the Assembly Line podcast. You can check out his work at his website, Sole Goose Productions.All music breaks in this episode are courtesy of Jordan Davis (aka Raftronaut). Find his work at Raft Labs Interactive. Want to support the podcast? We have a new Ko-Fi link at our website, homebrewgameclub.com, where you can also find links to previous episodes, social media, and more.Chapters:(00:00) - Intro(01:14) - Music 1: Viper's Last Drag(02:11) - Nate Ehlers(13:08) - Music 2: Winter Camping(13:50) - Sarah Parker(21:20) - Music 3: Homebrew Breakdown(21:48) - Beau Holland(35:53) - Outro",
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": false,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab6765630000ba8acf7f233a9732682bed14620e",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": null,
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": "2026-05-24T00:00:00+00:00",
+      "languages": null,
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": 50,
+    "date_added": null,
+    "podcast": {
+      "item_id": "2OrBw3ZOOhRDZfcAwSImwZ",
+      "provider": "spotify--00000000",
+      "name": "Homebrew Game Club",
+      "version": "",
+      "sort_name": "homebrew game club",
+      "uri": "spotify--00000000://podcast/2OrBw3ZOOhRDZfcAwSImwZ",
+      "external_ids": [],
+      "is_playable": true,
+      "media_type": "podcast",
+      "provider_mappings": [
+        {
+          "item_id": "2OrBw3ZOOhRDZfcAwSImwZ",
+          "provider_domain": "spotify",
+          "provider_instance": "spotify--00000000",
+          "available": true,
+          "in_library": null,
+          "is_unique": null,
+          "audio_format": {
+            "content_type": "?",
+            "codec_type": "?",
+            "sample_rate": 44100,
+            "bit_depth": 16,
+            "channels": 2,
+            "output_format_str": "?",
+            "bit_rate": 0
+          },
+          "url": "https://open.spotify.com/show/2OrBw3ZOOhRDZfcAwSImwZ",
+          "details": null
+        }
+      ],
+      "metadata": {
+        "description": "A podcast about brand-new, original, aftermarket indie video games for retro consoles. We combine smart takes with ridiculous humor to review new games for old systems, meet their developers and publishers, and take deep dives into the quirky communities that support them. Play along with us to rediscover platforms like the Nintendo Entertainment System (NES), Atari 2600, Sega Genesis, Game Boy, and more!",
+        "description_language": null,
+        "life_span": null,
+        "artist_entity_type": null,
+        "review": null,
+        "explicit": true,
+        "images": [
+          {
+            "type": "thumb",
+            "path": "https://i.scdn.co/image/ab6765630000ba8a43bfc90355e783a7a3558d73",
+            "provider": "spotify--00000000",
+            "remotely_accessible": true,
+            "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "grouping": null,
+        "genres": [
+          "Spoken Word"
+        ],
+        "mood": null,
+        "style": null,
+        "copyright": null,
+        "lyrics": null,
+        "lrc_lyrics": null,
+        "transcript": null,
+        "transcript_cues": null,
+        "has_transcript": null,
+        "label": null,
+        "links": null,
+        "performers": null,
+        "preview": null,
+        "popularity": null,
+        "release_date": null,
+        "languages": [
+          "en-US"
+        ],
+        "chapters": null,
+        "collections": null,
+        "last_refresh": null
+      },
+      "favorite": false,
+      "position": null,
+      "date_added": null,
+      "publisher": null,
+      "total_episodes": 51
+    },
+    "duration": 2269,
+    "fully_played": null,
+    "resume_position_ms": 17000
+  }
+]

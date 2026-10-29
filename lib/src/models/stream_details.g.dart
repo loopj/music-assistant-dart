@@ -43,8 +43,9 @@ StreamDetails _$StreamDetailsFromJson(Map<String, dynamic> json) => StreamDetail
   ..itemId = json['item_id'] as String?
   ..audioFormat =
       json['audio_format'] == null ? null : AudioFormat.fromJson(json['audio_format'] as Map<String, dynamic>)
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
-  ..streamType = $enumDecodeNullable(_$StreamTypeEnumMap, json['stream_type'])
+  ..mediaType =
+      $enumDecodeNullable(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown) ?? MediaType.track
+  ..streamType = $enumDecodeNullable(_$StreamTypeEnumMap, json['stream_type'], unknownValue: StreamType.unknown)
   ..duration = (json['duration'] as num?)?.toInt()
   ..size = (json['size'] as num?)?.toInt()
   ..streamMetadata =
@@ -71,9 +72,11 @@ const _$MediaTypeEnumMap = {
   MediaType.podcast: 'podcast',
   MediaType.podcastEpisode: 'podcast_episode',
   MediaType.folder: 'folder',
+  MediaType.collection: 'collection',
   MediaType.announcement: 'announcement',
   MediaType.flowStream: 'flow_stream',
   MediaType.pluginSource: 'plugin_source',
+  MediaType.audioSource: 'audio_source',
   MediaType.soundEffect: 'sound_effect',
   MediaType.genre: 'genre',
   MediaType.unknown: 'unknown',

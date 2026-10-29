@@ -1,0 +1,241 @@
+[
+  {
+    "item_id": "2rWv5MzA6PbssPJRVxCjKX",
+    "provider": "spotify--00000000",
+    "name": "Project Hail Mary",
+    "version": "",
+    "sort_name": "project hail mary",
+    "uri": "spotify--00000000://audiobook/2rWv5MzA6PbssPJRVxCjKX",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "audiobook",
+    "provider_mappings": [
+      {
+        "item_id": "2rWv5MzA6PbssPJRVxCjKX",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/show/2rWv5MzA6PbssPJRVxCjKX",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": "Publisher description.",
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": null,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab676663000022a8cc376cede71c8b58a0256c57",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": [
+        "Spoken Word"
+      ],
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": null,
+      "languages": [
+        "da"
+      ],
+      "chapters": [
+        {
+          "position": 1,
+          "name": "Track 1",
+          "start": 0.0,
+          "end": 3515.687
+        },
+        {
+          "position": 2,
+          "name": "Track 2",
+          "start": 3515.687,
+          "end": 7992.494
+        },
+        {
+          "position": 3,
+          "name": "Track 3",
+          "start": 7992.494,
+          "end": 11085.577
+        },
+        {
+          "position": 4,
+          "name": "Track 4",
+          "start": 11085.577,
+          "end": 15213.526999999998
+        },
+        {
+          "position": 5,
+          "name": "Track 5",
+          "start": 15213.526999999998,
+          "end": 22349.111999999997
+        },
+        {
+          "position": 6,
+          "name": "Track 6",
+          "start": 22349.111999999997,
+          "end": 29366.088999999996
+        },
+        {
+          "position": 7,
+          "name": "Track 7",
+          "start": 29366.088999999996,
+          "end": 32870.537
+        },
+        {
+          "position": 8,
+          "name": "Track 8",
+          "start": 32870.537,
+          "end": 41099.409999999996
+        },
+        {
+          "position": 9,
+          "name": "Track 9",
+          "start": 41099.409999999996,
+          "end": 48574.284999999996
+        },
+        {
+          "position": 10,
+          "name": "Track 10",
+          "start": 48574.284999999996,
+          "end": 54255.30499999999
+        },
+        {
+          "position": 11,
+          "name": "Project Hail Mary",
+          "start": 54255.30499999999,
+          "end": 54555.32899999999
+        }
+      ],
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": null,
+    "date_added": null,
+    "publisher": null,
+    "authors": [
+      "Andy Weir"
+    ],
+    "narrators": [
+      "David Garmark"
+    ],
+    "duration": 54555,
+    "fully_played": null,
+    "resume_position_ms": null
+  },
+  {
+    "item_id": "6yI0Np2UyigswnRqjSKN5V",
+    "provider": "spotify--00000000",
+    "name": "The Hitchhiker's Guide to the Galaxy",
+    "version": "",
+    "sort_name": "hitchhiker's guide to the galaxy, the",
+    "uri": "spotify--00000000://audiobook/6yI0Np2UyigswnRqjSKN5V",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "audiobook",
+    "provider_mappings": [
+      {
+        "item_id": "6yI0Np2UyigswnRqjSKN5V",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/show/6yI0Np2UyigswnRqjSKN5V",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": "Publisher description.",
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": null,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab676663000022a847bd90cc513ae7dceff02d31",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": [
+        "Spoken Word"
+      ],
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": null,
+      "languages": [
+        "en"
+      ],
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": null,
+    "date_added": null,
+    "publisher": null,
+    "authors": [
+      "Douglas Adams"
+    ],
+    "narrators": [
+      "Stephen Fry"
+    ],
+    "duration": 0,
+    "fully_played": null,
+    "resume_position_ms": null
+  }
+]

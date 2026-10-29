@@ -7,15 +7,16 @@ part of 'api.dart';
 // **************************************************************************
 
 ServerInfoMessage _$ServerInfoMessageFromJson(Map<String, dynamic> json) => ServerInfoMessage()
-  ..serverId = json['server_id'] as String
-  ..serverVersion = json['server_version'] as String
-  ..schemaVersion = (json['schema_version'] as num).toInt()
-  ..minSupportedSchemaVersion = (json['min_supported_schema_version'] as num).toInt()
-  ..baseUrl = json['base_url'] as String
-  ..homeassistantAddon = json['homeassistant_addon'] as bool
-  ..onboardDone = json['onboard_done'] as bool
+  ..serverId = json['server_id'] as String? ?? ''
+  ..serverVersion = json['server_version'] as String? ?? ''
+  ..schemaVersion = (json['schema_version'] as num?)?.toInt() ?? 0
+  ..minSupportedSchemaVersion = (json['min_supported_schema_version'] as num?)?.toInt() ?? 0
+  ..baseUrl = json['base_url'] as String? ?? ''
+  ..homeassistantAddon = json['homeassistant_addon'] as bool? ?? false
+  ..onboardDone = json['onboard_done'] as bool? ?? false
   ..name = json['name'] as String?
-  ..status = $enumDecode(_$CoreStateEnumMap, json['status']);
+  ..status =
+      $enumDecodeNullable(_$CoreStateEnumMap, json['status'], unknownValue: CoreState.unknown) ?? CoreState.running;
 
 Map<String, dynamic> _$ServerInfoMessageToJson(ServerInfoMessage instance) => <String, dynamic>{
       'server_id': instance.serverId,
@@ -34,4 +35,5 @@ const _$CoreStateEnumMap = {
   CoreState.running: 'running',
   CoreState.stopping: 'stopping',
   CoreState.stopped: 'stopped',
+  CoreState.unknown: 'unknown',
 };

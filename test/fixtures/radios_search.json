@@ -1,0 +1,150 @@
+[
+  {
+    "item_id": "bbc_radio_one",
+    "provider": "bbc_sounds",
+    "name": "BBC Radio 1",
+    "version": "",
+    "sort_name": "bbc radio 1",
+    "uri": "bbc_sounds://radio/bbc_radio_one",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "radio",
+    "provider_mappings": [
+      {
+        "item_id": "bbc_radio_one",
+        "provider_domain": "bbc_sounds",
+        "provider_instance": "bbc_sounds",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": null,
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": null,
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": null,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://sounds.files.bbci.co.uk/3.12.0/networks/bbc_radio_one/colour_450x450.png",
+          "provider": "bbc_sounds",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": null,
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": null,
+      "languages": null,
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": null,
+    "date_added": null,
+    "duration": 0,
+    "is_dynamic": false
+  },
+  {
+    "item_id": "bbc_1xtra",
+    "provider": "bbc_sounds",
+    "name": "BBC Radio 1Xtra",
+    "version": "",
+    "sort_name": "bbc radio 1xtra",
+    "uri": "bbc_sounds://radio/bbc_1xtra",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "radio",
+    "provider_mappings": [
+      {
+        "item_id": "bbc_1xtra",
+        "provider_domain": "bbc_sounds",
+        "provider_instance": "bbc_sounds",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": null,
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": null,
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": null,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://sounds.files.bbci.co.uk/3.12.0/networks/bbc_1xtra/colour_450x450.png",
+          "provider": "bbc_sounds",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": null,
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": null,
+      "languages": null,
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": null,
+    "date_added": null,
+    "duration": 0,
+    "is_dynamic": false
+  }
+]

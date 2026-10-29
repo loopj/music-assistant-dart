@@ -9,15 +9,15 @@ part of 'auth.dart';
 User _$UserFromJson(Map<String, dynamic> json) => User(
       userId: json['user_id'] as String,
       username: json['username'] as String,
-      role: $enumDecode(_$UserRoleEnumMap, json['role']),
+      role: $enumDecode(_$UserRoleEnumMap, json['role'], unknownValue: UserRole.unknown),
     )
-      ..enabled = json['enabled'] as bool
+      ..enabled = json['enabled'] as bool? ?? true
       ..createdAt = DateTime.parse(json['created_at'] as String)
       ..displayName = json['display_name'] as String?
       ..avatarUrl = json['avatar_url'] as String?
-      ..preferences = json['preferences'] as Map<String, dynamic>
-      ..providerFilter = (json['provider_filter'] as List<dynamic>).map((e) => e as String).toList()
-      ..playerFilter = (json['player_filter'] as List<dynamic>).map((e) => e as String).toList();
+      ..preferences = json['preferences'] as Map<String, dynamic>? ?? {}
+      ..providerFilter = (json['provider_filter'] as List<dynamic>?)?.map((e) => e as String).toList() ?? []
+      ..playerFilter = (json['player_filter'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [];
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'user_id': instance.userId,
@@ -36,12 +36,15 @@ const _$UserRoleEnumMap = {
   UserRole.admin: 'admin',
   UserRole.user: 'user',
   UserRole.guest: 'guest',
+  UserRole.service: 'service',
+  UserRole.unknown: 'unknown',
 };
 
 UserAuthProvider _$UserAuthProviderFromJson(Map<String, dynamic> json) => UserAuthProvider(
       linkId: json['link_id'] as String,
       userId: json['user_id'] as String,
-      providerType: $enumDecode(_$AuthProviderTypeEnumMap, json['provider_type']),
+      providerType:
+          $enumDecode(_$AuthProviderTypeEnumMap, json['provider_type'], unknownValue: AuthProviderType.builtin),
       providerUserId: json['provider_user_id'] as String,
     )..createdAt = DateTime.parse(json['created_at'] as String);
 
@@ -67,7 +70,7 @@ AuthToken _$AuthTokenFromJson(Map<String, dynamic> json) => AuthToken(
       ..createdAt = DateTime.parse(json['created_at'] as String)
       ..expiresAt = json['expires_at'] == null ? null : DateTime.parse(json['expires_at'] as String)
       ..lastUsedAt = json['last_used_at'] == null ? null : DateTime.parse(json['last_used_at'] as String)
-      ..isLongLived = json['is_long_lived'] as bool;
+      ..isLongLived = json['is_long_lived'] as bool? ?? false;
 
 Map<String, dynamic> _$AuthTokenToJson(AuthToken instance) => <String, dynamic>{
       'token_id': instance.tokenId,

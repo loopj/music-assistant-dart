@@ -4,9 +4,18 @@ import 'package:logging/logging.dart';
 
 import 'connection.dart';
 import 'events.dart';
+import 'endpoints/albums.dart';
+import 'endpoints/artists.dart';
+import 'endpoints/audiobooks.dart';
 import 'endpoints/auth.dart';
+import 'endpoints/genres.dart';
 import 'endpoints/players.dart';
 import 'endpoints/player_queues.dart';
+import 'endpoints/playlists.dart';
+import 'endpoints/podcasts.dart';
+import 'endpoints/radios.dart';
+import 'endpoints/sound_effects.dart';
+import 'endpoints/tracks.dart';
 import 'models/api.dart';
 import 'models/auth.dart';
 
@@ -37,6 +46,33 @@ class MusicAssistantClient {
 
   /// Player queue related endpoints/commands.
   late final PlayerQueuesEndpoint playerQueues = PlayerQueuesEndpoint(this);
+
+  /// Genre related endpoints/commands.
+  late final GenresEndpoint genres = GenresEndpoint(this);
+
+  /// Artist related endpoints/commands.
+  late final ArtistsEndpoint artists = ArtistsEndpoint(this);
+
+  /// Album related endpoints/commands.
+  late final AlbumsEndpoint albums = AlbumsEndpoint(this);
+
+  /// Track related endpoints/commands.
+  late final TracksEndpoint tracks = TracksEndpoint(this);
+
+  /// Playlist related endpoints/commands.
+  late final PlaylistsEndpoint playlists = PlaylistsEndpoint(this);
+
+  /// Podcast related endpoints/commands.
+  late final PodcastsEndpoint podcasts = PodcastsEndpoint(this);
+
+  /// Radio related endpoints/commands.
+  late final RadiosEndpoint radios = RadiosEndpoint(this);
+
+  /// Audiobook related endpoints/commands.
+  late final AudiobooksEndpoint audiobooks = AudiobooksEndpoint(this);
+
+  /// Sound effect related endpoints/commands.
+  late final SoundEffectsEndpoint soundEffects = SoundEffectsEndpoint(this);
 
   /// Server info received on connection.
   ServerInfoMessage? get serverInfo => _connection.serverInfo;

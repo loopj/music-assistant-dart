@@ -1,0 +1,124 @@
+[
+  {
+    "item_id": "259",
+    "provider": "library",
+    "name": "132.00FM",
+    "version": "",
+    "sort_name": "132.00fm",
+    "uri": "library://album/259",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "album",
+    "provider_mappings": [
+      {
+        "item_id": "748lnO8zQNczVL8qTGXFBL",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/album/748lnO8zQNczVL8qTGXFBL",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab67616d0000b273b124692ea6297115c0d06e21",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "year": 2023,
+    "artists": [
+      {
+        "item_id": "309",
+        "provider": "library",
+        "name": "MPH",
+        "version": "",
+        "sort_name": "mph",
+        "uri": "library://artist/309",
+        "external_ids": [],
+        "is_playable": true,
+        "media_type": "artist",
+        "available": true
+      }
+    ],
+    "album_type": "album",
+    "available": true
+  },
+  {
+    "item_id": "274",
+    "provider": "library",
+    "name": "18 Months",
+    "version": "",
+    "sort_name": "18 months",
+    "uri": "library://album/274",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "album",
+    "provider_mappings": [
+      {
+        "item_id": "7w19PFbxAjwZ7UVNp9z0uT",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/album/7w19PFbxAjwZ7UVNp9z0uT",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab67616d0000b273dcef905cb144d4867119850b",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "year": 2012,
+    "artists": [
+      {
+        "item_id": "324",
+        "provider": "library",
+        "name": "Calvin Harris",
+        "version": "",
+        "sort_name": "calvin harris",
+        "uri": "library://artist/324",
+        "external_ids": [],
+        "is_playable": true,
+        "media_type": "artist",
+        "available": true
+      }
+    ],
+    "album_type": "album",
+    "available": true
+  }
+]
