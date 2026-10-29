@@ -12,9 +12,11 @@ enum MediaType {
   podcast('podcast'),
   podcastEpisode('podcast_episode'),
   folder('folder'),
+  collection('collection'),
   announcement('announcement'),
   flowStream('flow_stream'),
   pluginSource('plugin_source'),
+  audioSource('audio_source'),
   soundEffect('sound_effect'),
   genre('genre'),
   unknown('unknown');
@@ -85,6 +87,7 @@ enum ContentType {
   wma('wma'),
   wmav2('wmav2'),
   wmapro('wmapro'),
+  wmalossless('wmalossless'),
   wavpack('wavpack'),
   tak('tak'),
   ape('ape'),
@@ -184,6 +187,7 @@ enum PlayerType {
   display('display'),
   visualizer('visualizer'),
   light('light'),
+  source('source'),
   unknown('unknown');
 
   const PlayerType(this.value);
@@ -238,7 +242,9 @@ enum EventType {
   playerConfigUpdated('player_config_updated'),
   playerDspConfigUpdated('player_dsp_config_updated'),
   playerOptionsUpdated('player_options_updated'),
+  playerSleepTimerUpdated('player_sleep_timer_updated'),
   dspPresetsUpdated('dsp_presets_updated'),
+  dspIrsUpdated('dsp_irs_updated'),
   queueAdded('queue_added'),
   queueUpdated('queue_updated'),
   queueItemsUpdated('queue_items_updated'),
@@ -247,12 +253,21 @@ enum EventType {
   mediaItemAdded('media_item_added'),
   mediaItemUpdated('media_item_updated'),
   mediaItemDeleted('media_item_deleted'),
+  favoriteUpdated('favorite_updated'),
+  playlogUpdated('playlog_updated'),
   providersUpdated('providers_updated'),
+  providerEvent('provider_event'),
+  setupFlowUpdated('setup_flow_updated'),
   syncTasksUpdated('sync_tasks_updated'),
   tasksUpdated('tasks_updated'),
+  dashboardShow('dashboard_show'),
+  dashboardHide('dashboard_hide'),
+  dashboardsUpdated('dashboards_updated'),
+  dashboardSessionsUpdated('dashboard_sessions_updated'),
   musicSyncCompleted('music_sync_completed'),
   authSession('auth_session'),
   coreStateUpdated('core_state_updated'),
+  applicationShutdown('application_shutdown'),
   unknown('unknown');
 
   const EventType(this.value);

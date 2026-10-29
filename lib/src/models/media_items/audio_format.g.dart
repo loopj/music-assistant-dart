@@ -42,6 +42,7 @@ const _$ContentTypeEnumMap = {
   ContentType.wma: 'wma',
   ContentType.wmav2: 'wmav2',
   ContentType.wmapro: 'wmapro',
+  ContentType.wmalossless: 'wmalossless',
   ContentType.wavpack: 'wavpack',
   ContentType.tak: 'tak',
   ContentType.ape: 'ape',

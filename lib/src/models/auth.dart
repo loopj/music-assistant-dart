@@ -8,6 +8,7 @@ enum UserRole {
   admin('admin'),
   user('user'),
   guest('guest'),
+  service('service'),
   unknown('unknown');
 
   const UserRole(this.value);

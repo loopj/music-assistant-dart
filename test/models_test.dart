@@ -347,6 +347,19 @@ void main() {
     });
   });
 
+  group('Enums', () {
+    test('parse values added in recent server releases', () {
+      final user = User.fromJson({
+        'user_id': 'service-1',
+        'username': 'home-assistant',
+        'role': 'service',
+        'created_at': '2026-01-01T00:00:00+00:00',
+      });
+      expect(user.role, UserRole.service);
+      expect(EventType.fromValue('favorite_updated'), EventType.favoriteUpdated);
+    });
+  });
+
   group('Generated models', () {
     test('give every enum field a fallback for values from newer servers', () {
       final decodesWithoutFallback = Directory('lib/src/models')

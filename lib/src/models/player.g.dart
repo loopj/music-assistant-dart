@@ -84,9 +84,11 @@ const _$MediaTypeEnumMap = {
   MediaType.podcast: 'podcast',
   MediaType.podcastEpisode: 'podcast_episode',
   MediaType.folder: 'folder',
+  MediaType.collection: 'collection',
   MediaType.announcement: 'announcement',
   MediaType.flowStream: 'flow_stream',
   MediaType.pluginSource: 'plugin_source',
+  MediaType.audioSource: 'audio_source',
   MediaType.soundEffect: 'sound_effect',
   MediaType.genre: 'genre',
   MediaType.unknown: 'unknown',
@@ -275,6 +277,7 @@ const _$PlayerTypeEnumMap = {
   PlayerType.display: 'display',
   PlayerType.visualizer: 'visualizer',
   PlayerType.light: 'light',
+  PlayerType.source: 'source',
   PlayerType.unknown: 'unknown',
 };
 
