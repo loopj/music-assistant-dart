@@ -13,7 +13,7 @@ class PlaylistAccess {
   @JsonKey(name: 'owner')
   String? owner;
 
-  @JsonKey(name: 'sharing')
+  @JsonKey(name: 'sharing', unknownEnumValue: ProviderSharing.private)
   ProviderSharing sharing = ProviderSharing.private;
 
   /// Users the playlist is shared with, used only with [ProviderSharing.selected].

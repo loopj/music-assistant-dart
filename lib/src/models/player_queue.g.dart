@@ -13,13 +13,13 @@ PlayerQueue _$PlayerQueueFromJson(Map<String, dynamic> json) => PlayerQueue()
   ..available = json['available'] as bool?
   ..items = (json['items'] as num?)?.toInt()
   ..shuffleEnabled = json['shuffle_enabled'] as bool
-  ..repeatMode = $enumDecode(_$RepeatModeEnumMap, json['repeat_mode'])
+  ..repeatMode = $enumDecode(_$RepeatModeEnumMap, json['repeat_mode'], unknownValue: RepeatMode.unknown)
   ..dontStopTheMusicEnabled = json['dont_stop_the_music_enabled'] as bool
   ..currentIndex = (json['current_index'] as num?)?.toInt()
   ..indexInBuffer = (json['index_in_buffer'] as num?)?.toInt()
   ..elapsedTime = (json['elapsed_time'] as num).toDouble()
   ..elapsedTimeLastUpdated = (json['elapsed_time_last_updated'] as num?)?.toDouble()
-  ..state = $enumDecode(_$PlaybackStateEnumMap, json['state'])
+  ..state = $enumDecode(_$PlaybackStateEnumMap, json['state'], unknownValue: PlaybackState.unknown)
   ..currentItem = json['current_item'] == null ? null : QueueItem.fromJson(json['current_item'] as Map<String, dynamic>)
   ..nextItem = json['next_item'] == null ? null : QueueItem.fromJson(json['next_item'] as Map<String, dynamic>)
   ..radioSource = json['radio_source'] as List<dynamic>

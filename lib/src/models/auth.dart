@@ -7,7 +7,8 @@ part 'auth.g.dart';
 enum UserRole {
   admin('admin'),
   user('user'),
-  guest('guest');
+  guest('guest'),
+  unknown('unknown');
 
   const UserRole(this.value);
   final String value;
@@ -34,7 +35,7 @@ class User {
   @JsonKey(name: 'username')
   String username;
 
-  @JsonKey(name: 'role')
+  @JsonKey(name: 'role', unknownEnumValue: UserRole.unknown)
   UserRole role;
 
   @JsonKey(name: 'enabled')
@@ -78,7 +79,7 @@ class UserAuthProvider {
   @JsonKey(name: 'user_id')
   String userId;
 
-  @JsonKey(name: 'provider_type')
+  @JsonKey(name: 'provider_type', unknownEnumValue: AuthProviderType.builtin)
   AuthProviderType providerType;
 
   @JsonKey(name: 'provider_user_id')

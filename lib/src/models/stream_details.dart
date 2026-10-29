@@ -70,10 +70,10 @@ class StreamDetails {
   @JsonKey(name: 'audio_format')
   AudioFormat? audioFormat;
 
-  @JsonKey(name: 'media_type')
+  @JsonKey(name: 'media_type', unknownEnumValue: MediaType.unknown)
   MediaType mediaType = MediaType.track;
 
-  @JsonKey(name: 'stream_type')
+  @JsonKey(name: 'stream_type', unknownEnumValue: StreamType.unknown)
   StreamType? streamType;
 
   @JsonKey(name: 'duration')

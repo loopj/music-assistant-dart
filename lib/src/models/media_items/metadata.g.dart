@@ -7,7 +7,7 @@ part of 'metadata.dart';
 // **************************************************************************
 
 MediaItemImage _$MediaItemImageFromJson(Map<String, dynamic> json) => MediaItemImage()
-  ..type = $enumDecodeNullable(_$ImageTypeEnumMap, json['type'])
+  ..type = $enumDecodeNullable(_$ImageTypeEnumMap, json['type'], unknownValue: ImageType.other)
   ..path = json['path'] as String?
   ..provider = json['provider'] as String?
   ..remotelyAccessible = json['remotely_accessible'] as bool;

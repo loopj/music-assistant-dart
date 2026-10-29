@@ -300,7 +300,8 @@ enum CoreState {
   starting('starting'),
   running('running'),
   stopping('stopping'),
-  stopped('stopped');
+  stopped('stopped'),
+  unknown('unknown');
 
   const CoreState(this.value);
   final String value;

@@ -10,7 +10,7 @@ part 'metadata.g.dart';
 class MediaItemImage {
   MediaItemImage();
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', unknownEnumValue: ImageType.other)
   ImageType? type;
 
   @JsonKey(name: 'path')

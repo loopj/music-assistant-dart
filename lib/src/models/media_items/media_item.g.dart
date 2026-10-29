@@ -16,7 +16,7 @@ ItemMapping _$ItemMappingFromJson(Map<String, dynamic> json) => ItemMapping()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..translationKey = json['translation_key'] as String?
   ..available = json['available'] as bool? ?? true
   ..image = json['image'] == null ? null : MediaItemImage.fromJson(json['image'] as Map<String, dynamic>)
@@ -66,7 +66,7 @@ Genre _$GenreFromJson(Map<String, dynamic> json) => Genre()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -109,7 +109,7 @@ Artist _$ArtistFromJson(Map<String, dynamic> json) => Artist()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -156,7 +156,7 @@ Album _$AlbumFromJson(Map<String, dynamic> json) => Album()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -211,7 +211,7 @@ Track _$TrackFromJson(Map<String, dynamic> json) => Track()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -264,7 +264,7 @@ Playlist _$PlaylistFromJson(Map<String, dynamic> json) => Playlist()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -317,7 +317,7 @@ Radio _$RadioFromJson(Map<String, dynamic> json) => Radio()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -364,7 +364,7 @@ Audiobook _$AudiobookFromJson(Map<String, dynamic> json) => Audiobook()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -413,7 +413,7 @@ Podcast _$PodcastFromJson(Map<String, dynamic> json) => Podcast()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -456,7 +456,7 @@ PodcastEpisode _$PodcastEpisodeFromJson(Map<String, dynamic> json) => PodcastEpi
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??
@@ -505,7 +505,7 @@ SoundEffect _$SoundEffectFromJson(Map<String, dynamic> json) => SoundEffect()
   ..externalIds =
       (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
   ..isPlayable = json['is_playable'] as bool
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
           .toList() ??

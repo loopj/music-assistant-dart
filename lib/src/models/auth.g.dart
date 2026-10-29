@@ -9,7 +9,7 @@ part of 'auth.dart';
 User _$UserFromJson(Map<String, dynamic> json) => User(
       userId: json['user_id'] as String,
       username: json['username'] as String,
-      role: $enumDecode(_$UserRoleEnumMap, json['role']),
+      role: $enumDecode(_$UserRoleEnumMap, json['role'], unknownValue: UserRole.unknown),
     )
       ..enabled = json['enabled'] as bool
       ..createdAt = DateTime.parse(json['created_at'] as String)
@@ -36,12 +36,14 @@ const _$UserRoleEnumMap = {
   UserRole.admin: 'admin',
   UserRole.user: 'user',
   UserRole.guest: 'guest',
+  UserRole.unknown: 'unknown',
 };
 
 UserAuthProvider _$UserAuthProviderFromJson(Map<String, dynamic> json) => UserAuthProvider(
       linkId: json['link_id'] as String,
       userId: json['user_id'] as String,
-      providerType: $enumDecode(_$AuthProviderTypeEnumMap, json['provider_type']),
+      providerType:
+          $enumDecode(_$AuthProviderTypeEnumMap, json['provider_type'], unknownValue: AuthProviderType.builtin),
       providerUserId: json['provider_user_id'] as String,
     )..createdAt = DateTime.parse(json['created_at'] as String);
 

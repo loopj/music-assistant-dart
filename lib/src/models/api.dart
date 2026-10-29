@@ -33,7 +33,7 @@ class ServerInfoMessage {
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', unknownEnumValue: CoreState.unknown)
   CoreState status = CoreState.running;
 
   factory ServerInfoMessage.fromJson(Map<String, dynamic> json) => _$ServerInfoMessageFromJson(json);

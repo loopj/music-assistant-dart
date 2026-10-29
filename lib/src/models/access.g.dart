@@ -8,7 +8,7 @@ part of 'access.dart';
 
 PlaylistAccess _$PlaylistAccessFromJson(Map<String, dynamic> json) => PlaylistAccess()
   ..owner = json['owner'] as String?
-  ..sharing = $enumDecode(_$ProviderSharingEnumMap, json['sharing'])
+  ..sharing = $enumDecode(_$ProviderSharingEnumMap, json['sharing'], unknownValue: ProviderSharing.private)
   ..sharedUsers = (json['shared_users'] as List<dynamic>).map((e) => e as String).toList()
   ..collaborative = json['collaborative'] as bool;
 

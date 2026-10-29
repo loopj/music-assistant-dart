@@ -55,7 +55,7 @@ sealed class MediaItemBase {
   @JsonKey(name: 'is_playable')
   bool isPlayable = true;
 
-  @JsonKey(name: 'media_type')
+  @JsonKey(name: 'media_type', unknownEnumValue: MediaType.unknown)
   MediaType mediaType;
 }
 

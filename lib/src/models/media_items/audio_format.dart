@@ -9,10 +9,10 @@ part 'audio_format.g.dart';
 class AudioFormat {
   AudioFormat();
 
-  @JsonKey(name: 'content_type')
+  @JsonKey(name: 'content_type', unknownEnumValue: ContentType.unknown)
   ContentType contentType = ContentType.unknown;
 
-  @JsonKey(name: 'codec_type')
+  @JsonKey(name: 'codec_type', unknownEnumValue: ContentType.unknown)
   ContentType codecType = ContentType.unknown;
 
   @JsonKey(name: 'sample_rate')

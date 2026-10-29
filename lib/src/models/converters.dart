@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'enums.dart';
+
 /// Converts an RGB color between a JSON `[r, g, b]` array and a record.
 class RgbConverter extends JsonConverter<(int, int, int)?, List<dynamic>?> {
   const RgbConverter();
@@ -33,4 +35,20 @@ class FlexibleBoolConverter extends JsonConverter<bool?, Object?> {
 
   @override
   Object? toJson(bool? flag) => flag;
+}
+
+/// Converts device identifiers keyed by type, reading a type it does not know as [IdentifierType.unknown].
+class IdentifierMapConverter extends JsonConverter<Map<IdentifierType, String>, Map<String, dynamic>> {
+  const IdentifierMapConverter();
+
+  @override
+  Map<IdentifierType, String> fromJson(Map<String, dynamic> json) => {
+        for (final entry in json.entries)
+          IdentifierType.values.firstWhere((type) => type.value == entry.key, orElse: () => IdentifierType.unknown):
+              entry.value as String,
+      };
+
+  @override
+  Map<String, dynamic> toJson(Map<IdentifierType, String> identifiers) =>
+      {for (final entry in identifiers.entries) entry.key.value: entry.value};
 }

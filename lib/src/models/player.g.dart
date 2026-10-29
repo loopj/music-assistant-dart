@@ -29,9 +29,7 @@ DeviceInfo _$DeviceInfoFromJson(Map<String, dynamic> json) => DeviceInfo()
   ..softwareVersion = json['software_version'] as String?
   ..modelId = json['model_id'] as String?
   ..manufacturerId = json['manufacturer_id'] as String?
-  ..identifiers = (json['identifiers'] as Map<String, dynamic>).map(
-    (k, e) => MapEntry($enumDecode(_$IdentifierTypeEnumMap, k), e as String),
-  );
+  ..identifiers = const IdentifierMapConverter().fromJson(json['identifiers'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$DeviceInfoToJson(DeviceInfo instance) => <String, dynamic>{
       'model': instance.model,
@@ -39,22 +37,12 @@ Map<String, dynamic> _$DeviceInfoToJson(DeviceInfo instance) => <String, dynamic
       'software_version': instance.softwareVersion,
       'model_id': instance.modelId,
       'manufacturer_id': instance.manufacturerId,
-      'identifiers': instance.identifiers.map((k, e) => MapEntry(_$IdentifierTypeEnumMap[k]!, e)),
+      'identifiers': const IdentifierMapConverter().toJson(instance.identifiers),
     };
-
-const _$IdentifierTypeEnumMap = {
-  IdentifierType.macAddress: 'mac_address',
-  IdentifierType.serialNumber: 'serial_number',
-  IdentifierType.uuid: 'uuid',
-  IdentifierType.castUuid: 'cast_uuid',
-  IdentifierType.airplayId: 'airplay_id',
-  IdentifierType.ipAddress: 'ip_address',
-  IdentifierType.unknown: 'unknown',
-};
 
 PlayerMedia _$PlayerMediaFromJson(Map<String, dynamic> json) => PlayerMedia()
   ..uri = json['uri'] as String?
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'])
+  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..title = json['title'] as String?
   ..artist = json['artist'] as String?
   ..album = json['album'] as String?
@@ -134,7 +122,7 @@ Map<String, dynamic> _$PlayerSoundModeToJson(PlayerSoundMode instance) => <Strin
 PlayerOptionEntry _$PlayerOptionEntryFromJson(Map<String, dynamic> json) => PlayerOptionEntry()
   ..key = json['key'] as String?
   ..name = json['name'] as String?
-  ..type = $enumDecodeNullable(_$PlayerOptionTypeEnumMap, json['type'])
+  ..type = $enumDecodeNullable(_$PlayerOptionTypeEnumMap, json['type'], unknownValue: PlayerOptionType.unknown)
   ..value = json['value']
   ..translationKey = json['translation_key'] as String;
 
@@ -151,12 +139,13 @@ const _$PlayerOptionTypeEnumMap = {
   PlayerOptionType.integer: 'integer',
   PlayerOptionType.float: 'float',
   PlayerOptionType.string: 'string',
+  PlayerOptionType.unknown: 'unknown',
 };
 
 PlayerOption _$PlayerOptionFromJson(Map<String, dynamic> json) => PlayerOption()
   ..key = json['key'] as String?
   ..name = json['name'] as String?
-  ..type = $enumDecodeNullable(_$PlayerOptionTypeEnumMap, json['type'])
+  ..type = $enumDecodeNullable(_$PlayerOptionTypeEnumMap, json['type'], unknownValue: PlayerOptionType.unknown)
   ..translationKey = json['translation_key'] as String
   ..translationParams = (json['translation_params'] as List<dynamic>?)?.map((e) => e as String).toList()
   ..value = json['value']
@@ -184,13 +173,14 @@ Map<String, dynamic> _$PlayerOptionToJson(PlayerOption instance) => <String, dyn
 Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
   ..playerId = json['player_id'] as String?
   ..provider = json['provider'] as String?
-  ..type = $enumDecodeNullable(_$PlayerTypeEnumMap, json['type'])
+  ..type = $enumDecodeNullable(_$PlayerTypeEnumMap, json['type'], unknownValue: PlayerType.unknown)
   ..name = json['name'] as String?
   ..available = json['available'] as bool?
   ..deviceInfo = json['device_info'] == null ? null : DeviceInfo.fromJson(json['device_info'] as Map<String, dynamic>)
-  ..supportedFeatures =
-      (json['supported_features'] as List<dynamic>).map((e) => $enumDecode(_$PlayerFeatureEnumMap, e)).toSet()
-  ..playbackState = $enumDecode(_$PlaybackStateEnumMap, json['playback_state'])
+  ..supportedFeatures = (json['supported_features'] as List<dynamic>)
+      .map((e) => $enumDecode(_$PlayerFeatureEnumMap, e, unknownValue: PlayerFeature.unknown))
+      .toSet()
+  ..playbackState = $enumDecode(_$PlaybackStateEnumMap, json['playback_state'], unknownValue: PlaybackState.unknown)
   ..elapsedTime = (json['elapsed_time'] as num?)?.toDouble()
   ..elapsedTimeLastUpdated = (json['elapsed_time_last_updated'] as num?)?.toDouble()
   ..powered = json['powered'] as bool?

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import './converters.dart';
 import './enums.dart';
 import './media_items/metadata.dart';
 
@@ -53,6 +54,7 @@ class DeviceInfo {
   String? manufacturerId;
 
   @JsonKey(name: 'identifiers')
+  @IdentifierMapConverter()
   Map<IdentifierType, String> identifiers = {};
 
   factory DeviceInfo.fromJson(Map<String, dynamic> json) => _$DeviceInfoFromJson(json);
@@ -67,7 +69,7 @@ class PlayerMedia {
   @JsonKey(name: 'uri')
   String? uri;
 
-  @JsonKey(name: 'media_type')
+  @JsonKey(name: 'media_type', unknownEnumValue: MediaType.unknown)
   MediaType mediaType = MediaType.unknown;
 
   @JsonKey(name: 'title')
@@ -168,7 +170,8 @@ enum PlayerOptionType {
   boolean('boolean'),
   integer('integer'),
   float('float'),
-  string('string');
+  string('string'),
+  unknown('unknown');
 
   const PlayerOptionType(this.value);
   final String value;
@@ -185,7 +188,7 @@ class PlayerOptionEntry {
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', unknownEnumValue: PlayerOptionType.unknown)
   PlayerOptionType? type;
 
   @JsonKey(name: 'value')
@@ -209,7 +212,7 @@ class PlayerOption {
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', unknownEnumValue: PlayerOptionType.unknown)
   PlayerOptionType? type;
 
   @JsonKey(name: 'translation_key')
@@ -251,7 +254,7 @@ class Player {
   @JsonKey(name: 'provider')
   String? provider;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', unknownEnumValue: PlayerType.unknown)
   PlayerType? type;
 
   @JsonKey(name: 'name')
@@ -263,10 +266,10 @@ class Player {
   @JsonKey(name: 'device_info')
   DeviceInfo? deviceInfo;
 
-  @JsonKey(name: 'supported_features')
+  @JsonKey(name: 'supported_features', unknownEnumValue: PlayerFeature.unknown)
   Set<PlayerFeature> supportedFeatures = {};
 
-  @JsonKey(name: 'playback_state')
+  @JsonKey(name: 'playback_state', unknownEnumValue: PlaybackState.unknown)
   PlaybackState playbackState = PlaybackState.idle;
 
   @JsonKey(name: 'elapsed_time')

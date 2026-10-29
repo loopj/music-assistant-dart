@@ -26,6 +26,27 @@ void main() {
     test('parses a player with no current media', () {
       expect(players.last.currentMedia, isNull);
     });
+
+    test('parses a player from a newer server with values it does not know', () {
+      final player = Player.fromJson({
+        ...loadFixture('players_all').first,
+        'supported_features': ['pause', 'teleport'],
+        'playback_state': 'buffering',
+      });
+      expect(player.supportedFeatures, {PlayerFeature.pause, PlayerFeature.unknown});
+      expect(player.playbackState, PlaybackState.unknown);
+    });
+
+    test('parses device identifiers of a type it does not know', () {
+      final device = DeviceInfo.fromJson({
+        ...loadFixture('players_all').first['device_info'] as Map<String, dynamic>,
+        'identifiers': {'mac_address': '00:00:00:00:00:00', 'zigbee_id': 'abc'},
+      });
+      expect(device.identifiers, {
+        IdentifierType.macAddress: '00:00:00:00:00:00',
+        IdentifierType.unknown: 'abc',
+      });
+    });
   });
 
   group('PlayerQueue', () {
@@ -154,6 +175,12 @@ void main() {
       ].map(MediaItemBase.fromJson).toList();
       expect(items.map((item) => item.runtimeType).toSet(), {Track, Radio, PodcastEpisode, Genre, SoundEffect});
     });
+
+    test('parses a type it does not model as an item mapping', () {
+      final item = MediaItemBase.fromJson({...loadFixture('album_tracks').first, 'media_type': 'hologram'});
+      expect(item, isA<ItemMapping>());
+      expect(item.mediaType, MediaType.unknown);
+    });
   });
 
   group('Radio', () {
@@ -281,6 +308,20 @@ void main() {
       expect(access.sharing, ProviderSharing.selected);
       expect(access.sharedUsers, ['user-2']);
       expect(access.collaborative, isTrue);
+    });
+  });
+
+  group('Generated models', () {
+    test('give every enum field a fallback for values from newer servers', () {
+      final decodesWithoutFallback = Directory('lib/src/models')
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((file) => file.path.endsWith('.g.dart'))
+          .expand((file) => file
+              .readAsLinesSync()
+              .where((line) => line.contains(r'$enumDecode') && !line.contains('unknownValue:'))
+              .map((line) => '${file.path}: ${line.trim()}'));
+      expect(decodesWithoutFallback, isEmpty, reason: 'add unknownEnumValue to the JsonKey of each field listed');
     });
   });
 

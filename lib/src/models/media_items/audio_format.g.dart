@@ -7,8 +7,8 @@ part of 'audio_format.dart';
 // **************************************************************************
 
 AudioFormat _$AudioFormatFromJson(Map<String, dynamic> json) => AudioFormat()
-  ..contentType = $enumDecode(_$ContentTypeEnumMap, json['content_type'])
-  ..codecType = $enumDecode(_$ContentTypeEnumMap, json['codec_type'])
+  ..contentType = $enumDecode(_$ContentTypeEnumMap, json['content_type'], unknownValue: ContentType.unknown)
+  ..codecType = $enumDecode(_$ContentTypeEnumMap, json['codec_type'], unknownValue: ContentType.unknown)
   ..sampleRate = (json['sample_rate'] as num).toInt()
   ..bitDepth = (json['bit_depth'] as num).toInt()
   ..channels = (json['channels'] as num).toInt()

@@ -28,7 +28,7 @@ class PlayerQueue {
   @JsonKey(name: 'shuffle_enabled')
   bool shuffleEnabled = false;
 
-  @JsonKey(name: 'repeat_mode')
+  @JsonKey(name: 'repeat_mode', unknownEnumValue: RepeatMode.unknown)
   RepeatMode repeatMode = RepeatMode.off;
 
   @JsonKey(name: 'dont_stop_the_music_enabled')
@@ -46,7 +46,7 @@ class PlayerQueue {
   @JsonKey(name: 'elapsed_time_last_updated')
   double? elapsedTimeLastUpdated;
 
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', unknownEnumValue: PlaybackState.unknown)
   PlaybackState state = PlaybackState.idle;
 
   @JsonKey(name: 'current_item')

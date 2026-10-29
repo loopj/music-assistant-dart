@@ -15,7 +15,7 @@ ServerInfoMessage _$ServerInfoMessageFromJson(Map<String, dynamic> json) => Serv
   ..homeassistantAddon = json['homeassistant_addon'] as bool
   ..onboardDone = json['onboard_done'] as bool
   ..name = json['name'] as String?
-  ..status = $enumDecode(_$CoreStateEnumMap, json['status']);
+  ..status = $enumDecode(_$CoreStateEnumMap, json['status'], unknownValue: CoreState.unknown);
 
 Map<String, dynamic> _$ServerInfoMessageToJson(ServerInfoMessage instance) => <String, dynamic>{
       'server_id': instance.serverId,
@@ -34,4 +34,5 @@ const _$CoreStateEnumMap = {
   CoreState.running: 'running',
   CoreState.stopping: 'stopping',
   CoreState.stopped: 'stopped',
+  CoreState.unknown: 'unknown',
 };
