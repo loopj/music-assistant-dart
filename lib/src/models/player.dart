@@ -20,13 +20,13 @@ class OutputProtocol {
   @JsonKey(name: 'protocol_domain')
   String? protocolDomain;
 
-  @JsonKey(name: 'is_native')
+  @JsonKey(name: 'is_native', defaultValue: false)
   bool isNative = false;
 
-  @JsonKey(name: 'priority')
+  @JsonKey(name: 'priority', defaultValue: 100)
   int priority = 100;
 
-  @JsonKey(name: 'available')
+  @JsonKey(name: 'available', defaultValue: true)
   bool available = true;
 
   factory OutputProtocol.fromJson(Map<String, dynamic> json) => _$OutputProtocolFromJson(json);
@@ -38,10 +38,10 @@ class OutputProtocol {
 class DeviceInfo {
   DeviceInfo();
 
-  @JsonKey(name: 'model')
+  @JsonKey(name: 'model', defaultValue: 'Unknown model')
   String model = 'Unknown model';
 
-  @JsonKey(name: 'manufacturer')
+  @JsonKey(name: 'manufacturer', defaultValue: 'Unknown Manufacturer')
   String manufacturer = 'Unknown Manufacturer';
 
   @JsonKey(name: 'software_version')
@@ -53,7 +53,7 @@ class DeviceInfo {
   @JsonKey(name: 'manufacturer_id')
   String? manufacturerId;
 
-  @JsonKey(name: 'identifiers')
+  @JsonKey(name: 'identifiers', defaultValue: <IdentifierType, String>{})
   @IdentifierMapConverter()
   Map<IdentifierType, String> identifiers = {};
 
@@ -69,7 +69,7 @@ class PlayerMedia {
   @JsonKey(name: 'uri')
   String? uri;
 
-  @JsonKey(name: 'media_type', unknownEnumValue: MediaType.unknown)
+  @JsonKey(name: 'media_type', unknownEnumValue: MediaType.unknown, defaultValue: MediaType.unknown)
   MediaType mediaType = MediaType.unknown;
 
   @JsonKey(name: 'title')
@@ -127,16 +127,16 @@ class PlayerSource {
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'passive')
+  @JsonKey(name: 'passive', defaultValue: false)
   bool passive = false;
 
-  @JsonKey(name: 'can_play_pause')
+  @JsonKey(name: 'can_play_pause', defaultValue: false)
   bool canPlayPause = false;
 
-  @JsonKey(name: 'can_seek')
+  @JsonKey(name: 'can_seek', defaultValue: false)
   bool canSeek = false;
 
-  @JsonKey(name: 'can_next_previous')
+  @JsonKey(name: 'can_next_previous', defaultValue: false)
   bool canNextPrevious = false;
 
   factory PlayerSource.fromJson(Map<String, dynamic> json) => _$PlayerSourceFromJson(json);
@@ -154,10 +154,10 @@ class PlayerSoundMode {
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'passive')
+  @JsonKey(name: 'passive', defaultValue: false)
   bool passive = false;
 
-  @JsonKey(name: 'translation_key')
+  @JsonKey(name: 'translation_key', defaultValue: '')
   String translationKey = '';
 
   factory PlayerSoundMode.fromJson(Map<String, dynamic> json) => _$PlayerSoundModeFromJson(json);
@@ -194,7 +194,7 @@ class PlayerOptionEntry {
   @JsonKey(name: 'value')
   dynamic value;
 
-  @JsonKey(name: 'translation_key')
+  @JsonKey(name: 'translation_key', defaultValue: '')
   String translationKey = '';
 
   factory PlayerOptionEntry.fromJson(Map<String, dynamic> json) => _$PlayerOptionEntryFromJson(json);
@@ -215,7 +215,7 @@ class PlayerOption {
   @JsonKey(name: 'type', unknownEnumValue: PlayerOptionType.unknown)
   PlayerOptionType? type;
 
-  @JsonKey(name: 'translation_key')
+  @JsonKey(name: 'translation_key', defaultValue: '')
   String translationKey = '';
 
   @JsonKey(name: 'translation_params')
@@ -224,7 +224,7 @@ class PlayerOption {
   @JsonKey(name: 'value')
   dynamic value;
 
-  @JsonKey(name: 'read_only')
+  @JsonKey(name: 'read_only', defaultValue: false)
   bool readOnly = false;
 
   @JsonKey(name: 'min_value')
@@ -266,10 +266,10 @@ class Player {
   @JsonKey(name: 'device_info')
   DeviceInfo? deviceInfo;
 
-  @JsonKey(name: 'supported_features', unknownEnumValue: PlayerFeature.unknown)
+  @JsonKey(name: 'supported_features', unknownEnumValue: PlayerFeature.unknown, defaultValue: <PlayerFeature>{})
   Set<PlayerFeature> supportedFeatures = {};
 
-  @JsonKey(name: 'playback_state', unknownEnumValue: PlaybackState.unknown)
+  @JsonKey(name: 'playback_state', unknownEnumValue: PlaybackState.unknown, defaultValue: PlaybackState.idle)
   PlaybackState playbackState = PlaybackState.idle;
 
   @JsonKey(name: 'elapsed_time')
@@ -287,13 +287,13 @@ class Player {
   @JsonKey(name: 'volume_muted')
   bool? volumeMuted;
 
-  @JsonKey(name: 'group_members')
+  @JsonKey(name: 'group_members', defaultValue: <String>[])
   List<String> groupMembers = [];
 
-  @JsonKey(name: 'static_group_members')
+  @JsonKey(name: 'static_group_members', defaultValue: <String>[])
   List<String> staticGroupMembers = [];
 
-  @JsonKey(name: 'can_group_with')
+  @JsonKey(name: 'can_group_with', defaultValue: <String>{})
   Set<String> canGroupWith = {};
 
   @JsonKey(name: 'synced_to')
@@ -302,16 +302,16 @@ class Player {
   @JsonKey(name: 'active_sound_mode')
   String? activeSoundMode;
 
-  @JsonKey(name: 'sound_mode_list')
+  @JsonKey(name: 'sound_mode_list', defaultValue: <PlayerSoundMode>[])
   List<PlayerSoundMode> soundModeList = [];
 
-  @JsonKey(name: 'options')
+  @JsonKey(name: 'options', defaultValue: <PlayerOption>[])
   List<PlayerOption> options = [];
 
   @JsonKey(name: 'active_source')
   String? activeSource;
 
-  @JsonKey(name: 'source_list')
+  @JsonKey(name: 'source_list', defaultValue: <PlayerSource>[])
   List<PlayerSource> sourceList = [];
 
   @JsonKey(name: 'active_group')
@@ -320,17 +320,17 @@ class Player {
   @JsonKey(name: 'current_media')
   PlayerMedia? currentMedia;
 
-  @JsonKey(name: 'enabled')
+  @JsonKey(name: 'enabled', defaultValue: true)
   bool enabled = true;
 
-  @JsonKey(name: 'hide_in_ui')
+  @JsonKey(name: 'hide_in_ui', defaultValue: false)
   bool hideInUi = false;
 
-  @JsonKey(name: 'expose_to_ha')
+  @JsonKey(name: 'expose_to_ha', defaultValue: true)
   bool exposeToHa = true;
 
-  @JsonKey(name: 'icon')
-  String icon = 'mdi-speaker';
+  @JsonKey(name: 'icon', defaultValue: 'speaker')
+  String icon = 'speaker';
 
   @JsonKey(name: 'group_volume')
   int? groupVolume;
@@ -338,25 +338,25 @@ class Player {
   @JsonKey(name: 'group_volume_muted')
   bool? groupVolumeMuted;
 
-  @JsonKey(name: 'extra_attributes')
+  @JsonKey(name: 'extra_attributes', defaultValue: <String, dynamic>{})
   Map<String, dynamic> extraAttributes = {};
 
-  @JsonKey(name: 'power_control')
+  @JsonKey(name: 'power_control', defaultValue: 'none')
   String powerControl = 'none';
 
-  @JsonKey(name: 'volume_control')
+  @JsonKey(name: 'volume_control', defaultValue: 'none')
   String volumeControl = 'none';
 
-  @JsonKey(name: 'mute_control')
+  @JsonKey(name: 'mute_control', defaultValue: 'none')
   String muteControl = 'none';
 
-  @JsonKey(name: 'output_protocols')
+  @JsonKey(name: 'output_protocols', defaultValue: <OutputProtocol>[])
   List<OutputProtocol> outputProtocols = [];
 
   @JsonKey(name: 'active_output_protocol')
   String? activeOutputProtocol;
 
-  @JsonKey(name: 'needs_setup')
+  @JsonKey(name: 'needs_setup', defaultValue: false)
   bool needsSetup = false;
 
   /// Return the corrected/realtime elapsed time.

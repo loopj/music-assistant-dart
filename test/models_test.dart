@@ -323,6 +323,21 @@ void main() {
               .map((line) => '${file.path}: ${line.trim()}'));
       expect(decodesWithoutFallback, isEmpty, reason: 'add unknownEnumValue to the JsonKey of each field listed');
     });
+
+    test('use each field initializer as the default for a key older servers leave out', () {
+      final fieldsWithoutDefault = <String>[];
+      for (final file in Directory('lib/src/models').listSync(recursive: true).whereType<File>()) {
+        if (!file.path.endsWith('.dart') || file.path.endsWith('.g.dart')) continue;
+        final lines = file.readAsLinesSync();
+        for (var i = 0; i < lines.length; i++) {
+          final key = lines[i].trim();
+          if (!key.startsWith('@JsonKey(') || key.contains(RegExp('defaultValue:|readValue:'))) continue;
+          final field = lines.skip(i + 1).firstWhere((line) => !line.trim().startsWith('@')).trim();
+          if (field.contains(' = ') && !field.contains('(')) fieldsWithoutDefault.add('${file.path}: $field');
+        }
+      }
+      expect(fieldsWithoutDefault, isEmpty, reason: 'add a defaultValue matching the initializer of each field listed');
+    });
   });
 
   group('MediaItemPalette', () {

@@ -9,22 +9,22 @@ part 'audio_format.g.dart';
 class AudioFormat {
   AudioFormat();
 
-  @JsonKey(name: 'content_type', unknownEnumValue: ContentType.unknown)
+  @JsonKey(name: 'content_type', unknownEnumValue: ContentType.unknown, defaultValue: ContentType.unknown)
   ContentType contentType = ContentType.unknown;
 
-  @JsonKey(name: 'codec_type', unknownEnumValue: ContentType.unknown)
+  @JsonKey(name: 'codec_type', unknownEnumValue: ContentType.unknown, defaultValue: ContentType.unknown)
   ContentType codecType = ContentType.unknown;
 
-  @JsonKey(name: 'sample_rate')
+  @JsonKey(name: 'sample_rate', defaultValue: 44100)
   int sampleRate = 44100;
 
-  @JsonKey(name: 'bit_depth')
+  @JsonKey(name: 'bit_depth', defaultValue: 16)
   int bitDepth = 16;
 
-  @JsonKey(name: 'channels')
+  @JsonKey(name: 'channels', defaultValue: 2)
   int channels = 2;
 
-  @JsonKey(name: 'output_format_str')
+  @JsonKey(name: 'output_format_str', defaultValue: '')
   String outputFormatStr = '';
 
   @JsonKey(name: 'bit_rate')

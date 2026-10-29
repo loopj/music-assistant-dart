@@ -8,6 +8,9 @@ import 'provider_mapping.dart';
 
 part 'media_item.g.dart';
 
+// Read a playlist's media types, defaulting to tracks, like upstream
+Object? _readSupportedMediatypes(Map<dynamic, dynamic> json, String key) => json[key] ?? ['track'];
+
 /// Base representation of a media item or of a reduced reference to one.
 sealed class MediaItemBase {
   MediaItemBase(this.mediaType);
@@ -39,7 +42,7 @@ sealed class MediaItemBase {
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'version')
+  @JsonKey(name: 'version', defaultValue: '')
   String version = '';
 
   @JsonKey(name: 'sort_name')
@@ -49,10 +52,10 @@ sealed class MediaItemBase {
   String? uri;
 
   /// External ids as `[type, value]` pairs, such as a MusicBrainz id.
-  @JsonKey(name: 'external_ids')
+  @JsonKey(name: 'external_ids', defaultValue: <List<String>>[])
   List<List<String>> externalIds = [];
 
-  @JsonKey(name: 'is_playable')
+  @JsonKey(name: 'is_playable', defaultValue: true)
   bool isPlayable = true;
 
   @JsonKey(name: 'media_type', unknownEnumValue: MediaType.unknown)
@@ -209,17 +212,17 @@ class Playlist extends MediaItem {
   List<String>? translationParams;
 
   /// Display name of the owner, unrelated to the user id in [access].
-  @JsonKey(name: 'owner')
+  @JsonKey(name: 'owner', defaultValue: '')
   String owner = '';
 
-  @JsonKey(name: 'is_editable')
+  @JsonKey(name: 'is_editable', defaultValue: false)
   bool isEditable = false;
 
   /// Whether the provider yields tracks on demand without end, like Deezer Flow.
-  @JsonKey(name: 'is_dynamic')
+  @JsonKey(name: 'is_dynamic', defaultValue: false)
   bool isDynamic = false;
 
-  @JsonKey(name: 'supported_mediatypes', unknownEnumValue: MediaType.unknown)
+  @JsonKey(name: 'supported_mediatypes', unknownEnumValue: MediaType.unknown, readValue: _readSupportedMediatypes)
   Set<MediaType> supportedMediatypes = {MediaType.track};
 
   /// Who the playlist serves, or null when it serves everyone.
@@ -248,7 +251,7 @@ class Radio extends MediaItem {
   int? duration;
 
   /// Whether the tracklist changes on every fetch.
-  @JsonKey(name: 'is_dynamic')
+  @JsonKey(name: 'is_dynamic', defaultValue: false)
   bool isDynamic = false;
 
   /// Whether playback never ends, such as a broadcast stream.
@@ -326,7 +329,7 @@ class PodcastEpisode extends MediaItem {
   MediaItemBase? podcast;
 
   /// Length in seconds.
-  @JsonKey(name: 'duration')
+  @JsonKey(name: 'duration', defaultValue: 0)
   int duration = 0;
 
   /// Episode number from the publisher, or null when it does not number them.

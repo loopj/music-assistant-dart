@@ -10,12 +10,14 @@ ItemMapping _$ItemMappingFromJson(Map<String, dynamic> json) => ItemMapping()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..translationKey = json['translation_key'] as String?
   ..available = json['available'] as bool? ?? true
@@ -60,12 +62,14 @@ Genre _$GenreFromJson(Map<String, dynamic> json) => Genre()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -103,12 +107,14 @@ Artist _$ArtistFromJson(Map<String, dynamic> json) => Artist()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -150,12 +156,14 @@ Album _$AlbumFromJson(Map<String, dynamic> json) => Album()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -205,12 +213,14 @@ Track _$TrackFromJson(Map<String, dynamic> json) => Track()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -258,12 +268,14 @@ Playlist _$PlaylistFromJson(Map<String, dynamic> json) => Playlist()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -275,10 +287,10 @@ Playlist _$PlaylistFromJson(Map<String, dynamic> json) => Playlist()
   ..dateAdded = json['date_added'] == null ? null : DateTime.parse(json['date_added'] as String)
   ..translationKey = json['translation_key'] as String?
   ..translationParams = (json['translation_params'] as List<dynamic>?)?.map((e) => e as String).toList()
-  ..owner = json['owner'] as String
-  ..isEditable = json['is_editable'] as bool
-  ..isDynamic = json['is_dynamic'] as bool
-  ..supportedMediatypes = (json['supported_mediatypes'] as List<dynamic>)
+  ..owner = json['owner'] as String? ?? ''
+  ..isEditable = json['is_editable'] as bool? ?? false
+  ..isDynamic = json['is_dynamic'] as bool? ?? false
+  ..supportedMediatypes = (_readSupportedMediatypes(json, 'supported_mediatypes') as List<dynamic>)
       .map((e) => $enumDecode(_$MediaTypeEnumMap, e, unknownValue: MediaType.unknown))
       .toSet()
   ..access = json['access'] == null ? null : PlaylistAccess.fromJson(json['access'] as Map<String, dynamic>);
@@ -311,12 +323,14 @@ Radio _$RadioFromJson(Map<String, dynamic> json) => Radio()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -329,7 +343,7 @@ Radio _$RadioFromJson(Map<String, dynamic> json) => Radio()
   ..translationKey = json['translation_key'] as String?
   ..translationParams = (json['translation_params'] as List<dynamic>?)?.map((e) => e as String).toList()
   ..duration = (json['duration'] as num?)?.toInt()
-  ..isDynamic = json['is_dynamic'] as bool
+  ..isDynamic = json['is_dynamic'] as bool? ?? false
   ..isEndless = json['is_endless'] as bool? ?? true;
 
 Map<String, dynamic> _$RadioToJson(Radio instance) => <String, dynamic>{
@@ -358,12 +372,14 @@ Audiobook _$AudiobookFromJson(Map<String, dynamic> json) => Audiobook()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -407,12 +423,14 @@ Podcast _$PodcastFromJson(Map<String, dynamic> json) => Podcast()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -450,12 +468,14 @@ PodcastEpisode _$PodcastEpisodeFromJson(Map<String, dynamic> json) => PodcastEpi
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))
@@ -466,7 +486,7 @@ PodcastEpisode _$PodcastEpisodeFromJson(Map<String, dynamic> json) => PodcastEpi
   ..position = (json['position'] as num?)?.toInt()
   ..dateAdded = json['date_added'] == null ? null : DateTime.parse(json['date_added'] as String)
   ..podcast = json['podcast'] == null ? null : MediaItemBase.fromJson(json['podcast'] as Map<String, dynamic>)
-  ..duration = (json['duration'] as num).toInt()
+  ..duration = (json['duration'] as num?)?.toInt() ?? 0
   ..episodeNumber = (json['episode_number'] as num?)?.toInt()
   ..season = (json['season'] as num?)?.toInt()
   ..fullyPlayed = const FlexibleBoolConverter().fromJson(json['fully_played'])
@@ -499,12 +519,14 @@ SoundEffect _$SoundEffectFromJson(Map<String, dynamic> json) => SoundEffect()
   ..itemId = json['item_id'] as String?
   ..provider = json['provider'] as String?
   ..name = json['name'] as String?
-  ..version = json['version'] as String
+  ..version = json['version'] as String? ?? ''
   ..sortName = json['sort_name'] as String?
   ..uri = json['uri'] as String?
-  ..externalIds =
-      (json['external_ids'] as List<dynamic>).map((e) => (e as List<dynamic>).map((e) => e as String).toList()).toList()
-  ..isPlayable = json['is_playable'] as bool
+  ..externalIds = (json['external_ids'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList() ??
+      []
+  ..isPlayable = json['is_playable'] as bool? ?? true
   ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
   ..providerMappings = (json['provider_mappings'] as List<dynamic>?)
           ?.map((e) => ProviderMapping.fromJson(e as Map<String, dynamic>))

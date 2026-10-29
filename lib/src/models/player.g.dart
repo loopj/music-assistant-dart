@@ -10,9 +10,9 @@ OutputProtocol _$OutputProtocolFromJson(Map<String, dynamic> json) => OutputProt
   ..outputProtocolId = json['output_protocol_id'] as String?
   ..name = json['name'] as String?
   ..protocolDomain = json['protocol_domain'] as String?
-  ..isNative = json['is_native'] as bool
-  ..priority = (json['priority'] as num).toInt()
-  ..available = json['available'] as bool;
+  ..isNative = json['is_native'] as bool? ?? false
+  ..priority = (json['priority'] as num?)?.toInt() ?? 100
+  ..available = json['available'] as bool? ?? true;
 
 Map<String, dynamic> _$OutputProtocolToJson(OutputProtocol instance) => <String, dynamic>{
       'output_protocol_id': instance.outputProtocolId,
@@ -24,12 +24,14 @@ Map<String, dynamic> _$OutputProtocolToJson(OutputProtocol instance) => <String,
     };
 
 DeviceInfo _$DeviceInfoFromJson(Map<String, dynamic> json) => DeviceInfo()
-  ..model = json['model'] as String
-  ..manufacturer = json['manufacturer'] as String
+  ..model = json['model'] as String? ?? 'Unknown model'
+  ..manufacturer = json['manufacturer'] as String? ?? 'Unknown Manufacturer'
   ..softwareVersion = json['software_version'] as String?
   ..modelId = json['model_id'] as String?
   ..manufacturerId = json['manufacturer_id'] as String?
-  ..identifiers = const IdentifierMapConverter().fromJson(json['identifiers'] as Map<String, dynamic>);
+  ..identifiers = json['identifiers'] == null
+      ? {}
+      : const IdentifierMapConverter().fromJson(json['identifiers'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$DeviceInfoToJson(DeviceInfo instance) => <String, dynamic>{
       'model': instance.model,
@@ -42,7 +44,8 @@ Map<String, dynamic> _$DeviceInfoToJson(DeviceInfo instance) => <String, dynamic
 
 PlayerMedia _$PlayerMediaFromJson(Map<String, dynamic> json) => PlayerMedia()
   ..uri = json['uri'] as String?
-  ..mediaType = $enumDecode(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown)
+  ..mediaType =
+      $enumDecodeNullable(_$MediaTypeEnumMap, json['media_type'], unknownValue: MediaType.unknown) ?? MediaType.unknown
   ..title = json['title'] as String?
   ..artist = json['artist'] as String?
   ..album = json['album'] as String?
@@ -92,10 +95,10 @@ const _$MediaTypeEnumMap = {
 PlayerSource _$PlayerSourceFromJson(Map<String, dynamic> json) => PlayerSource()
   ..id = json['id'] as String?
   ..name = json['name'] as String?
-  ..passive = json['passive'] as bool
-  ..canPlayPause = json['can_play_pause'] as bool
-  ..canSeek = json['can_seek'] as bool
-  ..canNextPrevious = json['can_next_previous'] as bool;
+  ..passive = json['passive'] as bool? ?? false
+  ..canPlayPause = json['can_play_pause'] as bool? ?? false
+  ..canSeek = json['can_seek'] as bool? ?? false
+  ..canNextPrevious = json['can_next_previous'] as bool? ?? false;
 
 Map<String, dynamic> _$PlayerSourceToJson(PlayerSource instance) => <String, dynamic>{
       'id': instance.id,
@@ -109,8 +112,8 @@ Map<String, dynamic> _$PlayerSourceToJson(PlayerSource instance) => <String, dyn
 PlayerSoundMode _$PlayerSoundModeFromJson(Map<String, dynamic> json) => PlayerSoundMode()
   ..id = json['id'] as String?
   ..name = json['name'] as String?
-  ..passive = json['passive'] as bool
-  ..translationKey = json['translation_key'] as String;
+  ..passive = json['passive'] as bool? ?? false
+  ..translationKey = json['translation_key'] as String? ?? '';
 
 Map<String, dynamic> _$PlayerSoundModeToJson(PlayerSoundMode instance) => <String, dynamic>{
       'id': instance.id,
@@ -124,7 +127,7 @@ PlayerOptionEntry _$PlayerOptionEntryFromJson(Map<String, dynamic> json) => Play
   ..name = json['name'] as String?
   ..type = $enumDecodeNullable(_$PlayerOptionTypeEnumMap, json['type'], unknownValue: PlayerOptionType.unknown)
   ..value = json['value']
-  ..translationKey = json['translation_key'] as String;
+  ..translationKey = json['translation_key'] as String? ?? '';
 
 Map<String, dynamic> _$PlayerOptionEntryToJson(PlayerOptionEntry instance) => <String, dynamic>{
       'key': instance.key,
@@ -146,10 +149,10 @@ PlayerOption _$PlayerOptionFromJson(Map<String, dynamic> json) => PlayerOption()
   ..key = json['key'] as String?
   ..name = json['name'] as String?
   ..type = $enumDecodeNullable(_$PlayerOptionTypeEnumMap, json['type'], unknownValue: PlayerOptionType.unknown)
-  ..translationKey = json['translation_key'] as String
+  ..translationKey = json['translation_key'] as String? ?? ''
   ..translationParams = (json['translation_params'] as List<dynamic>?)?.map((e) => e as String).toList()
   ..value = json['value']
-  ..readOnly = json['read_only'] as bool
+  ..readOnly = json['read_only'] as bool? ?? false
   ..minValue = json['min_value'] as num?
   ..maxValue = json['max_value'] as num?
   ..step = json['step'] as num?
@@ -177,45 +180,52 @@ Player _$PlayerFromJson(Map<String, dynamic> json) => Player()
   ..name = json['name'] as String?
   ..available = json['available'] as bool?
   ..deviceInfo = json['device_info'] == null ? null : DeviceInfo.fromJson(json['device_info'] as Map<String, dynamic>)
-  ..supportedFeatures = (json['supported_features'] as List<dynamic>)
-      .map((e) => $enumDecode(_$PlayerFeatureEnumMap, e, unknownValue: PlayerFeature.unknown))
-      .toSet()
-  ..playbackState = $enumDecode(_$PlaybackStateEnumMap, json['playback_state'], unknownValue: PlaybackState.unknown)
+  ..supportedFeatures = (json['supported_features'] as List<dynamic>?)
+          ?.map((e) => $enumDecode(_$PlayerFeatureEnumMap, e, unknownValue: PlayerFeature.unknown))
+          .toSet() ??
+      {}
+  ..playbackState =
+      $enumDecodeNullable(_$PlaybackStateEnumMap, json['playback_state'], unknownValue: PlaybackState.unknown) ??
+          PlaybackState.idle
   ..elapsedTime = (json['elapsed_time'] as num?)?.toDouble()
   ..elapsedTimeLastUpdated = (json['elapsed_time_last_updated'] as num?)?.toDouble()
   ..powered = json['powered'] as bool?
   ..volumeLevel = (json['volume_level'] as num?)?.toInt()
   ..volumeMuted = json['volume_muted'] as bool?
-  ..groupMembers = (json['group_members'] as List<dynamic>).map((e) => e as String).toList()
-  ..staticGroupMembers = (json['static_group_members'] as List<dynamic>).map((e) => e as String).toList()
-  ..canGroupWith = (json['can_group_with'] as List<dynamic>).map((e) => e as String).toSet()
+  ..groupMembers = (json['group_members'] as List<dynamic>?)?.map((e) => e as String).toList() ?? []
+  ..staticGroupMembers = (json['static_group_members'] as List<dynamic>?)?.map((e) => e as String).toList() ?? []
+  ..canGroupWith = (json['can_group_with'] as List<dynamic>?)?.map((e) => e as String).toSet() ?? {}
   ..syncedTo = json['synced_to'] as String?
   ..activeSoundMode = json['active_sound_mode'] as String?
-  ..soundModeList = (json['sound_mode_list'] as List<dynamic>)
-      .map((e) => PlayerSoundMode.fromJson(e as Map<String, dynamic>))
-      .toList()
-  ..options = (json['options'] as List<dynamic>).map((e) => PlayerOption.fromJson(e as Map<String, dynamic>)).toList()
+  ..soundModeList = (json['sound_mode_list'] as List<dynamic>?)
+          ?.map((e) => PlayerSoundMode.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      []
+  ..options =
+      (json['options'] as List<dynamic>?)?.map((e) => PlayerOption.fromJson(e as Map<String, dynamic>)).toList() ?? []
   ..activeSource = json['active_source'] as String?
   ..sourceList =
-      (json['source_list'] as List<dynamic>).map((e) => PlayerSource.fromJson(e as Map<String, dynamic>)).toList()
+      (json['source_list'] as List<dynamic>?)?.map((e) => PlayerSource.fromJson(e as Map<String, dynamic>)).toList() ??
+          []
   ..activeGroup = json['active_group'] as String?
   ..currentMedia =
       json['current_media'] == null ? null : PlayerMedia.fromJson(json['current_media'] as Map<String, dynamic>)
-  ..enabled = json['enabled'] as bool
-  ..hideInUi = json['hide_in_ui'] as bool
-  ..exposeToHa = json['expose_to_ha'] as bool
-  ..icon = json['icon'] as String
+  ..enabled = json['enabled'] as bool? ?? true
+  ..hideInUi = json['hide_in_ui'] as bool? ?? false
+  ..exposeToHa = json['expose_to_ha'] as bool? ?? true
+  ..icon = json['icon'] as String? ?? 'speaker'
   ..groupVolume = (json['group_volume'] as num?)?.toInt()
   ..groupVolumeMuted = json['group_volume_muted'] as bool?
-  ..extraAttributes = json['extra_attributes'] as Map<String, dynamic>
-  ..powerControl = json['power_control'] as String
-  ..volumeControl = json['volume_control'] as String
-  ..muteControl = json['mute_control'] as String
-  ..outputProtocols = (json['output_protocols'] as List<dynamic>)
-      .map((e) => OutputProtocol.fromJson(e as Map<String, dynamic>))
-      .toList()
+  ..extraAttributes = json['extra_attributes'] as Map<String, dynamic>? ?? {}
+  ..powerControl = json['power_control'] as String? ?? 'none'
+  ..volumeControl = json['volume_control'] as String? ?? 'none'
+  ..muteControl = json['mute_control'] as String? ?? 'none'
+  ..outputProtocols = (json['output_protocols'] as List<dynamic>?)
+          ?.map((e) => OutputProtocol.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      []
   ..activeOutputProtocol = json['active_output_protocol'] as String?
-  ..needsSetup = json['needs_setup'] as bool;
+  ..needsSetup = json['needs_setup'] as bool? ?? false;
 
 Map<String, dynamic> _$PlayerToJson(Player instance) => <String, dynamic>{
       'player_id': instance.playerId,

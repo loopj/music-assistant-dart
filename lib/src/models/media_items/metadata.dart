@@ -19,7 +19,7 @@ class MediaItemImage {
   @JsonKey(name: 'provider')
   String? provider;
 
-  @JsonKey(name: 'remotely_accessible')
+  @JsonKey(name: 'remotely_accessible', defaultValue: false)
   bool remotelyAccessible = false;
 
   factory MediaItemImage.fromJson(Map<String, dynamic> json) => _$MediaItemImageFromJson(json);

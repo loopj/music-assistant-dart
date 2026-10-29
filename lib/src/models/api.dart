@@ -9,31 +9,31 @@ part 'api.g.dart';
 class ServerInfoMessage {
   ServerInfoMessage();
 
-  @JsonKey(name: 'server_id')
+  @JsonKey(name: 'server_id', defaultValue: '')
   String serverId = '';
 
-  @JsonKey(name: 'server_version')
+  @JsonKey(name: 'server_version', defaultValue: '')
   String serverVersion = '';
 
-  @JsonKey(name: 'schema_version')
+  @JsonKey(name: 'schema_version', defaultValue: 0)
   int schemaVersion = 0;
 
-  @JsonKey(name: 'min_supported_schema_version')
+  @JsonKey(name: 'min_supported_schema_version', defaultValue: 0)
   int minSupportedSchemaVersion = 0;
 
-  @JsonKey(name: 'base_url')
+  @JsonKey(name: 'base_url', defaultValue: '')
   String baseUrl = '';
 
-  @JsonKey(name: 'homeassistant_addon')
+  @JsonKey(name: 'homeassistant_addon', defaultValue: false)
   bool homeassistantAddon = false;
 
-  @JsonKey(name: 'onboard_done')
+  @JsonKey(name: 'onboard_done', defaultValue: false)
   bool onboardDone = false;
 
   @JsonKey(name: 'name')
   String? name;
 
-  @JsonKey(name: 'status', unknownEnumValue: CoreState.unknown)
+  @JsonKey(name: 'status', unknownEnumValue: CoreState.unknown, defaultValue: CoreState.running)
   CoreState status = CoreState.running;
 
   factory ServerInfoMessage.fromJson(Map<String, dynamic> json) => _$ServerInfoMessageFromJson(json);

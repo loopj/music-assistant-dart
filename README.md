@@ -33,6 +33,10 @@ void main() async {
 - Fetches state on demand, and keeps it up to date
 - Supports subscribing to server events for real-time updates
 
+## Supported server versions
+
+This package supports Music Assistant 2.7 and newer, the first release with user login.
+
 ## Supported endpoints
 
 This package currently supports the `albums`, `artists`, `audiobooks`, `auth`, `genres`, `players`, `player_queues`, `playlists`, `podcasts`, `radios`, `sound_effects`, and `tracks` endpoints.

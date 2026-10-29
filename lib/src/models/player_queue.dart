@@ -25,13 +25,13 @@ class PlayerQueue {
   @JsonKey(name: 'items')
   int? items;
 
-  @JsonKey(name: 'shuffle_enabled')
+  @JsonKey(name: 'shuffle_enabled', defaultValue: false)
   bool shuffleEnabled = false;
 
-  @JsonKey(name: 'repeat_mode', unknownEnumValue: RepeatMode.unknown)
+  @JsonKey(name: 'repeat_mode', unknownEnumValue: RepeatMode.unknown, defaultValue: RepeatMode.off)
   RepeatMode repeatMode = RepeatMode.off;
 
-  @JsonKey(name: 'dont_stop_the_music_enabled')
+  @JsonKey(name: 'dont_stop_the_music_enabled', defaultValue: false)
   bool dontStopTheMusicEnabled = false;
 
   @JsonKey(name: 'current_index')
@@ -40,13 +40,13 @@ class PlayerQueue {
   @JsonKey(name: 'index_in_buffer')
   int? indexInBuffer;
 
-  @JsonKey(name: 'elapsed_time')
+  @JsonKey(name: 'elapsed_time', defaultValue: 0)
   double elapsedTime = 0;
 
   @JsonKey(name: 'elapsed_time_last_updated')
   double? elapsedTimeLastUpdated;
 
-  @JsonKey(name: 'state', unknownEnumValue: PlaybackState.unknown)
+  @JsonKey(name: 'state', unknownEnumValue: PlaybackState.unknown, defaultValue: PlaybackState.idle)
   PlaybackState state = PlaybackState.idle;
 
   @JsonKey(name: 'current_item')
@@ -55,16 +55,16 @@ class PlayerQueue {
   @JsonKey(name: 'next_item')
   QueueItem? nextItem;
 
-  @JsonKey(name: 'radio_source')
+  @JsonKey(name: 'radio_source', defaultValue: <dynamic>[])
   List<dynamic> radioSource = [];
 
-  @JsonKey(name: 'flow_mode')
+  @JsonKey(name: 'flow_mode', defaultValue: false)
   bool flowMode = false;
 
-  @JsonKey(name: 'resume_pos')
+  @JsonKey(name: 'resume_pos', defaultValue: 0)
   int resumePos = 0;
 
-  @JsonKey(name: 'extra_attributes')
+  @JsonKey(name: 'extra_attributes', defaultValue: <String, dynamic>{})
   Map<String, dynamic> extraAttributes = {};
 
   double get correctedElapsedTime {

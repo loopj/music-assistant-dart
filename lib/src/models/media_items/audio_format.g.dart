@@ -7,12 +7,14 @@ part of 'audio_format.dart';
 // **************************************************************************
 
 AudioFormat _$AudioFormatFromJson(Map<String, dynamic> json) => AudioFormat()
-  ..contentType = $enumDecode(_$ContentTypeEnumMap, json['content_type'], unknownValue: ContentType.unknown)
-  ..codecType = $enumDecode(_$ContentTypeEnumMap, json['codec_type'], unknownValue: ContentType.unknown)
-  ..sampleRate = (json['sample_rate'] as num).toInt()
-  ..bitDepth = (json['bit_depth'] as num).toInt()
-  ..channels = (json['channels'] as num).toInt()
-  ..outputFormatStr = json['output_format_str'] as String
+  ..contentType = $enumDecodeNullable(_$ContentTypeEnumMap, json['content_type'], unknownValue: ContentType.unknown) ??
+      ContentType.unknown
+  ..codecType = $enumDecodeNullable(_$ContentTypeEnumMap, json['codec_type'], unknownValue: ContentType.unknown) ??
+      ContentType.unknown
+  ..sampleRate = (json['sample_rate'] as num?)?.toInt() ?? 44100
+  ..bitDepth = (json['bit_depth'] as num?)?.toInt() ?? 16
+  ..channels = (json['channels'] as num?)?.toInt() ?? 2
+  ..outputFormatStr = json['output_format_str'] as String? ?? ''
   ..bitRate = (json['bit_rate'] as num?)?.toInt();
 
 Map<String, dynamic> _$AudioFormatToJson(AudioFormat instance) => <String, dynamic>{

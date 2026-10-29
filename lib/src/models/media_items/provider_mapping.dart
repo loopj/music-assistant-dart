@@ -18,7 +18,7 @@ class ProviderMapping {
   @JsonKey(name: 'provider_instance')
   String? providerInstance;
 
-  @JsonKey(name: 'available')
+  @JsonKey(name: 'available', defaultValue: true)
   bool available = true;
 
   /// Whether the item is in the user's library on this provider, or null when unknown.

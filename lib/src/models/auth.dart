@@ -38,7 +38,7 @@ class User {
   @JsonKey(name: 'role', unknownEnumValue: UserRole.unknown)
   UserRole role;
 
-  @JsonKey(name: 'enabled')
+  @JsonKey(name: 'enabled', defaultValue: true)
   bool enabled = true;
 
   @JsonKey(name: 'created_at')
@@ -50,13 +50,13 @@ class User {
   @JsonKey(name: 'avatar_url')
   String? avatarUrl;
 
-  @JsonKey(name: 'preferences')
+  @JsonKey(name: 'preferences', defaultValue: <String, dynamic>{})
   Map<String, dynamic> preferences = {};
 
-  @JsonKey(name: 'provider_filter')
+  @JsonKey(name: 'provider_filter', defaultValue: <String>[])
   List<String> providerFilter = [];
 
-  @JsonKey(name: 'player_filter')
+  @JsonKey(name: 'player_filter', defaultValue: <String>[])
   List<String> playerFilter = [];
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -118,7 +118,7 @@ class AuthToken {
   @JsonKey(name: 'last_used_at')
   DateTime? lastUsedAt;
 
-  @JsonKey(name: 'is_long_lived')
+  @JsonKey(name: 'is_long_lived', defaultValue: false)
   bool isLongLived = false;
 
   factory AuthToken.fromJson(Map<String, dynamic> json) => _$AuthTokenFromJson(json);

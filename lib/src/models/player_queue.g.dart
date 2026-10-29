@@ -12,20 +12,22 @@ PlayerQueue _$PlayerQueueFromJson(Map<String, dynamic> json) => PlayerQueue()
   ..displayName = json['display_name'] as String?
   ..available = json['available'] as bool?
   ..items = (json['items'] as num?)?.toInt()
-  ..shuffleEnabled = json['shuffle_enabled'] as bool
-  ..repeatMode = $enumDecode(_$RepeatModeEnumMap, json['repeat_mode'], unknownValue: RepeatMode.unknown)
-  ..dontStopTheMusicEnabled = json['dont_stop_the_music_enabled'] as bool
+  ..shuffleEnabled = json['shuffle_enabled'] as bool? ?? false
+  ..repeatMode =
+      $enumDecodeNullable(_$RepeatModeEnumMap, json['repeat_mode'], unknownValue: RepeatMode.unknown) ?? RepeatMode.off
+  ..dontStopTheMusicEnabled = json['dont_stop_the_music_enabled'] as bool? ?? false
   ..currentIndex = (json['current_index'] as num?)?.toInt()
   ..indexInBuffer = (json['index_in_buffer'] as num?)?.toInt()
-  ..elapsedTime = (json['elapsed_time'] as num).toDouble()
+  ..elapsedTime = (json['elapsed_time'] as num?)?.toDouble() ?? 0
   ..elapsedTimeLastUpdated = (json['elapsed_time_last_updated'] as num?)?.toDouble()
-  ..state = $enumDecode(_$PlaybackStateEnumMap, json['state'], unknownValue: PlaybackState.unknown)
+  ..state = $enumDecodeNullable(_$PlaybackStateEnumMap, json['state'], unknownValue: PlaybackState.unknown) ??
+      PlaybackState.idle
   ..currentItem = json['current_item'] == null ? null : QueueItem.fromJson(json['current_item'] as Map<String, dynamic>)
   ..nextItem = json['next_item'] == null ? null : QueueItem.fromJson(json['next_item'] as Map<String, dynamic>)
-  ..radioSource = json['radio_source'] as List<dynamic>
-  ..flowMode = json['flow_mode'] as bool
-  ..resumePos = (json['resume_pos'] as num).toInt()
-  ..extraAttributes = json['extra_attributes'] as Map<String, dynamic>;
+  ..radioSource = json['radio_source'] as List<dynamic>? ?? []
+  ..flowMode = json['flow_mode'] as bool? ?? false
+  ..resumePos = (json['resume_pos'] as num?)?.toInt() ?? 0
+  ..extraAttributes = json['extra_attributes'] as Map<String, dynamic>? ?? {};
 
 Map<String, dynamic> _$PlayerQueueToJson(PlayerQueue instance) => <String, dynamic>{
       'queue_id': instance.queueId,

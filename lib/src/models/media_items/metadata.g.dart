@@ -10,7 +10,7 @@ MediaItemImage _$MediaItemImageFromJson(Map<String, dynamic> json) => MediaItemI
   ..type = $enumDecodeNullable(_$ImageTypeEnumMap, json['type'], unknownValue: ImageType.other)
   ..path = json['path'] as String?
   ..provider = json['provider'] as String?
-  ..remotelyAccessible = json['remotely_accessible'] as bool;
+  ..remotelyAccessible = json['remotely_accessible'] as bool? ?? false;
 
 Map<String, dynamic> _$MediaItemImageToJson(MediaItemImage instance) => <String, dynamic>{
       'type': _$ImageTypeEnumMap[instance.type],

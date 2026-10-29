@@ -13,15 +13,15 @@ class PlaylistAccess {
   @JsonKey(name: 'owner')
   String? owner;
 
-  @JsonKey(name: 'sharing', unknownEnumValue: ProviderSharing.private)
+  @JsonKey(name: 'sharing', unknownEnumValue: ProviderSharing.private, defaultValue: ProviderSharing.private)
   ProviderSharing sharing = ProviderSharing.private;
 
   /// Users the playlist is shared with, used only with [ProviderSharing.selected].
-  @JsonKey(name: 'shared_users')
+  @JsonKey(name: 'shared_users', defaultValue: <String>[])
   List<String> sharedUsers = [];
 
   /// Whether everyone the playlist is shared with may also add and remove its items.
-  @JsonKey(name: 'collaborative')
+  @JsonKey(name: 'collaborative', defaultValue: false)
   bool collaborative = false;
 
   factory PlaylistAccess.fromJson(Map<String, dynamic> json) => _$PlaylistAccessFromJson(json);
