@@ -61,6 +61,31 @@ void main() {
       expect(queue.currentItem!.name, 'marc thom - Deadmau5 Essential Mix Radio 1 19-07-2008');
     });
 
+    test('parses autoplay and sources', () {
+      final queue = PlayerQueue.fromJson({
+        ...loadFixture('player_queues_all').first,
+        'autoplay_enabled': true,
+        'dont_stop_the_music_enabled': false,
+        'sources': [loadFixture('playlists_library_items').first],
+        'radio_source': [],
+      });
+      expect(queue.autoplayEnabled, isTrue);
+      expect(queue.sources.single, isA<Playlist>());
+    });
+
+    test('reads autoplay and sources from the legacy keys', () {
+      final legacy = {...loadFixture('player_queues_all').first}
+        ..remove('autoplay_enabled')
+        ..remove('sources');
+      final queue = PlayerQueue.fromJson({
+        ...legacy,
+        'dont_stop_the_music_enabled': true,
+        'radio_source': [loadFixture('playlists_library_items').first],
+      });
+      expect(queue.autoplayEnabled, isTrue);
+      expect(queue.sources.single.name, 'Absolute Boppers');
+    });
+
     test('parses the media item being played as its own class', () {
       final queue = queues.firstWhere((q) => q.queueId == 'upsendspinstudydesk');
       final track = queue.currentItem!.mediaItem as Track;

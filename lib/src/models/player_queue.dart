@@ -1,9 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'enums.dart';
+import 'media_items/media_item.dart';
 import 'queue_item.dart';
 
 part 'player_queue.g.dart';
+
+// Read the autoplay flag, falling back to the legacy key, like upstream
+Object? _readAutoplayEnabled(Map<dynamic, dynamic> json, String key) =>
+    json[key] ?? json['dont_stop_the_music_enabled'];
+
+// Read the queue sources, falling back to the legacy key, like upstream
+Object? _readSources(Map<dynamic, dynamic> json, String key) => json[key] ?? json['radio_source'];
 
 /// Representation of (the state of) a PlayerQueue within Music Assistant.
 @JsonSerializable()
@@ -31,8 +39,9 @@ class PlayerQueue {
   @JsonKey(name: 'repeat_mode', unknownEnumValue: RepeatMode.unknown, defaultValue: RepeatMode.off)
   RepeatMode repeatMode = RepeatMode.off;
 
-  @JsonKey(name: 'dont_stop_the_music_enabled', defaultValue: false)
-  bool dontStopTheMusicEnabled = false;
+  /// Whether the queue keeps playing similar items once it runs out.
+  @JsonKey(name: 'autoplay_enabled', readValue: _readAutoplayEnabled, defaultValue: false)
+  bool autoplayEnabled = false;
 
   @JsonKey(name: 'current_index')
   int? currentIndex;
@@ -55,8 +64,9 @@ class PlayerQueue {
   @JsonKey(name: 'next_item')
   QueueItem? nextItem;
 
-  @JsonKey(name: 'radio_source', defaultValue: <dynamic>[])
-  List<dynamic> radioSource = [];
+  /// Items the queue plays from, such as a playlist, each in full or as an [ItemMapping].
+  @JsonKey(name: 'sources', readValue: _readSources, defaultValue: <MediaItemBase>[])
+  List<MediaItemBase> sources = [];
 
   @JsonKey(name: 'flow_mode', defaultValue: false)
   bool flowMode = false;
