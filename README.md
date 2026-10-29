@@ -35,7 +35,7 @@ void main() async {
 
 ## Supported endpoints
 
-This package currently supports the `auth`, `players`, and `player_queues` endpoints.
+This package currently supports the `albums`, `artists`, `audiobooks`, `auth`, `genres`, `players`, `player_queues`, `playlists`, `podcasts`, `radios`, `sound_effects`, and `tracks` endpoints.
 
 ## Usage
 

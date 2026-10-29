@@ -1,0 +1,140 @@
+[
+  {
+    "item_id": "4",
+    "provider": "library",
+    "name": "Homebrew Game Club",
+    "version": "",
+    "sort_name": "homebrew game club",
+    "uri": "library://podcast/4",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "podcast",
+    "provider_mappings": [
+      {
+        "item_id": "2OrBw3ZOOhRDZfcAwSImwZ",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": "https://open.spotify.com/show/2OrBw3ZOOhRDZfcAwSImwZ",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab6765630000ba8a43bfc90355e783a7a3558d73",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "total_episodes": 50,
+    "available": true
+  },
+  {
+    "item_id": "3",
+    "provider": "library",
+    "name": "Radio 1's Classic Essential Mix",
+    "version": "",
+    "sort_name": "radio 1's classic essential mix",
+    "uri": "library://podcast/3",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "podcast",
+    "provider_mappings": [
+      {
+        "item_id": "b00f3pc4",
+        "provider_domain": "bbc_sounds",
+        "provider_instance": "bbc_sounds",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": null,
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://ichef.bbci.co.uk/images/ic/1280x1280/p0m2dn9d.jpg",
+          "provider": "bbc_sounds",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "total_episodes": 0,
+    "available": true
+  },
+  {
+    "item_id": "2",
+    "provider": "library",
+    "name": "Radio 1's Essential Mix",
+    "version": "",
+    "sort_name": "radio 1's essential mix",
+    "uri": "library://podcast/2",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "podcast",
+    "provider_mappings": [
+      {
+        "item_id": "b006wkfp",
+        "provider_domain": "bbc_sounds",
+        "provider_instance": "bbc_sounds",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": null,
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://ichef.bbci.co.uk/images/ic/1280x1280/p0m0slhx.jpg",
+          "provider": "bbc_sounds",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "total_episodes": 0,
+    "available": true
+  }
+]

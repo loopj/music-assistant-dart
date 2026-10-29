@@ -1,0 +1,104 @@
+[
+  {
+    "item_id": "58",
+    "provider": "library",
+    "name": "Absolute Boppers",
+    "version": "",
+    "sort_name": "absolute boppers",
+    "uri": "library://playlist/58",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "playlist",
+    "provider_mappings": [
+      {
+        "item_id": "0000000000000000000000",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": true,
+        "is_unique": true,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": "https://open.spotify.com/playlist/0000000000000000000000",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://mosaic.scdn.co/640/0000000000000000000000000000000000000000",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "owner": "user",
+    "is_editable": true,
+    "is_dynamic": false,
+    "supported_mediatypes": [
+      "track"
+    ],
+    "available": true
+  },
+  {
+    "item_id": "36",
+    "provider": "library",
+    "name": "Infinite Mix (favorites)",
+    "version": "",
+    "sort_name": "infinite mix (favorites)",
+    "uri": "library://playlist/36",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "playlist",
+    "provider_mappings": [
+      {
+        "item_id": "infinite_mix_favorites",
+        "provider_domain": "builtin",
+        "provider_instance": "builtin",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": null,
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "logo.png",
+          "provider": "builtin",
+          "remotely_accessible": false,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "owner": "Music Assistant",
+    "is_editable": false,
+    "is_dynamic": true,
+    "supported_mediatypes": [
+      "track"
+    ],
+    "available": true
+  }
+]

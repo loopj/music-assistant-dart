@@ -1,0 +1,139 @@
+[
+  {
+    "item_id": "502",
+    "provider": "library",
+    "name": "500 Seconds Before Sunset",
+    "version": "",
+    "sort_name": "500 seconds before sunset",
+    "uri": "library://track/502",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "track",
+    "provider_mappings": [
+      {
+        "item_id": "7ze0xPk4mio94SBDCWOL6D",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/track/7ze0xPk4mio94SBDCWOL6D",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "explicit": false,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab67616d0000b273e7c6600b1ac3306cc4c6e462",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "duration": 500,
+    "artists": [
+      {
+        "item_id": "592",
+        "provider": "library",
+        "name": "David Maxim Micic",
+        "version": "",
+        "sort_name": "david maxim micic",
+        "uri": "library://artist/592",
+        "external_ids": [],
+        "is_playable": true,
+        "media_type": "artist",
+        "available": true
+      }
+    ],
+    "last_played": 0,
+    "album": {
+      "item_id": "499",
+      "provider": "library",
+      "name": "Eco",
+      "version": "",
+      "sort_name": "eco",
+      "uri": "library://album/499",
+      "external_ids": [],
+      "is_playable": true,
+      "media_type": "album",
+      "available": true,
+      "image": {
+        "type": "thumb",
+        "path": "https://i.scdn.co/image/ab67616d0000b273e7c6600b1ac3306cc4c6e462",
+        "provider": "spotify--00000000",
+        "remotely_accessible": true,
+        "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "year": 2015
+    },
+    "disc_number": 1,
+    "track_number": 3,
+    "available": true
+  },
+  {
+    "item_id": "567",
+    "provider": "library",
+    "name": "20th Century WAH",
+    "version": "",
+    "sort_name": "20th century wah",
+    "uri": "library://track/567",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "track",
+    "provider_mappings": [
+      {
+        "item_id": "297889456",
+        "provider_domain": "soundcloud",
+        "provider_instance": "soundcloud--D4HoWAVn",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "mp3",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "mp3",
+          "bit_rate": 0
+        },
+        "url": "https://soundcloud.com/xxx420memeuigi69xxx/20th-century-wah",
+        "details": null
+      }
+    ],
+    "metadata": {},
+    "favorite": false,
+    "duration": 18,
+    "artists": [
+      {
+        "item_id": "656",
+        "provider": "library",
+        "name": "DJ Waluigi",
+        "version": "",
+        "sort_name": "waluigi, dj",
+        "uri": "library://artist/656",
+        "external_ids": [],
+        "is_playable": true,
+        "media_type": "artist",
+        "available": true
+      }
+    ],
+    "last_played": 0,
+    "disc_number": 0,
+    "track_number": 0,
+    "available": true
+  }
+]

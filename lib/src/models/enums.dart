@@ -23,6 +23,33 @@ enum MediaType {
   final String value;
 }
 
+/// Enum for Artist type.
+@JsonEnum(valueField: 'value')
+enum ArtistType {
+  singer('singer'),
+  author('author'),
+  narrator('narrator'),
+  unknown('unknown');
+
+  const ArtistType(this.value);
+  final String value;
+}
+
+/// Enum for Album type.
+@JsonEnum(valueField: 'value')
+enum AlbumType {
+  album('album'),
+  single('single'),
+  live('live'),
+  soundtrack('soundtrack'),
+  compilation('compilation'),
+  ep('ep'),
+  unknown('unknown');
+
+  const AlbumType(this.value);
+  final String value;
+}
+
 /// Enum with image types.
 @JsonEnum(valueField: 'value')
 enum ImageType {
@@ -252,6 +279,18 @@ enum StreamType {
   unknown('unknown');
 
   const StreamType(this.value);
+  final String value;
+}
+
+/// Who, besides its owner, a provider instance is shared with.
+@JsonEnum(valueField: 'value')
+enum ProviderSharing {
+  private('private'),
+  selected('selected'),
+  members('members'),
+  everyone('everyone');
+
+  const ProviderSharing(this.value);
   final String value;
 }
 

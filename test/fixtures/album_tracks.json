@@ -1,0 +1,480 @@
+[
+  {
+    "item_id": "0uxutVVaMl3hIhLTFoKsmn",
+    "provider": "spotify--00000000",
+    "name": "-Sunset-",
+    "version": "",
+    "sort_name": "-sunset-",
+    "uri": "spotify--00000000://track/0uxutVVaMl3hIhLTFoKsmn",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "track",
+    "provider_mappings": [
+      {
+        "item_id": "0uxutVVaMl3hIhLTFoKsmn",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/track/0uxutVVaMl3hIhLTFoKsmn",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": null,
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": false,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab67616d0000b273b124692ea6297115c0d06e21",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": null,
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": null,
+      "languages": null,
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": null,
+    "date_added": null,
+    "duration": 100,
+    "artists": [
+      {
+        "item_id": "62SCu33InHVq97VaWw3eof",
+        "provider": "spotify--00000000",
+        "name": "MPH",
+        "version": "",
+        "sort_name": "mph",
+        "uri": "spotify--00000000://artist/62SCu33InHVq97VaWw3eof",
+        "external_ids": [],
+        "is_playable": true,
+        "media_type": "artist",
+        "provider_mappings": [
+          {
+            "item_id": "62SCu33InHVq97VaWw3eof",
+            "provider_domain": "spotify",
+            "provider_instance": "spotify--00000000",
+            "available": true,
+            "in_library": null,
+            "is_unique": null,
+            "audio_format": {
+              "content_type": "?",
+              "codec_type": "?",
+              "sample_rate": 44100,
+              "bit_depth": 16,
+              "channels": 2,
+              "output_format_str": "?",
+              "bit_rate": 0
+            },
+            "url": "https://open.spotify.com/artist/62SCu33InHVq97VaWw3eof",
+            "details": null
+          }
+        ],
+        "metadata": {
+          "description": null,
+          "description_language": null,
+          "life_span": null,
+          "artist_entity_type": null,
+          "review": null,
+          "explicit": null,
+          "images": [],
+          "grouping": null,
+          "genres": null,
+          "mood": null,
+          "style": null,
+          "copyright": null,
+          "lyrics": null,
+          "lrc_lyrics": null,
+          "transcript": null,
+          "transcript_cues": null,
+          "has_transcript": null,
+          "label": null,
+          "links": null,
+          "performers": null,
+          "preview": null,
+          "popularity": null,
+          "release_date": null,
+          "languages": null,
+          "chapters": null,
+          "collections": null,
+          "last_refresh": null
+        },
+        "favorite": false,
+        "position": null,
+        "date_added": null,
+        "artist_type": "singer"
+      }
+    ],
+    "last_played": 0,
+    "album": {
+      "item_id": "259",
+      "provider": "library",
+      "name": "132.00FM",
+      "version": "",
+      "sort_name": "132.00fm",
+      "uri": "library://album/259",
+      "external_ids": [
+        [
+          "barcode",
+          "00840200515221"
+        ]
+      ],
+      "is_playable": true,
+      "media_type": "album",
+      "provider_mappings": [
+        {
+          "item_id": "748lnO8zQNczVL8qTGXFBL",
+          "provider_domain": "spotify",
+          "provider_instance": "spotify--00000000",
+          "available": true,
+          "in_library": true,
+          "is_unique": null,
+          "audio_format": {
+            "content_type": "ogg",
+            "codec_type": "?",
+            "sample_rate": 44100,
+            "bit_depth": 16,
+            "channels": 2,
+            "output_format_str": "ogg",
+            "bit_rate": 320
+          },
+          "url": "https://open.spotify.com/album/748lnO8zQNczVL8qTGXFBL",
+          "details": null
+        }
+      ],
+      "metadata": {
+        "description": null,
+        "description_language": null,
+        "life_span": null,
+        "artist_entity_type": null,
+        "review": null,
+        "explicit": null,
+        "images": [
+          {
+            "type": "thumb",
+            "path": "https://i.scdn.co/image/ab67616d0000b273b124692ea6297115c0d06e21",
+            "provider": "spotify--00000000",
+            "remotely_accessible": true,
+            "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "grouping": null,
+        "genres": [],
+        "mood": null,
+        "style": null,
+        "copyright": "2023 Night Bass Records",
+        "lyrics": null,
+        "lrc_lyrics": null,
+        "transcript": null,
+        "transcript_cues": null,
+        "has_transcript": null,
+        "label": null,
+        "links": null,
+        "performers": null,
+        "preview": null,
+        "popularity": null,
+        "release_date": null,
+        "languages": null,
+        "chapters": null,
+        "collections": null,
+        "last_refresh": null
+      },
+      "favorite": false,
+      "position": null,
+      "date_added": "2026-09-01T18:21:12+00:00",
+      "year": 2023,
+      "artists": [
+        {
+          "item_id": "309",
+          "provider": "library",
+          "name": "MPH",
+          "version": "",
+          "sort_name": "mph",
+          "uri": "library://artist/309",
+          "external_ids": [],
+          "is_playable": true,
+          "media_type": "artist",
+          "available": true,
+          "image": null,
+          "year": null
+        }
+      ],
+      "album_type": "album"
+    },
+    "disc_number": 1,
+    "track_number": 1,
+    "audio_metadata": null
+  },
+  {
+    "item_id": "7uQJer8Iyw9DxpwexyeCLV",
+    "provider": "spotify--00000000",
+    "name": "Doubt",
+    "version": "",
+    "sort_name": "doubt",
+    "uri": "spotify--00000000://track/7uQJer8Iyw9DxpwexyeCLV",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "track",
+    "provider_mappings": [
+      {
+        "item_id": "7uQJer8Iyw9DxpwexyeCLV",
+        "provider_domain": "spotify",
+        "provider_instance": "spotify--00000000",
+        "available": true,
+        "in_library": null,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "ogg",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "ogg",
+          "bit_rate": 320
+        },
+        "url": "https://open.spotify.com/track/7uQJer8Iyw9DxpwexyeCLV",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "description": null,
+      "description_language": null,
+      "life_span": null,
+      "artist_entity_type": null,
+      "review": null,
+      "explicit": false,
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i.scdn.co/image/ab67616d0000b273b124692ea6297115c0d06e21",
+          "provider": "spotify--00000000",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "grouping": null,
+      "genres": null,
+      "mood": null,
+      "style": null,
+      "copyright": null,
+      "lyrics": null,
+      "lrc_lyrics": null,
+      "transcript": null,
+      "transcript_cues": null,
+      "has_transcript": null,
+      "label": null,
+      "links": null,
+      "performers": null,
+      "preview": null,
+      "popularity": null,
+      "release_date": null,
+      "languages": null,
+      "chapters": null,
+      "collections": null,
+      "last_refresh": null
+    },
+    "favorite": false,
+    "position": null,
+    "date_added": null,
+    "duration": 204,
+    "artists": [
+      {
+        "item_id": "62SCu33InHVq97VaWw3eof",
+        "provider": "spotify--00000000",
+        "name": "MPH",
+        "version": "",
+        "sort_name": "mph",
+        "uri": "spotify--00000000://artist/62SCu33InHVq97VaWw3eof",
+        "external_ids": [],
+        "is_playable": true,
+        "media_type": "artist",
+        "provider_mappings": [
+          {
+            "item_id": "62SCu33InHVq97VaWw3eof",
+            "provider_domain": "spotify",
+            "provider_instance": "spotify--00000000",
+            "available": true,
+            "in_library": null,
+            "is_unique": null,
+            "audio_format": {
+              "content_type": "?",
+              "codec_type": "?",
+              "sample_rate": 44100,
+              "bit_depth": 16,
+              "channels": 2,
+              "output_format_str": "?",
+              "bit_rate": 0
+            },
+            "url": "https://open.spotify.com/artist/62SCu33InHVq97VaWw3eof",
+            "details": null
+          }
+        ],
+        "metadata": {
+          "description": null,
+          "description_language": null,
+          "life_span": null,
+          "artist_entity_type": null,
+          "review": null,
+          "explicit": null,
+          "images": [],
+          "grouping": null,
+          "genres": null,
+          "mood": null,
+          "style": null,
+          "copyright": null,
+          "lyrics": null,
+          "lrc_lyrics": null,
+          "transcript": null,
+          "transcript_cues": null,
+          "has_transcript": null,
+          "label": null,
+          "links": null,
+          "performers": null,
+          "preview": null,
+          "popularity": null,
+          "release_date": null,
+          "languages": null,
+          "chapters": null,
+          "collections": null,
+          "last_refresh": null
+        },
+        "favorite": false,
+        "position": null,
+        "date_added": null,
+        "artist_type": "singer"
+      }
+    ],
+    "last_played": 0,
+    "album": {
+      "item_id": "259",
+      "provider": "library",
+      "name": "132.00FM",
+      "version": "",
+      "sort_name": "132.00fm",
+      "uri": "library://album/259",
+      "external_ids": [
+        [
+          "barcode",
+          "00840200515221"
+        ]
+      ],
+      "is_playable": true,
+      "media_type": "album",
+      "provider_mappings": [
+        {
+          "item_id": "748lnO8zQNczVL8qTGXFBL",
+          "provider_domain": "spotify",
+          "provider_instance": "spotify--00000000",
+          "available": true,
+          "in_library": true,
+          "is_unique": null,
+          "audio_format": {
+            "content_type": "ogg",
+            "codec_type": "?",
+            "sample_rate": 44100,
+            "bit_depth": 16,
+            "channels": 2,
+            "output_format_str": "ogg",
+            "bit_rate": 320
+          },
+          "url": "https://open.spotify.com/album/748lnO8zQNczVL8qTGXFBL",
+          "details": null
+        }
+      ],
+      "metadata": {
+        "description": null,
+        "description_language": null,
+        "life_span": null,
+        "artist_entity_type": null,
+        "review": null,
+        "explicit": null,
+        "images": [
+          {
+            "type": "thumb",
+            "path": "https://i.scdn.co/image/ab67616d0000b273b124692ea6297115c0d06e21",
+            "provider": "spotify--00000000",
+            "remotely_accessible": true,
+            "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+          }
+        ],
+        "grouping": null,
+        "genres": [],
+        "mood": null,
+        "style": null,
+        "copyright": "2023 Night Bass Records",
+        "lyrics": null,
+        "lrc_lyrics": null,
+        "transcript": null,
+        "transcript_cues": null,
+        "has_transcript": null,
+        "label": null,
+        "links": null,
+        "performers": null,
+        "preview": null,
+        "popularity": null,
+        "release_date": null,
+        "languages": null,
+        "chapters": null,
+        "collections": null,
+        "last_refresh": null
+      },
+      "favorite": false,
+      "position": null,
+      "date_added": "2026-09-01T18:21:12+00:00",
+      "year": 2023,
+      "artists": [
+        {
+          "item_id": "309",
+          "provider": "library",
+          "name": "MPH",
+          "version": "",
+          "sort_name": "mph",
+          "uri": "library://artist/309",
+          "external_ids": [],
+          "is_playable": true,
+          "media_type": "artist",
+          "available": true,
+          "image": null,
+          "year": null
+        }
+      ],
+      "album_type": "album"
+    },
+    "disc_number": 1,
+    "track_number": 2,
+    "audio_metadata": null
+  }
+]

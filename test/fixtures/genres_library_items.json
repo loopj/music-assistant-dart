@@ -1,0 +1,57 @@
+[
+  {
+    "item_id": "15",
+    "provider": "library",
+    "name": "Dance",
+    "version": "",
+    "sort_name": "dance",
+    "uri": "library://genre/15",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "genre",
+    "provider_mappings": [],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "genres/dance.svg",
+          "provider": "builtin",
+          "remotely_accessible": false,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "description": "Dance music is music composed specifically to facilitate or accompany dancing. It can be either a whole piece or part of a larger musical arrangement. In terms of performance, the major categories are live dance music and recorded dance music. While there exist attestations of the combination of dance and music in ancient history, the earliest Western dance music that we can still reproduce with a degree of certainty are old-fashioned dances. In the Baroque period, the major dance styles were noble court dances. In the classical music era, the minuet was frequently used as a third movement, although in this context it would not accompany any dancing. The waltz also arose later in the classical era. Both remained part of the romantic music period, which also saw the rise of various other nationalistic dance forms like the barcarolle, mazurka, ecossaise, ballade and polonaise."
+    },
+    "favorite": false,
+    "available": false,
+    "genre_alias_count": 15
+  },
+  {
+    "item_id": "84",
+    "provider": "library",
+    "name": "Arts",
+    "version": "",
+    "sort_name": "Arts",
+    "uri": "library://genre/84",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "genre",
+    "provider_mappings": [],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "genres/podcast/arts.svg",
+          "provider": "builtin",
+          "remotely_accessible": false,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "description": "Podcasts about the arts \u2014 books and literature, design, fashion and beauty, food, and the performing and visual arts."
+    },
+    "favorite": false,
+    "content_type": "podcast",
+    "available": false,
+    "genre_alias_count": 6
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "item_id": "637",
+    "provider": "library",
+    "name": "Annie Mac Presents",
+    "version": "",
+    "sort_name": "annie mac presents",
+    "uri": "library://artist/637",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "artist",
+    "provider_mappings": [
+      {
+        "item_id": "349011",
+        "provider_domain": "soundcloud",
+        "provider_instance": "soundcloud--D4HoWAVn",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": "https://soundcloud.com/annie-mac-presents",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i1.sndcdn.com/avatars-000699631756-tazxlh-t500x500.jpg",
+          "provider": "soundcloud--D4HoWAVn",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "artist_type": "singer",
+    "available": true
+  },
+  {
+    "item_id": "611",
+    "provider": "library",
+    "name": "Bass Cadet",
+    "version": "",
+    "sort_name": "bass cadet",
+    "uri": "library://artist/611",
+    "external_ids": [],
+    "is_playable": true,
+    "media_type": "artist",
+    "provider_mappings": [
+      {
+        "item_id": "6222356",
+        "provider_domain": "soundcloud",
+        "provider_instance": "soundcloud--D4HoWAVn",
+        "available": true,
+        "in_library": true,
+        "is_unique": null,
+        "audio_format": {
+          "content_type": "?",
+          "codec_type": "?",
+          "sample_rate": 44100,
+          "bit_depth": 16,
+          "channels": 2,
+          "output_format_str": "?",
+          "bit_rate": 0
+        },
+        "url": "https://soundcloud.com/basscadet",
+        "details": null
+      }
+    ],
+    "metadata": {
+      "images": [
+        {
+          "type": "thumb",
+          "path": "https://i1.sndcdn.com/avatars-000289449488-i2qbnx-t500x500.jpg",
+          "provider": "soundcloud--D4HoWAVn",
+          "remotely_accessible": true,
+          "proxy_id": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "favorite": false,
+    "artist_type": "singer",
+    "available": true
+  }
+]
