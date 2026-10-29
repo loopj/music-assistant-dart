@@ -14,7 +14,7 @@ QueueItem _$QueueItemFromJson(Map<String, dynamic> json) => QueueItem()
   ..sortIndex = (json['sort_index'] as num?)?.toInt() ?? 0
   ..streamdetails =
       json['streamdetails'] == null ? null : StreamDetails.fromJson(json['streamdetails'] as Map<String, dynamic>)
-  ..mediaItem = json['media_item'] as Map<String, dynamic>?
+  ..mediaItem = json['media_item'] == null ? null : MediaItemBase.fromJson(json['media_item'] as Map<String, dynamic>)
   ..image = json['image'] == null ? null : MediaItemImage.fromJson(json['image'] as Map<String, dynamic>)
   ..index = (json['index'] as num?)?.toInt() ?? 0
   ..available = json['available'] as bool? ?? true

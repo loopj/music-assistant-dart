@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'media_items/media_item.dart';
 import 'media_items/metadata.dart';
 import 'stream_details.dart';
 
@@ -28,8 +29,9 @@ class QueueItem {
   @JsonKey(name: 'streamdetails')
   StreamDetails? streamdetails;
 
+  /// The item being played, or an [ItemMapping] for a type not modeled here.
   @JsonKey(name: 'media_item')
-  Map<String, dynamic>? mediaItem;
+  MediaItemBase? mediaItem;
 
   @JsonKey(name: 'image')
   MediaItemImage? image;

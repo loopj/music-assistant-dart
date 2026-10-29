@@ -60,6 +60,17 @@ void main() {
       final queue = queues.firstWhere((q) => q.queueId == 'upsendspinstudydesk');
       expect(queue.currentItem!.name, 'marc thom - Deadmau5 Essential Mix Radio 1 19-07-2008');
     });
+
+    test('parses the media item being played as its own class', () {
+      final queue = queues.firstWhere((q) => q.queueId == 'upsendspinstudydesk');
+      final track = queue.currentItem!.mediaItem as Track;
+      expect(track.name, 'Deadmau5 Essential Mix Radio 1 19-07-2008');
+      final episode = QueueItem.fromJson({
+        ...(loadFixture('player_queues_all').first['current_item'] as Map<String, dynamic>),
+        'media_item': loadFixture('podcast_episodes').first,
+      });
+      expect(episode.mediaItem, isA<PodcastEpisode>());
+    });
   });
 
   group('Playlist', () {
